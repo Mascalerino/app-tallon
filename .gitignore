@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+
+# Compiled output
+dist/
+out-tsc/
+
+# Environment files
+src/environments/*.ts
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+.vscode/
+*.code-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Angular build and dependency files
+.angular/
+package-lock.json
+yarn.lock
+
+# Coverage reports
+coverage/
+
+# Temporary files
+temp/
+*.tmp
+
+# Debugger files
+*.swp
+*.swo
