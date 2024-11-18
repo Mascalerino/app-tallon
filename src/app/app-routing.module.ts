@@ -5,8 +5,9 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/pages.module').then((m) => m.PagesModule),
+      import('./pages/pages.module').then((m) => m.PagesModule), // Carga el módulo de Pages
   },
+  { path: '**', redirectTo: '', pathMatch: 'full' }, // Redirección para rutas no existentes
 ];
 
 @NgModule({
