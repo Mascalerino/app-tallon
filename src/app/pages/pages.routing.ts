@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.QuizTvShowsModule
       ),
   },
+  {
+    path: 'sheet-music-viewer',
+    loadChildren: () =>
+      import('./sheet-music-viewer/sheet-music-viewer.module').then(
+        (m) => m.SheetMusicViewerModule
+      ),
+  },
 ];
 
 @NgModule({
