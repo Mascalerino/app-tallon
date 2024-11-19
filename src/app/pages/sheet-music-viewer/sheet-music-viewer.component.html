@@ -1,1 +1,68 @@
-<p>sheet-music-viewer works!</p>
+<div class="container p-4">
+  <h1 class="display-4 text-center mb-4">Lista de Partituras</h1>
+
+  <!-- Input de búsqueda centrado y botón de descarga -->
+  <div class="d-flex justify-content-center mb-4">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="filterPdfs()"
+      placeholder="Buscar partituras..."
+      class="form-control w-75 w-md-50"
+    />
+    <button (click)="downloadAllPdfsAsZip()" class="btn btn-secondary ms-2">
+      Descargar Todo
+    </button>
+  </div>
+
+  <!-- Disposición horizontal de las partituras -->
+  <div class="row">
+    <div
+      *ngFor="let pdf of filteredPdfs"
+      class="col-12 col-sm-6 col-md-3 mb-4 text-center"
+    >
+      <!-- Prevenir el comportamiento predeterminado del enlace -->
+      <a
+        href="#"
+        (click)="selectPdf($event, pdf)"
+        class="text-decoration-none text-primary"
+      >
+        {{ pdf.name }}
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="selectedPdf" class="mt-6" #pdfViewer>
+    <!-- Visor de PDF -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="h4">{{ selectedPdf.name }}</h2>
+      <div class="d-flex">
+        <a
+          [href]="selectedPdf.url"
+          [download]="selectedPdf.name + '.pdf'"
+          class="btn btn-primary me-2"
+        >
+          Descargar {{ selectedPdf.name }}
+        </a>
+        <button (click)="closePdfViewer()" class="btn btn-danger">
+          Cerrar Visor
+        </button>
+      </div>
+    </div>
+
+    <!-- Reproductor de música -->
+    <app-music-player
+      *ngIf="selectedPdf.musicUrl"
+      [musicUrl]="selectedPdf.musicUrl"
+    ></app-music-player>
+
+    <!-- Contenedor PDF centrado y adaptado a pantallas pequeñas -->
+    <div class="d-flex justify-content-center">
+      <div
+        id="pdf-container"
+        class="text-center w-100"
+        style="max-width: 100%"
+      ></div>
+    </div>
+  </div>
+</div>

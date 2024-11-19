@@ -1,8 +1,8 @@
-Moonshine,assets/audios/moonshine.mp3
-Pasodobre de Pastoriza,assets/audios/pastoriza.mp3
-Pasodobre do Berbes,assets/audios/berbes.mp3
-Pasodobre do Mallou,assets/audios/mallou.mp3
-Rumba de Laroa,assets/audios/laroa.mp3
-Rumba de vergara,assets/audios/vergara.mp3
-Le Samsonette,assets/audios/samsonette.mp3
-Aires de Pontevedra,assets/audios/airespontevedra.mp3
+Moonshine,assets/sheet-music-viewer/audios/moonshine.mp3
+Pasodobre de Pastoriza,assets/sheet-music-viewer/audios/pastoriza.mp3
+Pasodobre do Berbes,assets/sheet-music-viewer/audios/berbes.mp3
+Pasodobre do Mallou,assets/sheet-music-viewer/audios/mallou.mp3
+Rumba de Laroa,assets/sheet-music-viewer/audios/laroa.mp3
+Rumba de vergara,assets/sheet-music-viewer/audios/vergara.mp3
+Le Samsonette,assets/sheet-music-viewer/audios/samsonette.mp3
+Aires de Pontevedra,assets/sheet-music-viewer/audios/airespontevedra.mp3

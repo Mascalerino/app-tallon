@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { QuizTvShowsRoutingModule } from './quiz-tv-shows-routing.module';
 import { QuizTvShowsComponent } from './quiz-tv-shows.component';
 import { CharactersComponent } from './characters/characters.component';

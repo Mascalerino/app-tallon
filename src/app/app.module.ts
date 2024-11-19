@@ -6,12 +6,16 @@ import { QuizTvShowsComponent } from './pages/quiz-tv-shows/quiz-tv-shows.compon
 import { PagesComponent } from './pages/pages.component';
 import { SharedModule } from './shared/shared.module';
 import { CharactersComponent } from './pages/quiz-tv-shows/characters/characters.component';
+import { SheetMusicViewerComponent } from './pages/sheet-music-viewer/sheet-music-viewer.component';
+import { MusicPlayerComponent } from './pages/sheet-music-viewer/music-player/music-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuizTvShowsComponent,
     CharactersComponent,
+    SheetMusicViewerComponent,
+    MusicPlayerComponent,
     PagesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule],

@@ -1,0 +1,30 @@
+<div *ngIf="musicUrl" class="music-player-container">
+  <div class="music-player-box">
+    <div class="music-player-controls">
+      <!-- Botón de Play/Pause -->
+      <button (click)="togglePlayPause()" class="btn btn-primary">
+        <i [class]="isPlaying ? 'bi bi-pause-fill' : 'bi bi-play-fill'"></i>
+      </button>
+
+      <!-- Botón de Stop -->
+      <button (click)="stopMusic()" class="btn btn-danger">
+        <i class="bi bi-stop-fill"></i>
+      </button>
+    </div>
+
+    <!-- Barra de progreso -->
+    <input
+      type="range"
+      min="0"
+      max="100"
+      [value]="progress"
+      (input)="seekTo($event)"
+      class="progress-bar"
+    />
+
+    <!-- Estado de reproducción -->
+    <div class="music-player-status">
+      <span>{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</span>
+    </div>
+  </div>
+</div>
