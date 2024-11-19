@@ -177,16 +177,20 @@ export class CharactersComponent implements OnInit {
     this.showAllCharacters(this.characterOtros);
 
     // Cambiar el estado de las tablas a "llenas"
-    this.isFilled1A = true;
-    this.isFilled1B = true;
-    this.isFilled2A = true;
-    this.isFilled2B = true;
-    this.isFilled3A = true;
-    this.isFilled3B = true;
-    this.isFilledAtico = true;
-    this.isFilledPorteria = true;
-    this.isFilledVideoclub = true;
-    this.isFilledOtros = true;
+    this.isFilled1A = !this.characters1A.some((char) => char.isMissing);
+    this.isFilled1B = !this.characters1B.some((char) => char.isMissing);
+    this.isFilled2A = !this.characters2A.some((char) => char.isMissing);
+    this.isFilled2B = !this.characters2B.some((char) => char.isMissing);
+    this.isFilled3A = !this.characters3A.some((char) => char.isMissing);
+    this.isFilled3B = !this.characters3B.some((char) => char.isMissing);
+    this.isFilledAtico = !this.charactersAtico.some((char) => char.isMissing);
+    this.isFilledPorteria = !this.charactersPorteria.some(
+      (char) => char.isMissing
+    );
+    this.isFilledVideoclub = !this.charactersVideoclub.some(
+      (char) => char.isMissing
+    );
+    this.isFilledOtros = !this.characterOtros.some((char) => char.isMissing);
   }
 
   private showAllCharacters(characters: ICharacter[]): void {
@@ -237,6 +241,7 @@ export class CharactersComponent implements OnInit {
   private resetCharacterVisibility(characters: ICharacter[]): void {
     characters.forEach((character) => {
       character.showCharacter = false;
+      character.isMissing = true;
     });
   }
 
@@ -253,6 +258,7 @@ export class CharactersComponent implements OnInit {
         );
         if (matchFound) {
           character.showCharacter = true;
+          character.isMissing = false;
           this.foundMatch = true;
           this.points++;
         }

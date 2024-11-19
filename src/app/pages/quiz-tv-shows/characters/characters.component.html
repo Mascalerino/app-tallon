@@ -13,7 +13,11 @@
           <tr *ngFor="let character of characters2B">
             <td
               *ngIf="character.showCharacter"
-              [ngClass]="{ highlight: character.showCharacter }"
+              [ngClass]="{
+                highlight:
+                  character.showCharacter && character.isMissing === false,
+                'table-danger': character.isMissing
+              }"
             >
               <span class="full-name">{{ character.fullName }}</span>
               <span *ngIf="character.explanation" class="ms-2"
@@ -40,7 +44,11 @@
               <tr *ngFor="let character of characters1A">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -64,7 +72,11 @@
               <tr *ngFor="let character of characters1B">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -88,7 +100,11 @@
               <tr *ngFor="let character of characters2A">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -112,7 +128,11 @@
               <tr *ngFor="let character of characters3A">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -136,7 +156,11 @@
               <tr *ngFor="let character of characters3B">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -160,7 +184,11 @@
               <tr *ngFor="let character of charactersAtico">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -187,7 +215,11 @@
               <tr *ngFor="let character of charactersVideoclub">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -214,7 +246,11 @@
               <tr *ngFor="let character of charactersPorteria">
                 <td
                   *ngIf="character.showCharacter"
-                  [ngClass]="{ highlight: character.showCharacter }"
+                  [ngClass]="{
+                    highlight:
+                      character.showCharacter && character.isMissing === false,
+                    'table-danger': character.isMissing
+                  }"
                 >
                   <span class="full-name">{{ character.fullName }}</span>
                   <span *ngIf="character.explanation" class="ms-2"
@@ -246,10 +282,7 @@
       <button class="btn btn-danger ms-2 w-100" (click)="resetQuiz()">
         Reiniciar Quiz
       </button>
-      <button class="btn btn-warning ms-2" (click)="giveUp()">
-        <i class="bi bi-hand-thumbs-up"></i>
-        Rendirse
-      </button>
+      <button class="btn btn-warning ms-2" (click)="giveUp()">Rendirse</button>
     </div>
   </div>
 
@@ -267,7 +300,11 @@
             <ng-container *ngFor="let character of characterRow">
               <td
                 *ngIf="character.showCharacter"
-                [ngClass]="{ highlight: character.showCharacter }"
+                [ngClass]="{
+                  highlight:
+                    character.showCharacter && character.isMissing === false,
+                  'table-danger': character.isMissing
+                }"
               >
                 <span class="full-name">{{ character.fullName }}</span>
                 <span *ngIf="character.explanation" class="ms-2">
