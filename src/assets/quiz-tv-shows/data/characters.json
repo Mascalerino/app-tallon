@@ -644,7 +644,7 @@
     {
       "fullName": "Arturo Lopez",
       "explanation": "Padre de belen",
-      "posibilyInputs": ["Arturo", "Lopez"],
+      "posibilyInputs": ["Arturo", "Lopez", "odontologo"],
       "showCharacter": false,
       "isMissing": true
     },
@@ -1224,7 +1224,7 @@
     },
     {
       "fullName": "Rafa",
-      "explanation": "Cirujano",
+      "explanation": "Abogado",
       "posibilyInputs": ["Rafa"],
       "showCharacter": false,
       "isMissing": true
@@ -1261,6 +1261,20 @@
       "fullName": "Roman Ferragut",
       "explanation": "Cocinero Come y Calla",
       "posibilyInputs": ["Roman", "Ferragut"],
+      "showCharacter": false,
+      "isMissing": true
+    },
+    {
+      "fullName": "Toni Romero",
+      "explanation": "Torero",
+      "posibilyInputs": ["Toni", "Romero", "Torero"],
+      "showCharacter": false,
+      "isMissing": true
+    },
+    {
+      "fullName": "Vanessa",
+      "explanation": "Novia torero",
+      "posibilyInputs": ["Vanessa"],
       "showCharacter": false,
       "isMissing": true
     }
