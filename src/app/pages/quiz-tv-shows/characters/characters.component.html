@@ -12,10 +12,9 @@
         <tbody>
           <tr *ngFor="let character of characters2B">
             <td
-              *ngIf="character.showCharacter"
+              *ngIf="character.isShowing"
               [ngClass]="{
-                highlight:
-                  character.showCharacter && character.isMissing === false,
+                highlight: character.isShowing && character.isMissing === false,
                 'table-danger': character.isMissing
               }"
             >
@@ -43,10 +42,10 @@
             <tbody>
               <tr *ngFor="let character of characters1A">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -71,10 +70,10 @@
             <tbody>
               <tr *ngFor="let character of characters1B">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -99,10 +98,10 @@
             <tbody>
               <tr *ngFor="let character of characters2A">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -127,10 +126,10 @@
             <tbody>
               <tr *ngFor="let character of characters3A">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -155,10 +154,10 @@
             <tbody>
               <tr *ngFor="let character of characters3B">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -183,10 +182,10 @@
             <tbody>
               <tr *ngFor="let character of charactersAtico">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -214,10 +213,10 @@
             <tbody>
               <tr *ngFor="let character of charactersVideoclub">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -245,10 +244,10 @@
             <tbody>
               <tr *ngFor="let character of charactersPorteria">
                 <td
-                  *ngIf="character.showCharacter"
+                  *ngIf="character.isShowing"
                   [ngClass]="{
                     highlight:
-                      character.showCharacter && character.isMissing === false,
+                      character.isShowing && character.isMissing === false,
                     'table-danger': character.isMissing
                   }"
                 >
@@ -299,10 +298,10 @@
           <tr *ngFor="let characterRow of characterOtrosColumns">
             <ng-container *ngFor="let character of characterRow">
               <td
-                *ngIf="character.showCharacter"
+                *ngIf="character.isShowing"
                 [ngClass]="{
                   highlight:
-                    character.showCharacter && character.isMissing === false,
+                    character.isShowing && character.isMissing === false,
                   'table-danger': character.isMissing
                 }"
               >

@@ -164,7 +164,7 @@ export class CharactersComponent implements OnInit {
   }
 
   giveUp(): void {
-    // Mostrar todos los personajes (establecer `showCharacter` a true)
+    // Mostrar todos los personajes (establecer `isShowing` a true)
     this.showAllCharacters(this.characters1A);
     this.showAllCharacters(this.characters1B);
     this.showAllCharacters(this.characters2A);
@@ -195,7 +195,7 @@ export class CharactersComponent implements OnInit {
 
   private showAllCharacters(characters: ICharacter[]): void {
     characters.forEach((character) => {
-      character.showCharacter = true;
+      character.isShowing = true;
     });
   }
 
@@ -240,7 +240,7 @@ export class CharactersComponent implements OnInit {
   // Método para resetear la visibilidad de los personajes
   private resetCharacterVisibility(characters: ICharacter[]): void {
     characters.forEach((character) => {
-      character.showCharacter = false;
+      character.isShowing = false;
       character.isMissing = true;
     });
   }
@@ -252,12 +252,12 @@ export class CharactersComponent implements OnInit {
     tableFilled: string
   ): void {
     characters.forEach((character) => {
-      if (character.showCharacter === false) {
+      if (character.isShowing === false) {
         const matchFound = character.posibilyInputs.some(
           (input) => input.toLowerCase() === searchTerm
         );
         if (matchFound) {
-          character.showCharacter = true;
+          character.isShowing = true;
           character.isMissing = false;
           this.foundMatch = true;
           this.points++;
@@ -266,7 +266,7 @@ export class CharactersComponent implements OnInit {
     });
 
     // Cuando todos los personajes de una tabla se muestran, marcamos la tabla como llena
-    if (characters.every((character) => character.showCharacter)) {
+    if (characters.every((character) => character.isShowing)) {
       (this as any)[tableFilled] = true; // Cambiar el estado de la tabla a "llena"
     }
   }

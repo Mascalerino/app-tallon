@@ -2,7 +2,7 @@ export interface ICharacter {
   fullName: string;
   explanation: string;
   posibilyInputs: string[];
-  showCharacter: boolean;
+  isShowing: boolean;
   isMissing: boolean; // Booleano que nos permite saber si el personaje falta cuando se rinde
 }
 

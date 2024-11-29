@@ -9,6 +9,7 @@ import { CharactersComponent } from './pages/quiz-tv-shows/characters/characters
 import { SheetMusicViewerComponent } from './pages/sheet-music-viewer/sheet-music-viewer.component';
 import { MusicPlayerComponent } from './pages/sheet-music-viewer/music-player/music-player.component';
 import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.component';
+import { QuizTableComponent } from './components/quiz-table/quiz-table.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.compo
     SheetMusicViewerComponent,
     MusicPlayerComponent,
     PagesComponent,
+    QuizTableComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],

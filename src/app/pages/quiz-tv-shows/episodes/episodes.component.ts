@@ -82,12 +82,12 @@ export class EpisodesComponent implements OnInit {
     season: string
   ): void {
     episodes.forEach((episode) => {
-      if (!episode.showEpisode) {
+      if (!episode.isShowing) {
         const matchFound = episode.posibilyInputs.some(
           (input) => input.toLowerCase() === searchTerm
         );
         if (matchFound) {
-          episode.showEpisode = true;
+          episode.isShowing = true;
           episode.isMissing = false;
           this.foundMatch = true;
           this.points++;
@@ -96,7 +96,7 @@ export class EpisodesComponent implements OnInit {
     });
 
     // Verificar si todos los episodios de una temporada están visibles
-    if (episodes.every((episode) => episode.showEpisode)) {
+    if (episodes.every((episode) => episode.isShowing)) {
       this.isFilledSeason[season] = true;
     }
   }
@@ -123,13 +123,13 @@ export class EpisodesComponent implements OnInit {
 
   private showAllEpisodes(episodes: IEpisode[]): void {
     episodes.forEach((episode) => {
-      episode.showEpisode = true;
+      episode.isShowing = true;
     });
   }
 
   private resetEpisodeVisibility(episodes: IEpisode[]): void {
     episodes.forEach((episode) => {
-      episode.showEpisode = false;
+      episode.isShowing = false;
       episode.isMissing = true;
     });
   }

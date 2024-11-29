@@ -31,9 +31,9 @@
         <tbody>
           <tr *ngFor="let episode of season.value">
             <td
-              *ngIf="episode.showEpisode"
+              *ngIf="episode.isShowing"
               [ngClass]="{
-                highlight: episode.showEpisode && !episode.isMissing,
+                highlight: episode.isShowing && !episode.isMissing,
                 'table-danger': episode.isMissing
               }"
             >
