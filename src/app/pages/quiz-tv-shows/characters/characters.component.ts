@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  hideAllData,
+  showAllData,
+  splitDataIntoColumns,
+} from 'src/app/core/util/quiz-tv-show-util';
 import { ICharacter } from 'src/app/models/quiz-tv-shows/character.model';
 import { CharacterService } from 'src/app/services/character.service';
 
@@ -49,24 +54,7 @@ export class CharactersComponent implements OnInit {
   ngOnInit(): void {
     this.totalCharacters = this.characterService.getTotalCharacters();
     this.getCharactersByFloor();
-    this.divideOtrosInColumns(); // Divide los personajes de "Otros" en 8 columnas
-  }
-
-  // Método para dividir los personajes en columnas
-  private splitIntoColumns(
-    characters: ICharacter[],
-    columns: number
-  ): ICharacter[][] {
-    const result: ICharacter[][] = [];
-    for (let i = 0; i < characters.length; i += columns) {
-      result.push(characters.slice(i, i + columns));
-    }
-    return result;
-  }
-
-  // Llamada al método para dividir los personajes "Otros" en 8 columnas
-  private divideOtrosInColumns(): void {
-    this.characterOtrosColumns = this.splitIntoColumns(this.characterOtros, 5);
+    this.characterOtrosColumns = splitDataIntoColumns(this.characterOtros, 5);
   }
 
   // Método para buscar personajes basados en el término de búsqueda
@@ -75,56 +63,29 @@ export class CharactersComponent implements OnInit {
 
     if (!searchTermLower) return;
 
-    this.updateCharacterVisibility(
-      this.characters1A,
-      searchTermLower,
-      'isFilled1A'
-    );
-    this.updateCharacterVisibility(
-      this.characters1B,
-      searchTermLower,
-      'isFilled1B'
-    );
-    this.updateCharacterVisibility(
-      this.characters2A,
-      searchTermLower,
-      'isFilled2A'
-    );
-    this.updateCharacterVisibility(
-      this.characters2B,
-      searchTermLower,
-      'isFilled2B'
-    );
-    this.updateCharacterVisibility(
-      this.characters3A,
-      searchTermLower,
-      'isFilled3A'
-    );
-    this.updateCharacterVisibility(
-      this.characters3B,
-      searchTermLower,
-      'isFilled3B'
-    );
-    this.updateCharacterVisibility(
-      this.charactersAtico,
-      searchTermLower,
-      'isFilledAtico'
-    );
-    this.updateCharacterVisibility(
-      this.charactersPorteria,
-      searchTermLower,
-      'isFilledPorteria'
-    );
-    this.updateCharacterVisibility(
-      this.charactersVideoclub,
-      searchTermLower,
-      'isFilledVideoclub'
-    );
-    this.updateCharacterVisibility(
-      this.characterOtros,
-      searchTermLower,
-      'isFilledOtros'
-    );
+    const characterGroups = [
+      { data: this.characters1A, tableFilled: 'isFilled1A' },
+      { data: this.characters1B, tableFilled: 'isFilled1B' },
+      { data: this.characters2A, tableFilled: 'isFilled2A' },
+      { data: this.characters2B, tableFilled: 'isFilled2B' },
+      { data: this.characters3A, tableFilled: 'isFilled3A' },
+      { data: this.characters3B, tableFilled: 'isFilled3B' },
+      { data: this.charactersAtico, tableFilled: 'isFilledAtico' },
+      { data: this.charactersPorteria, tableFilled: 'isFilledPorteria' },
+      { data: this.charactersVideoclub, tableFilled: 'isFilledVideoclub' },
+      { data: this.characterOtros, tableFilled: 'isFilledOtros' },
+    ];
+
+    characterGroups.forEach((group) => {
+      this.updateCharacterVisibility(
+        group.data,
+        searchTermLower,
+        group.tableFilled
+      );
+    });
+
+    console.log(this.foundMatch); // true, si se encontró una coincidencia
+    console.log(this.points);
 
     if (this.foundMatch) {
       this.searchTerm = '';
@@ -139,16 +100,16 @@ export class CharactersComponent implements OnInit {
     this.foundMatch = false; // Restablecer la coincidencia encontrada
 
     // Reiniciar todos los personajes y las tablas
-    this.resetCharacterVisibility(this.characters1A);
-    this.resetCharacterVisibility(this.characters1B);
-    this.resetCharacterVisibility(this.characters2A);
-    this.resetCharacterVisibility(this.characters2B);
-    this.resetCharacterVisibility(this.characters3A);
-    this.resetCharacterVisibility(this.characters3B);
-    this.resetCharacterVisibility(this.charactersAtico);
-    this.resetCharacterVisibility(this.charactersPorteria);
-    this.resetCharacterVisibility(this.charactersVideoclub);
-    this.resetCharacterVisibility(this.characterOtros);
+    hideAllData(this.characters1A);
+    hideAllData(this.characters1B);
+    hideAllData(this.characters2A);
+    hideAllData(this.characters2B);
+    hideAllData(this.characters3A);
+    hideAllData(this.characters3B);
+    hideAllData(this.charactersAtico);
+    hideAllData(this.charactersPorteria);
+    hideAllData(this.charactersVideoclub);
+    hideAllData(this.characterOtros);
 
     // Reiniciar el estado de las tablas llenas
     this.isFilled1A = false;
@@ -165,16 +126,16 @@ export class CharactersComponent implements OnInit {
 
   giveUp(): void {
     // Mostrar todos los personajes (establecer `isShowing` a true)
-    this.showAllCharacters(this.characters1A);
-    this.showAllCharacters(this.characters1B);
-    this.showAllCharacters(this.characters2A);
-    this.showAllCharacters(this.characters2B);
-    this.showAllCharacters(this.characters3A);
-    this.showAllCharacters(this.characters3B);
-    this.showAllCharacters(this.charactersAtico);
-    this.showAllCharacters(this.charactersPorteria);
-    this.showAllCharacters(this.charactersVideoclub);
-    this.showAllCharacters(this.characterOtros);
+    showAllData(this.characters1A);
+    showAllData(this.characters1B);
+    showAllData(this.characters2A);
+    showAllData(this.characters2B);
+    showAllData(this.characters3A);
+    showAllData(this.characters3B);
+    showAllData(this.charactersAtico);
+    showAllData(this.charactersPorteria);
+    showAllData(this.charactersVideoclub);
+    showAllData(this.characterOtros);
 
     // Cambiar el estado de las tablas a "llenas"
     this.isFilled1A = !this.characters1A.some((char) => char.isMissing);
@@ -191,12 +152,6 @@ export class CharactersComponent implements OnInit {
       (char) => char.isMissing
     );
     this.isFilledOtros = !this.characterOtros.some((char) => char.isMissing);
-  }
-
-  private showAllCharacters(characters: ICharacter[]): void {
-    characters.forEach((character) => {
-      character.isShowing = true;
-    });
   }
 
   // Método para obtener los personajes de cada piso
@@ -221,27 +176,21 @@ export class CharactersComponent implements OnInit {
 
   // Método para ordenar los personajes por nombre
   private sortCharactersByFullName(): void {
-    this.characters1A.sort((a, b) => a.fullName.localeCompare(b.fullName));
-    this.characters1B.sort((a, b) => a.fullName.localeCompare(b.fullName));
-    this.characters2A.sort((a, b) => a.fullName.localeCompare(b.fullName));
-    this.characters2B.sort((a, b) => a.fullName.localeCompare(b.fullName)); // Esta ya no se divide
-    this.characters3A.sort((a, b) => a.fullName.localeCompare(b.fullName));
-    this.characters3B.sort((a, b) => a.fullName.localeCompare(b.fullName));
-    this.charactersAtico.sort((a, b) => a.fullName.localeCompare(b.fullName));
-    this.charactersPorteria.sort((a, b) =>
-      a.fullName.localeCompare(b.fullName)
-    );
-    this.charactersVideoclub.sort((a, b) =>
-      a.fullName.localeCompare(b.fullName)
-    );
-    this.characterOtros.sort((a, b) => a.fullName.localeCompare(b.fullName)); // Igual para "Otros"
-  }
+    const characterGroups = [
+      this.characters1A,
+      this.characters1B,
+      this.characters2A,
+      this.characters2B,
+      this.characters3A,
+      this.characters3B,
+      this.charactersAtico,
+      this.charactersPorteria,
+      this.charactersVideoclub,
+      this.characterOtros,
+    ];
 
-  // Método para resetear la visibilidad de los personajes
-  private resetCharacterVisibility(characters: ICharacter[]): void {
-    characters.forEach((character) => {
-      character.isShowing = false;
-      character.isMissing = true;
+    characterGroups.forEach((group) => {
+      group.sort((a, b) => a.fullName.localeCompare(b.fullName));
     });
   }
 
