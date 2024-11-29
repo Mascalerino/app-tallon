@@ -1,49 +1,165 @@
 <div class="episodes-container">
-  <div class="d-flex justify-content-center align-items-center mb-3">
-    <input
-      type="text"
-      class="form-control w-50"
-      placeholder="Introduzca el nombre del episodio"
-      [(ngModel)]="searchTerm"
-      (input)="searchEpisodes()"
-    />
-    <span class="ms-3">{{ points }}/{{ totalEpisodes }}</span>
-    <button class="btn btn-danger ms-2" (click)="resetQuiz()">
-      Reiniciar Quiz
-    </button>
-    <button class="btn btn-warning ms-2" (click)="giveUp()">Rendirse</button>
-  </div>
-
-  <div class="row">
-    <div
-      *ngFor="let season of episodesBySeason | keyvalue"
-      class="col-md-6 col-lg-4 mb-4"
-    >
-      <table
-        class="table"
-        [ngClass]="{ 'table-success': isFilledSeason[season.key] }"
-      >
+  <!-- Contendor de las temporadas 1 2 4 5 -->
+  <div class="row mb-4">
+    <div class="col-3">
+      <table class="table" [ngClass]="{ 'table-success': isFilledSeason1 }">
         <thead>
           <tr>
-            <th>{{ season.key }}</th>
+            <th>Temporada 1</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let episode of season.value">
+          <tr *ngFor="let episode of episodesSeason1">
             <td
               *ngIf="episode.isShowing"
               [ngClass]="{
-                highlight: episode.isShowing && !episode.isMissing,
+                highlight: episode.isShowing && episode.isMissing === false,
                 'table-danger': episode.isMissing
               }"
             >
               <span class="ms-2">
-                {{ season.key.replace("Temporada ", "") }}x{{
+                1x{{
                   episode.episode < 10 ? "0" + episode.episode : episode.episode
                 }}
               </span>
               <span class="full-name">- {{ episode.fullName }}</span>
             </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+      <table class="table" [ngClass]="{ 'table-success': isFilledSeason2 }">
+        <thead>
+          <tr>
+            <th>Temporada 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let episode of episodesSeason2">
+            <td
+              *ngIf="episode.isShowing"
+              [ngClass]="{
+                highlight: episode.isShowing && episode.isMissing === false,
+                'table-danger': episode.isMissing
+              }"
+            >
+              <span class="ms-2">
+                2x{{
+                  episode.episode < 10 ? "0" + episode.episode : episode.episode
+                }}
+              </span>
+              <span class="full-name">- {{ episode.fullName }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+      <table class="table" [ngClass]="{ 'table-success': isFilledSeason4 }">
+        <thead>
+          <tr>
+            <th>Temporada 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let episode of episodesSeason4">
+            <td
+              *ngIf="episode.isShowing"
+              [ngClass]="{
+                highlight: episode.isShowing && episode.isMissing === false,
+                'table-danger': episode.isMissing
+              }"
+            >
+              <span class="ms-2">
+                4x{{
+                  episode.episode < 10 ? "0" + episode.episode : episode.episode
+                }}
+              </span>
+              <span class="full-name">- {{ episode.fullName }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+      <table class="table" [ngClass]="{ 'table-success': isFilledSeason5 }">
+        <thead>
+          <tr>
+            <th>Temporada 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let episode of episodesSeason5">
+            <td
+              *ngIf="episode.isShowing"
+              [ngClass]="{
+                highlight: episode.isShowing && episode.isMissing === false,
+                'table-danger': episode.isMissing
+              }"
+            >
+              <span class="ms-2">
+                5x{{
+                  episode.episode < 10 ? "0" + episode.episode : episode.episode
+                }}
+              </span>
+              <span class="full-name">- {{ episode.fullName }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Contendor del input y botones -->
+  <div class="row">
+    <!-- Segundo Input de búsqueda encima de la tabla "Otros" -->
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <div class="d-flex align-items-center">
+        <input
+          type="text"
+          class="form-control w-75"
+          placeholder="Introduce episodio"
+          [(ngModel)]="searchTerm"
+          (input)="searchEpisode()"
+        />
+        <span class="ms-3">{{ points }}/{{ totalEpisodes }}</span>
+      </div>
+      <!-- Botón para reiniciar el quiz -->
+      <button class="btn btn-danger ms-2" (click)="resetQuiz()">
+        Reiniciar
+      </button>
+      <button class="btn btn-warning ms-2" (click)="giveUp()">Rendirse</button>
+    </div>
+  </div>
+  <!-- Contendor de la temporada 3 -->
+  <div class="row">
+    <div class="col-12">
+      <table class="table" [ngClass]="{ 'table-success': isFilledSeason3 }">
+        <thead>
+          <tr>
+            <th colspan="3" class="text-center">Temporada 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let episodeRow of episodeSeason3Columns">
+            <ng-container *ngFor="let episode of episodeRow">
+              <td
+                *ngIf="episode.isShowing"
+                [ngClass]="{
+                  highlight: episode.isShowing && episode.isMissing === false,
+                  'table-danger': episode.isMissing
+                }"
+              >
+                <span class="ms-2">
+                  3x{{
+                    episode.episode < 10
+                      ? "0" + episode.episode
+                      : episode.episode
+                  }}
+                </span>
+                <span class="full-name">- {{ episode.fullName }}</span>
+              </td>
+            </ng-container>
           </tr>
         </tbody>
       </table>
