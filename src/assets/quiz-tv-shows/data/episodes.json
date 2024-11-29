@@ -1,0 +1,667 @@
+{
+  "Temporada 1": [
+    {
+      "episode": 1,
+      "fullName": "Érase una mudanza",
+      "posibilyInputs": ["una mudanza", "mudanza"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 2,
+      "fullName": "Érase una reforma",
+      "posibilyInputs": ["una reforma", "reforma"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 3,
+      "fullName": "Érase el reciclaje",
+      "posibilyInputs": ["el reciclaje", "reciclaje"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 4,
+      "fullName": "Érase un rumor",
+      "posibilyInputs": ["un rumor", "rumor"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 5,
+      "fullName": "Érase un niño",
+      "posibilyInputs": ["un niño", "niño"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 6,
+      "fullName": "Érase un resbalón",
+      "posibilyInputs": ["un resbalon", "resbalon"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 7,
+      "fullName": "Érase una rata",
+      "posibilyInputs": ["una rata", "rata"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 8,
+      "fullName": "Érase un indigente",
+      "posibilyInputs": ["un indigente", "indigente"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 9,
+      "fullName": "Érase una de miedo",
+      "posibilyInputs": ["una de miedo", "de miedo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 10,
+      "fullName": "Érase un dilema",
+      "posibilyInputs": ["un dilema", "dilema"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 11,
+      "fullName": "Érase un traspaso",
+      "posibilyInputs": ["un traspaso", "traspaso"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 12,
+      "fullName": "Érase un sustituto",
+      "posibilyInputs": ["un sustituto", "sustituto"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 13,
+      "fullName": "Érase una fiesta",
+      "posibilyInputs": ["una fiesta", "fiesta"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 14,
+      "fullName": "Érase una avería",
+      "posibilyInputs": ["una averia", "averia"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 15,
+      "fullName": "Érase un anillo",
+      "posibilyInputs": ["un anillo", "anillo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 16,
+      "fullName": "Érase una Nochebuena",
+      "posibilyInputs": ["una Nochebuena", "Nochebuena"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 17,
+      "fullName": "Érase un Fin de año",
+      "posibilyInputs": ["un Fin de año", "Fin de año"],
+      "showEpisode": false,
+      "isMissing": true
+    }
+  ],
+  "Temporada 2": [
+    {
+      "episode": 1,
+      "fullName": "Érase una derrama",
+      "posibilyInputs": ["una derrama", "derrama"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 2,
+      "fullName": "Érase un sueño erótico",
+      "posibilyInputs": ["un sueño erotico", "sueño erotico"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 3,
+      "fullName": "Érase un negocio",
+      "posibilyInputs": ["un negocio", "negocio"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 4,
+      "fullName": "Érase un desafío",
+      "posibilyInputs": ["un desafio", "desafio"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 5,
+      "fullName": "Érase una patrulla ciudadana",
+      "posibilyInputs": ["una patrulla ciudadana", "patrulla ciudadana"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 6,
+      "fullName": "Érase un rastrillo",
+      "posibilyInputs": ["un rastrillo", "rastrillo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 7,
+      "fullName": "Érase una huelga",
+      "posibilyInputs": ["una huelga", "huelga"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 8,
+      "fullName": "Érase un piso en venta",
+      "posibilyInputs": ["un piso en venta", "piso en venta"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 9,
+      "fullName": "Érase una parabólica",
+      "posibilyInputs": ["una parabolica", "parabolica"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 10,
+      "fullName": "Érase un vídeo casero",
+      "posibilyInputs": ["un video casero", "video casero"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 11,
+      "fullName": "Érase unas elecciones",
+      "posibilyInputs": ["unas elecciones", "elecciones"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 12,
+      "fullName": "Érase una despedida de soltero",
+      "posibilyInputs": ["una despedida de soltero", "despedida de soltero"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 13,
+      "fullName": "Érase una boda",
+      "posibilyInputs": ["una boda", "boda"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 14,
+      "fullName": "Érase un apoyo vecinal",
+      "posibilyInputs": ["un apoyo vecinal", "apoyo vecinal"],
+      "showEpisode": false,
+      "isMissing": true
+    }
+  ],
+  "Temporada 3": [
+    {
+      "episode": 1,
+      "fullName": "Érase un caos",
+      "posibilyInputs": ["un caos", "caos"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 2,
+      "fullName": "Érase un okupa",
+      "posibilyInputs": ["un okupa", "okupa"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 3,
+      "fullName": "Érase un matrimonio de conveniencia",
+      "posibilyInputs": [
+        "un matrimonio de conveniencia",
+        "matrimonio de conveniencia"
+      ],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 4,
+      "fullName": "Érase una inauguración",
+      "posibilyInputs": ["una inauguracion", "inauguracion"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 5,
+      "fullName": "Érase un combate",
+      "posibilyInputs": ["un combate", "combate"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 6,
+      "fullName": "Érase un canario",
+      "posibilyInputs": ["un canario", "canario"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 7,
+      "fullName": "Érase un mal de ojo",
+      "posibilyInputs": ["un mal de ojo", "mal de ojo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 8,
+      "fullName": "Érase un famoso",
+      "posibilyInputs": ["un famoso", "famoso"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 9,
+      "fullName": "Érase un desalojo",
+      "posibilyInputs": ["un desalojo", "desalojo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 10,
+      "fullName": "Érase un belén",
+      "posibilyInputs": ["un belen", "belen"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 11,
+      "fullName": "Érase una Nochevieja",
+      "posibilyInputs": ["una Nochevieja", "Nochevieja"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 12,
+      "fullName": "Érase una grieta",
+      "posibilyInputs": ["una grieta", "grieta"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 13,
+      "fullName": "Érase unos nuevos inquilinos",
+      "posibilyInputs": ["unos nuevos inquilinos", "nuevos inquilinos"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 14,
+      "fullName": "Érase un bautizo",
+      "posibilyInputs": ["un bautizo", "bautizo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 15,
+      "fullName": "Érase una academia",
+      "posibilyInputs": ["una academia", "academia"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 16,
+      "fullName": "Érase unos estatutos",
+      "posibilyInputs": ["unos estatutos", "estatutos"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 17,
+      "fullName": "Érase unas alumnas",
+      "posibilyInputs": ["unas alumnas", "alumnas"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 18,
+      "fullName": "Érase un juicio",
+      "posibilyInputs": ["un juicio", "juicio"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 19,
+      "fullName": "Érase un disco-pub videoclub",
+      "posibilyInputs": [
+        "un disco-pub videoclub",
+        "disco-pub videoclub",
+        "videoclub"
+      ],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 20,
+      "fullName": "Érase una cobaya",
+      "posibilyInputs": ["una cobaya", "cobaya"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 21,
+      "fullName": "Érase un premio",
+      "posibilyInputs": ["un premio", "premio"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 22,
+      "fullName": "Érase unas puertas blindadas",
+      "posibilyInputs": ["unas puertas blindadas", "puertas blindadas"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 23,
+      "fullName": "Érase un vicio",
+      "posibilyInputs": ["un vicio", "vicio"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 24,
+      "fullName": "Érase un administrador",
+      "posibilyInputs": ["un administrador", "administrador"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 25,
+      "fullName": "Érase una traición",
+      "posibilyInputs": ["una traicion", "traicion"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 26,
+      "fullName": "Érase el primer presidente gay",
+      "posibilyInputs": ["el primer presidente gay", "primer presidente gay"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 27,
+      "fullName": "Érase una tragaperras",
+      "posibilyInputs": ["una tragaperras", "tragaperras"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 28,
+      "fullName": "Érase un desgobierno",
+      "posibilyInputs": ["un desgobierno", "desgobierno"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 29,
+      "fullName": "Érase un regalo de boda",
+      "posibilyInputs": ["un regalo de boda", "regalo de boda"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 30,
+      "fullName": "Érase otra boda",
+      "posibilyInputs": ["otra boda", "boda"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 31,
+      "fullName": "Érase una luna de miel",
+      "posibilyInputs": ["una luna de miel", "luna de miel"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 32,
+      "fullName": "Érase un cirujano plástico",
+      "posibilyInputs": ["un cirujano plástico", "cirujano plástico"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 33,
+      "fullName": "Érase unas vacaciones",
+      "posibilyInputs": ["unas vacaciones", "vacaciones"],
+      "showEpisode": false,
+      "isMissing": true
+    }
+  ],
+  "Temporada 4": [
+    {
+      "episode": 1,
+      "fullName": "Érase un despertar",
+      "posibilyInputs": ["un despertar", "despertar"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 2,
+      "fullName": "Érase un cultivo",
+      "posibilyInputs": ["un cultivo", "cultivo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 3,
+      "fullName": "Érase un desvío provisional",
+      "posibilyInputs": ["un desvio provisional", "desvio provisional"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 4,
+      "fullName": "Érase una sequía",
+      "posibilyInputs": ["una sequia", "sequia"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 5,
+      "fullName": "Érase un banco en la acera",
+      "posibilyInputs": ["un banco en la acera", "banco en la acera"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 6,
+      "fullName": "Érase una Navidad convulsa",
+      "posibilyInputs": ["una Navidad convulsa", "Navidad convulsa"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 7,
+      "fullName": "Érase la tercera Nochevieja",
+      "posibilyInputs": ["la tercera Nochevieja", "tercera Nochevieja"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 8,
+      "fullName": "Érase unos propósitos de Año Nuevo",
+      "posibilyInputs": [
+        "unos propositos de Año Nuevo",
+        "propositos de Año Nuevo"
+      ],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 9,
+      "fullName": "Érase una presidenta títere",
+      "posibilyInputs": ["una presidenta titere", "presidenta titere"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 10,
+      "fullName": "Érase un par de bodas",
+      "posibilyInputs": ["un par de bodas", "par de bodas"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 11,
+      "fullName": "Érase una conexión WiFi",
+      "posibilyInputs": ["una conexion WiFi", "conexion WiFi"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 12,
+      "fullName": "Érase un vudú",
+      "posibilyInputs": ["un vudu", "vudu"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 13,
+      "fullName": "Érase un día de San Valentín",
+      "posibilyInputs": ["un dia de San Valentin", "dia de San Valentin"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 14,
+      "fullName": "Érase una nueva vida",
+      "posibilyInputs": ["una nueva vida", "nueva vida"],
+      "showEpisode": false,
+      "isMissing": true
+    }
+  ],
+  "Temporada 5": [
+    {
+      "episode": 1,
+      "fullName": "Érase una extradición",
+      "posibilyInputs": ["una extradicion", "extradicion"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 2,
+      "fullName": "Érase un colapso",
+      "posibilyInputs": ["un colapso", "colapso"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 3,
+      "fullName": "Érase un robot de cocina",
+      "posibilyInputs": ["un robot de cocina", "robot de cocina"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 4,
+      "fullName": "Érase un presidente de vacaciones",
+      "posibilyInputs": [
+        "un presidente de vacaciones",
+        "presidente de vacaciones"
+      ],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 5,
+      "fullName": "Érase un anuncio",
+      "posibilyInputs": ["un anuncio", "anuncio"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 6,
+      "fullName": "Érase un billete de cincuenta euros",
+      "posibilyInputs": [
+        "un billete de cincuenta euros",
+        "billete de cincuenta euros",
+        "un billete de 50 euros",
+        "billete de 50 euros"
+      ],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 7,
+      "fullName": "Érase un escándalo",
+      "posibilyInputs": ["un escandalo", "escandalo"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 8,
+      "fullName": "Érase un descubrimiento macabro",
+      "posibilyInputs": ["un descubrimiento macabro", "descubrimiento macabro"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 9,
+      "fullName": "Érase una emisora pirata",
+      "posibilyInputs": ["una emisora pirata", "emisora pirata"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 10,
+      "fullName": "Érase un funeral con sorpresa",
+      "posibilyInputs": ["un funeral con sorpresa", "funeral con sorpresa"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 11,
+      "fullName": "Érase una lista de bodas",
+      "posibilyInputs": ["una lista de bodas", "lista de bodas"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 12,
+      "fullName": "Érase un paripé",
+      "posibilyInputs": ["un paripe", "paripe"],
+      "showEpisode": false,
+      "isMissing": true
+    },
+    {
+      "episode": 13,
+      "fullName": "Érase un adiós",
+      "posibilyInputs": ["un adios", "adios"],
+      "showEpisode": false,
+      "isMissing": true
+    }
+  ]
+}

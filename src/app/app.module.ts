@@ -8,12 +8,14 @@ import { SharedModule } from './shared/shared.module';
 import { CharactersComponent } from './pages/quiz-tv-shows/characters/characters.component';
 import { SheetMusicViewerComponent } from './pages/sheet-music-viewer/sheet-music-viewer.component';
 import { MusicPlayerComponent } from './pages/sheet-music-viewer/music-player/music-player.component';
+import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuizTvShowsComponent,
     CharactersComponent,
+    EpisodesComponent,
     SheetMusicViewerComponent,
     MusicPlayerComponent,
     PagesComponent,

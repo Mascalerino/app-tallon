@@ -1,0 +1,50 @@
+.episodes-container {
+  margin: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+th {
+  background-color: #f8f9fa;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.table td {
+  font-size: 0.85rem;
+  padding: 0.25rem;
+  word-wrap: break-word;
+}
+
+.table td .full-name {
+  font-weight: bold;
+}
+
+.highlight {
+  animation: highlightEffect 1s ease-in-out;
+}
+
+.table-success {
+  background-color: #d4edda !important;
+  transition: background-color 0.5s ease-in-out;
+}
+
+input.form-control {
+  margin-right: 10px;
+}
+
+.btn {
+  margin-left: 10px;
+}
+
+@keyframes highlightEffect {
+  0% {
+    background-color: #d4edda;
+  }
+  100% {
+    background-color: transparent;
+  }
+}

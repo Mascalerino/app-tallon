@@ -1,0 +1,52 @@
+<div class="episodes-container">
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <input
+      type="text"
+      class="form-control w-50"
+      placeholder="Introduzca el nombre del episodio"
+      [(ngModel)]="searchTerm"
+      (input)="searchEpisodes()"
+    />
+    <span class="ms-3">{{ points }}/{{ totalEpisodes }}</span>
+    <button class="btn btn-danger ms-2" (click)="resetQuiz()">
+      Reiniciar Quiz
+    </button>
+    <button class="btn btn-warning ms-2" (click)="giveUp()">Rendirse</button>
+  </div>
+
+  <div class="row">
+    <div
+      *ngFor="let season of episodesBySeason | keyvalue"
+      class="col-md-6 col-lg-4 mb-4"
+    >
+      <table
+        class="table"
+        [ngClass]="{ 'table-success': isFilledSeason[season.key] }"
+      >
+        <thead>
+          <tr>
+            <th>{{ season.key }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let episode of season.value">
+            <td
+              *ngIf="episode.showEpisode"
+              [ngClass]="{
+                highlight: episode.showEpisode && !episode.isMissing,
+                'table-danger': episode.isMissing
+              }"
+            >
+              <span class="ms-2">
+                {{ season.key.replace("Temporada ", "") }}x{{
+                  episode.episode < 10 ? "0" + episode.episode : episode.episode
+                }}
+              </span>
+              <span class="full-name">- {{ episode.fullName }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
