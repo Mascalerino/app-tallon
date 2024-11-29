@@ -84,9 +84,6 @@ export class CharactersComponent implements OnInit {
       );
     });
 
-    console.log(this.foundMatch); // true, si se encontró una coincidencia
-    console.log(this.points);
-
     if (this.foundMatch) {
       this.searchTerm = '';
       this.foundMatch = false;

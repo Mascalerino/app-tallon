@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  hideAllData,
+  showAllData,
+  splitDataIntoColumns,
+} from 'src/app/core/util/quiz-tv-show-util';
+import {
   IEpisode,
   IEpisodesBySeason,
 } from 'src/app/models/quiz-tv-shows/episode.model';
@@ -41,37 +46,29 @@ export class EpisodesComponent implements OnInit {
   ngOnInit(): void {
     this.totalEpisodes = this.episodeService.getTotalEpisodes();
     this.getEpisodesBySeason();
-    this.tableDivideColumns(); // Divide los episodios de la temporada 3 en 3 columnas
+    this.episodeSeason3Columns = splitDataIntoColumns(this.episodesSeason3, 3);
   }
 
   searchEpisode(): void {
     const searchTermLower = this.searchTerm.toLowerCase();
 
-    this.updateEpisodeVisibility(
-      this.episodesSeason1,
-      searchTermLower,
-      'isFilledSeason1'
-    );
-    this.updateEpisodeVisibility(
-      this.episodesSeason2,
-      searchTermLower,
-      'isFilledSeason2'
-    );
-    this.updateEpisodeVisibility(
-      this.episodesSeason3,
-      searchTermLower,
-      'isFilledSeason3'
-    );
-    this.updateEpisodeVisibility(
-      this.episodesSeason4,
-      searchTermLower,
-      'isFilledSeason4'
-    );
-    this.updateEpisodeVisibility(
-      this.episodesSeason5,
-      searchTermLower,
-      'isFilledSeason5'
-    );
+    if (!searchTermLower) return;
+
+    const episodesGroups = [
+      { data: this.episodesSeason1, tableFilled: 'isFilledSeason1' },
+      { data: this.episodesSeason2, tableFilled: 'isFilledSeason2' },
+      { data: this.episodesSeason3, tableFilled: 'isFilledSeason3' },
+      { data: this.episodesSeason4, tableFilled: 'isFilledSeason4' },
+      { data: this.episodesSeason5, tableFilled: 'isFilledSeason5' },
+    ];
+
+    episodesGroups.forEach((group) => {
+      this.updateEpisodeVisibility(
+        group.data,
+        searchTermLower,
+        group.tableFilled
+      );
+    });
 
     if (this.foundMatch) {
       this.searchTerm = '';
@@ -84,11 +81,11 @@ export class EpisodesComponent implements OnInit {
     this.searchTerm = '';
     this.foundMatch = false;
 
-    this.resetEpisodeVisibility(this.episodesSeason1);
-    this.resetEpisodeVisibility(this.episodesSeason2);
-    this.resetEpisodeVisibility(this.episodesSeason3);
-    this.resetEpisodeVisibility(this.episodesSeason4);
-    this.resetEpisodeVisibility(this.episodesSeason5);
+    hideAllData(this.episodesSeason1);
+    hideAllData(this.episodesSeason2);
+    hideAllData(this.episodesSeason3);
+    hideAllData(this.episodesSeason4);
+    hideAllData(this.episodesSeason5);
 
     this.isFilledSeason1 = false;
     this.isFilledSeason2 = false;
@@ -98,45 +95,17 @@ export class EpisodesComponent implements OnInit {
   }
 
   giveUp(): void {
-    this.showAllEpisodes(this.episodesSeason1);
-    this.showAllEpisodes(this.episodesSeason2);
-    this.showAllEpisodes(this.episodesSeason3);
-    this.showAllEpisodes(this.episodesSeason4);
-    this.showAllEpisodes(this.episodesSeason5);
+    showAllData(this.episodesSeason1);
+    showAllData(this.episodesSeason2);
+    showAllData(this.episodesSeason3);
+    showAllData(this.episodesSeason4);
+    showAllData(this.episodesSeason5);
 
     this.isFilledSeason1 = !this.episodesSeason1.some((char) => char.isMissing);
     this.isFilledSeason2 = !this.episodesSeason2.some((char) => char.isMissing);
     this.isFilledSeason3 = !this.episodesSeason3.some((char) => char.isMissing);
     this.isFilledSeason4 = !this.episodesSeason4.some((char) => char.isMissing);
     this.isFilledSeason5 = !this.episodesSeason5.some((char) => char.isMissing);
-  }
-
-  private resetEpisodeVisibility(episodes: IEpisode[]): void {
-    episodes.forEach((episode) => {
-      episode.isShowing = false;
-      episode.isMissing = true;
-    });
-  }
-
-  private showAllEpisodes(episodes: IEpisode[]): void {
-    episodes.forEach((episode) => {
-      episode.isShowing = true;
-    });
-  }
-
-  private tableDivideColumns(): void {
-    this.episodeSeason3Columns = this.splitIntoColumns(this.episodesSeason3, 3);
-  }
-
-  private splitIntoColumns(
-    episodes: IEpisode[],
-    columns: number
-  ): IEpisode[][] {
-    const result: IEpisode[][] = [];
-    for (let i = 0; i < episodes.length; i += columns) {
-      result.push(episodes.slice(i, i + columns));
-    }
-    return result;
   }
 
   /**
