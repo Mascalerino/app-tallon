@@ -1,38 +1,36 @@
-<div class="col-3">
-  <table class="table" [ngClass]="{ 'table-success': isFilled }">
-    <thead>
-      <tr>
-        <th>{{ tableTitle }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of data">
-        <td
-          *ngIf="item.isShowing"
-          [ngClass]="{
-            highlight: item.isShowing && item.isMissing === false,
-            'table-danger': item.isMissing
-          }"
-        >
-          <!-- Variante para Characters -->
-          <ng-container *ngIf="dataType === 'characters'">
-            <span class="full-name">{{ item.fullName }}</span>
-            <span *ngIf="item.explanation" class="ms-2"
-              >({{ item.explanation }})</span
-            >
-          </ng-container>
+<table class="table" [ngClass]="{ 'table-success': isFilled }">
+  <thead>
+    <tr>
+      <th>{{ tableTitle }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td
+        *ngIf="item.isShowing"
+        [ngClass]="{
+          highlight: item.isShowing && item.isMissing === false,
+          'table-danger': item.isMissing
+        }"
+      >
+        <!-- Variante para Characters -->
+        <ng-container *ngIf="dataType === 'characters'">
+          <span class="full-name">{{ item.fullName }}</span>
+          <span *ngIf="item.explanation" class="ms-2"
+            >({{ item.explanation }})</span
+          >
+        </ng-container>
 
-          <!-- Variante para Episodes -->
-          <ng-container *ngIf="dataType === 'episodes'">
-            <span class="ms-2">
-              {{ item.seasonKey.replace("Temporada ", "") }}x{{
-                item.episode < 10 ? "0" + item.episode : item.episode
-              }}
-            </span>
-            <span class="full-name">- {{ item.fullName }}</span>
-          </ng-container>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <!-- Variante para Episodes -->
+        <ng-container *ngIf="dataType === 'episodes'">
+          <span class="ms-2">
+            {{ item.seasonKey.replace("Temporada ", "") }}x{{
+              item.episode < 10 ? "0" + item.episode : item.episode
+            }}
+          </span>
+          <span class="full-name">- {{ item.fullName }}</span>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

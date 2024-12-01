@@ -3,6 +3,31 @@
   margin: 20px;
 }
 
+/* Asegúrate de que el input y el botón tengan la misma altura */
+.d-flex .form-control,
+.d-flex .btn {
+  height: calc(
+    1.5em + 0.75rem + 2px
+  ); /* Esta propiedad asegura que la altura del botón coincida con la del input */
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+/* Asegura que el botón ocupe el mismo ancho que el input */
+.d-flex .btn {
+  width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
+  max-width: 150px; /* Opcional: puedes establecer un ancho máximo si deseas que el botón no sea demasiado largo */
+}
+
+.ms-2 {
+  margin-left: 10px;
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Rojo para indicar la acción de reiniciar */
+  color: white;
+}
+
 .table {
   width: 100%;
   margin-bottom: 15px;
@@ -32,31 +57,6 @@ th {
 .table-success {
   background-color: #d4edda !important; /* Verde claro */
   transition: background-color 0.5s ease-in-out;
-}
-
-/* Asegúrate de que el input y el botón tengan la misma altura */
-.d-flex .form-control,
-.d-flex .btn {
-  height: calc(
-    1.5em + 0.75rem + 2px
-  ); /* Esta propiedad asegura que la altura del botón coincida con la del input */
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-}
-
-/* Asegura que el botón ocupe el mismo ancho que el input */
-.d-flex .btn {
-  width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
-  max-width: 150px; /* Opcional: puedes establecer un ancho máximo si deseas que el botón no sea demasiado largo */
-}
-
-.ms-2 {
-  margin-left: 10px;
-}
-
-.btn-danger {
-  background-color: #dc3545; /* Rojo para indicar la acción de reiniciar */
-  color: white;
 }
 
 @keyframes highlightEffect {

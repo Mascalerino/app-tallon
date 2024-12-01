@@ -1,0 +1,39 @@
+.table {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+th {
+  background-color: #f8f9fa;
+  text-align: center;
+  font-size: 1rem; /* Tamaño de fuente para las cabeceras */
+}
+
+.table td {
+  font-size: 0.85rem; /* Tamaño de fuente más pequeño para las filas */
+  padding: 0.25rem; /* Ajusta el padding para que las celdas sean más compactas */
+  word-wrap: break-word; /* Asegura que el texto largo se ajuste dentro de las celdas */
+}
+
+.table td .full-name {
+  font-weight: bold; /* Aplica negrita solo al fullName */
+}
+
+.highlight {
+  animation: highlightEffect 1s ease-in-out; /* Animación de cambio de color */
+}
+
+/* Cambio de color para tablas llenas */
+.table-success {
+  background-color: #d4edda !important; /* Verde claro */
+  transition: background-color 0.5s ease-in-out;
+}
+
+@keyframes highlightEffect {
+  0% {
+    background-color: #d4edda;
+  }
+  100% {
+    background-color: transparent;
+  }
+}

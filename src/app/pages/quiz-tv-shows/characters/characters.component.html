@@ -10,29 +10,12 @@
   <div class="row mb-4">
     <!-- Columna para la tabla 2B -->
     <div class="col-3">
-      <table class="table" [ngClass]="{ 'table-success': isFilled2B }">
-        <thead>
-          <tr>
-            <th>2B</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let character of characters2B">
-            <td
-              *ngIf="character.isShowing"
-              [ngClass]="{
-                highlight: character.isShowing && character.isMissing === false,
-                'table-danger': character.isMissing
-              }"
-            >
-              <span class="full-name">{{ character.fullName }}</span>
-              <span *ngIf="character.explanation" class="ms-2"
-                >({{ character.explanation }})</span
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <quiz-table
+        [tableTitle]="'2B'"
+        [data]="characters2B"
+        [isFilled]="isFilled2B"
+        [dataType]="'characters'"
+      ></quiz-table>
     </div>
 
     <!-- Columna para las demás tablas (excepto "Otros") -->
@@ -40,232 +23,82 @@
       <div class="row">
         <!-- Piso 1A -->
         <div class="col-3">
-          <table class="table" [ngClass]="{ 'table-success': isFilled1A }">
-            <thead>
-              <tr>
-                <th>1A</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of characters1A">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'1A'"
+            [data]="characters1A"
+            [isFilled]="isFilled1A"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
 
         <!-- Piso 1B -->
         <div class="col-3">
-          <table class="table" [ngClass]="{ 'table-success': isFilled1B }">
-            <thead>
-              <tr>
-                <th>1B</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of characters1B">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'1B'"
+            [data]="characters1B"
+            [isFilled]="isFilled1B"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
 
         <!-- Piso 2A -->
         <div class="col-3">
-          <table class="table" [ngClass]="{ 'table-success': isFilled2A }">
-            <thead>
-              <tr>
-                <th>2A</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of characters2A">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'2A'"
+            [data]="characters2A"
+            [isFilled]="isFilled2A"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
 
         <!-- Piso 3A -->
         <div class="col-3">
-          <table class="table" [ngClass]="{ 'table-success': isFilled3A }">
-            <thead>
-              <tr>
-                <th>3A</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of characters3A">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'3A'"
+            [data]="characters3A"
+            [isFilled]="isFilled3A"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
 
         <!-- Piso 3B -->
         <div class="col-3">
-          <table class="table" [ngClass]="{ 'table-success': isFilled3B }">
-            <thead>
-              <tr>
-                <th>3B</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of characters3B">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'3B'"
+            [data]="characters3B"
+            [isFilled]="isFilled3B"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
 
         <!-- Ático -->
         <div class="col-3">
-          <table class="table" [ngClass]="{ 'table-success': isFilledAtico }">
-            <thead>
-              <tr>
-                <th>Ático</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of charactersAtico">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'Ático'"
+            [data]="charactersAtico"
+            [isFilled]="isFilledAtico"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
 
         <!-- Videoclub -->
         <div class="col-3">
-          <table
-            class="table"
-            [ngClass]="{ 'table-success': isFilledVideoclub }"
-          >
-            <thead>
-              <tr>
-                <th>Videoclub</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of charactersVideoclub">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'Videoclub'"
+            [data]="charactersVideoclub"
+            [isFilled]="isFilledVideoclub"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
 
         <!-- Portería -->
         <div class="col-3">
-          <table
-            class="table"
-            [ngClass]="{ 'table-success': isFilledPorteria }"
-          >
-            <thead>
-              <tr>
-                <th>Portería</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let character of charactersPorteria">
-                <td
-                  *ngIf="character.isShowing"
-                  [ngClass]="{
-                    highlight:
-                      character.isShowing && character.isMissing === false,
-                    'table-danger': character.isMissing
-                  }"
-                >
-                  <span class="full-name">{{ character.fullName }}</span>
-                  <span *ngIf="character.explanation" class="ms-2"
-                    >({{ character.explanation }})</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <quiz-table
+            [tableTitle]="'Portería'"
+            [data]="charactersPorteria"
+            [isFilled]="isFilledPorteria"
+            [dataType]="'characters'"
+          ></quiz-table>
         </div>
       </div>
     </div>
