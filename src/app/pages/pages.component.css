@@ -1,0 +1,54 @@
+/* Fondo general */
+.bg-primary {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/assets/images/background.jpg"); /* Cambia esta ruta si es necesario */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Altura mínima de la pantalla */
+  color: #fff;
+}
+
+/* Sombra para texto */
+.text-shadow {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Botones generales */
+.btn-custom {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fondo blanco semitransparente */
+  color: #212529; /* Texto oscuro */
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom:hover {
+  background-color: #ffffff; /* Fondo blanco sólido */
+  transform: scale(1.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Alineación de texto y botones */
+.text-center h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.text-center p {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+}
+
+/* Espaciado entre botones */
+.d-flex {
+  gap: 20px;
+}
