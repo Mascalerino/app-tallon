@@ -178,6 +178,7 @@ export class CharactersComponent implements OnInit {
    * y actualiza el puntaje
    */
   onlyPlayOthers(): void {
+    this.resetQuiz();
     showAllDataAndNoMissing(this.characters1A);
     showAllDataAndNoMissing(this.characters1B);
     showAllDataAndNoMissing(this.characters2A);
