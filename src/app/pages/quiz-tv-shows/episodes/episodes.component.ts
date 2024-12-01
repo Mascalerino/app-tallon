@@ -20,6 +20,10 @@ export class EpisodesComponent implements OnInit {
   totalEpisodes: number = 0;
   points: number = 0;
   foundMatch: boolean = false;
+  isPanelVisible: boolean = true;
+  panelTitle: string = '';
+  panelText: string = '';
+  panelText2: string = '';
 
   // Propiedades para los episodios
   episodesSeason1: IEpisode[] = [];
@@ -47,6 +51,15 @@ export class EpisodesComponent implements OnInit {
     this.totalEpisodes = this.episodeService.getTotalEpisodes();
     this.getEpisodesBySeason();
     this.episodeSeason3Columns = splitDataIntoColumns(this.episodesSeason3, 3);
+    this.panelTitle = 'Instrucciones';
+    this.panelText =
+      'Encuentra todos los capitulos de ANHQV. La lista de capítulos está basada en la información proporcionada por IMDB.';
+    this.panelText2 =
+      'Escribe el nombre del episodio o parte de el. No necesitas escribir Érase para acertar el capitulo.';
+  }
+
+  closePanel(): void {
+    this.isPanelVisible = false;
   }
 
   searchEpisode(): void {

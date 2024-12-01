@@ -1,4 +1,11 @@
 <div class="episodes-container">
+  <app-panel
+    [title]="panelTitle"
+    [text]="panelText"
+    [text2]="panelText2"
+    [isVisible]="isPanelVisible"
+    (continue)="closePanel()"
+  ></app-panel>
   <!-- Contendor de las temporadas 1 2 4 5 -->
   <div class="row mb-4">
     <div class="col-3">
