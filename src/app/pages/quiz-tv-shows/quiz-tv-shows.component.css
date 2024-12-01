@@ -24,22 +24,18 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Añade sombra para mejorar la legibilidad */
 }
 
-/* Botón centrado en el medio */
-.btn-personajes {
-  font-size: 1.5rem;
-  padding: 15px 30px;
-  z-index: 1; /* Asegura que el botón esté encima de la imagen */
-  background-color: rgba(0, 123, 255, 0.7); /* Color de fondo del botón */
-  color: white; /* Color del texto del botón */
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+/* Contenedor de botones alineados horizontalmente */
+.button-container {
+  display: flex;
+  gap: 20px; /* Espaciado entre los botones */
+  z-index: 1; /* Asegura que el contenedor esté encima de la imagen */
 }
 
+/* Botones */
+.btn-personajes,
 .btn-episodes {
   font-size: 1.5rem;
   padding: 15px 30px;
-  z-index: 1; /* Asegura que el botón esté encima de la imagen */
   background-color: rgba(0, 123, 255, 0.7); /* Color de fondo del botón */
   color: white; /* Color del texto del botón */
   border: none;
@@ -47,7 +43,8 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.btn-personajes:hover {
+.btn-personajes:hover,
+.btn-episodes:hover {
   background-color: rgba(
     0,
     123,
