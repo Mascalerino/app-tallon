@@ -271,7 +271,6 @@
         <input
           type="text"
           class="form-control w-75"
-          placeholder="Buscar personajes..."
           [(ngModel)]="searchTerm"
           (input)="searchCharacters()"
         />
@@ -282,6 +281,9 @@
         Reiniciar
       </button>
       <button class="btn btn-warning ms-2" (click)="giveUp()">Rendirse</button>
+      <button class="btn btn-success ms-2" (click)="onlyPlayOthers()">
+        Solo otros
+      </button>
     </div>
   </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   hideAllData,
   showAllData,
+  showAllDataAndNoMissing,
   splitDataIntoColumns,
 } from 'src/app/core/util/quiz-tv-show-util';
 import { ICharacter } from 'src/app/models/quiz-tv-shows/character.model';
@@ -57,7 +58,10 @@ export class CharactersComponent implements OnInit {
     this.characterOtrosColumns = splitDataIntoColumns(this.characterOtros, 5);
   }
 
-  // Método para buscar personajes basados en el término de búsqueda
+  /**
+   * Busca los personajes que coinciden con el término de búsqueda
+   * @returns
+   */
   searchCharacters(): void {
     const searchTermLower = this.searchTerm.toLowerCase();
 
@@ -90,7 +94,9 @@ export class CharactersComponent implements OnInit {
     }
   }
 
-  // Método para reiniciar el quiz
+  /**
+   * Reinicia el quiz
+   */
   resetQuiz(): void {
     this.points = 0; // Resetear el puntaje
     this.searchTerm = ''; // Limpiar el término de búsqueda
@@ -121,6 +127,9 @@ export class CharactersComponent implements OnInit {
     this.isFilledOtros = false;
   }
 
+  /**
+   * Muestra todos los personajes y los faltantes
+   */
   giveUp(): void {
     // Mostrar todos los personajes (establecer `isShowing` a true)
     showAllData(this.characters1A);
@@ -151,7 +160,37 @@ export class CharactersComponent implements OnInit {
     this.isFilledOtros = !this.characterOtros.some((char) => char.isMissing);
   }
 
-  // Método para obtener los personajes de cada piso
+  /**
+   * Muestra todos los personajes menos los de "Otros" marca las tablas como llenas
+   * y actualiza el puntaje
+   */
+  onlyPlayOthers(): void {
+    showAllDataAndNoMissing(this.characters1A);
+    showAllDataAndNoMissing(this.characters1B);
+    showAllDataAndNoMissing(this.characters2A);
+    showAllDataAndNoMissing(this.characters2B);
+    showAllDataAndNoMissing(this.characters3A);
+    showAllDataAndNoMissing(this.characters3B);
+    showAllDataAndNoMissing(this.charactersAtico);
+    showAllDataAndNoMissing(this.charactersPorteria);
+    showAllDataAndNoMissing(this.charactersVideoclub);
+
+    this.isFilled1A = true;
+    this.isFilled1B = true;
+    this.isFilled2A = true;
+    this.isFilled2B = true;
+    this.isFilled3A = true;
+    this.isFilled3B = true;
+    this.isFilledAtico = true;
+    this.isFilledPorteria = true;
+    this.isFilledVideoclub = true;
+
+    this.points = this.totalCharacters - this.characterOtros.length;
+  }
+
+  /**
+   * Obtiene los personajes por piso
+   */
   private getCharactersByFloor(): void {
     this.characters1A = this.characterService.getCharactersByFloorName('1A');
     this.characters1B = this.characterService.getCharactersByFloorName('1B');
@@ -170,8 +209,9 @@ export class CharactersComponent implements OnInit {
 
     this.sortCharactersByFullName();
   }
-
-  // Método para ordenar los personajes por nombre
+  /**
+   * Ordena los personajes por nombre completo
+   */
   private sortCharactersByFullName(): void {
     const characterGroups = [
       this.characters1A,
@@ -191,7 +231,12 @@ export class CharactersComponent implements OnInit {
     });
   }
 
-  // Método para actualizar la visibilidad de los personajes al buscar
+  /**
+   * Muetsra los personajes que coinciden con el término de búsqueda
+   * @param characters
+   * @param searchTerm
+   * @param tableFilled
+   */
   private updateCharacterVisibility(
     characters: ICharacter[],
     searchTerm: string,

@@ -29,6 +29,19 @@ export const showAllData = (data: (ICharacter | IEpisode)[]): void => {
 };
 
 /**
+ * Muestra todos los datos y los marca como no faltantes
+ * @param data
+ */
+export const showAllDataAndNoMissing = (
+  data: (ICharacter | IEpisode)[]
+): void => {
+  data.forEach((element) => {
+    element.isShowing = true;
+    element.isMissing = false;
+  });
+};
+
+/**
  * Metodo para ocultar todos los datos
  * @param data
  */
