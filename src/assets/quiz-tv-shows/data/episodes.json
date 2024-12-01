@@ -59,7 +59,7 @@
     {
       "episode": 9,
       "fullName": "Érase una de miedo",
-      "posibilyInputs": ["una de miedo", "de miedo"],
+      "posibilyInputs": ["una de miedo", "de miedo", "miedo"],
       "isShowing": false,
       "isMissing": true
     },
@@ -131,7 +131,7 @@
     {
       "episode": 2,
       "fullName": "Érase un sueño erótico",
-      "posibilyInputs": ["un sueño erotico", "sueño erotico"],
+      "posibilyInputs": ["un sueño erotico", "sueño erotico", "erotico"],
       "isShowing": false,
       "isMissing": true
     },
@@ -152,7 +152,12 @@
     {
       "episode": 5,
       "fullName": "Érase una patrulla ciudadana",
-      "posibilyInputs": ["una patrulla ciudadana", "patrulla ciudadana"],
+      "posibilyInputs": [
+        "una patrulla ciudadana",
+        "patrulla ciudadana",
+        "patrulla",
+        "ciudadana"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -173,7 +178,7 @@
     {
       "episode": 8,
       "fullName": "Érase un piso en venta",
-      "posibilyInputs": ["un piso en venta", "piso en venta"],
+      "posibilyInputs": ["un piso en venta", "piso en venta", "piso"],
       "isShowing": false,
       "isMissing": true
     },
@@ -201,7 +206,12 @@
     {
       "episode": 12,
       "fullName": "Érase una despedida de soltero",
-      "posibilyInputs": ["una despedida de soltero", "despedida de soltero"],
+      "posibilyInputs": [
+        "una despedida de soltero",
+        "despedida de soltero",
+        "despedida",
+        "soltero"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -215,7 +225,12 @@
     {
       "episode": 14,
       "fullName": "Érase un apoyo vecinal",
-      "posibilyInputs": ["un apoyo vecinal", "apoyo vecinal"],
+      "posibilyInputs": [
+        "un apoyo vecinal",
+        "apoyo vecinal",
+        "apoyo",
+        "vecinal"
+      ],
       "isShowing": false,
       "isMissing": true
     }
@@ -240,7 +255,9 @@
       "fullName": "Érase un matrimonio de conveniencia",
       "posibilyInputs": [
         "un matrimonio de conveniencia",
-        "matrimonio de conveniencia"
+        "matrimonio de conveniencia",
+        "matrimonio",
+        "conveniencia"
       ],
       "isShowing": false,
       "isMissing": true
@@ -269,7 +286,7 @@
     {
       "episode": 7,
       "fullName": "Érase un mal de ojo",
-      "posibilyInputs": ["un mal de ojo", "mal de ojo"],
+      "posibilyInputs": ["un mal de ojo", "mal de ojo", "mal", "ojo"],
       "isShowing": false,
       "isMissing": true
     },
@@ -311,7 +328,11 @@
     {
       "episode": 13,
       "fullName": "Érase unos nuevos inquilinos",
-      "posibilyInputs": ["unos nuevos inquilinos", "nuevos inquilinos"],
+      "posibilyInputs": [
+        "unos nuevos inquilinos",
+        "nuevos inquilinos",
+        "inquilinos"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -356,7 +377,9 @@
       "posibilyInputs": [
         "un disco-pub videoclub",
         "disco-pub videoclub",
-        "videoclub"
+        "videoclub",
+        "disco-pub",
+        "disco"
       ],
       "isShowing": false,
       "isMissing": true
@@ -378,7 +401,12 @@
     {
       "episode": 22,
       "fullName": "Érase unas puertas blindadas",
-      "posibilyInputs": ["unas puertas blindadas", "puertas blindadas"],
+      "posibilyInputs": [
+        "unas puertas blindadas",
+        "puertas blindadas",
+        "puertas",
+        "blindadas"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -406,7 +434,12 @@
     {
       "episode": 26,
       "fullName": "Érase el primer presidente gay",
-      "posibilyInputs": ["el primer presidente gay", "primer presidente gay"],
+      "posibilyInputs": [
+        "el primer presidente gay",
+        "primer presidente gay",
+        "presidente",
+        "gay"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -427,7 +460,12 @@
     {
       "episode": 29,
       "fullName": "Érase un regalo de boda",
-      "posibilyInputs": ["un regalo de boda", "regalo de boda"],
+      "posibilyInputs": [
+        "un regalo de boda",
+        "regalo de boda",
+        "regalo",
+        "boda"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -441,14 +479,19 @@
     {
       "episode": 31,
       "fullName": "Érase una luna de miel",
-      "posibilyInputs": ["una luna de miel", "luna de miel"],
+      "posibilyInputs": ["una luna de miel", "luna de miel", "luna", "miel"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 32,
       "fullName": "Érase un cirujano plástico",
-      "posibilyInputs": ["un cirujano plástico", "cirujano plástico"],
+      "posibilyInputs": [
+        "un cirujano plástico",
+        "cirujano plástico",
+        "cirujano",
+        "plástico"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -478,7 +521,12 @@
     {
       "episode": 3,
       "fullName": "Érase un desvío provisional",
-      "posibilyInputs": ["un desvio provisional", "desvio provisional"],
+      "posibilyInputs": [
+        "un desvio provisional",
+        "desvio provisional",
+        "desvio",
+        "provisional"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -492,21 +540,36 @@
     {
       "episode": 5,
       "fullName": "Érase un banco en la acera",
-      "posibilyInputs": ["un banco en la acera", "banco en la acera"],
+      "posibilyInputs": [
+        "un banco en la acera",
+        "banco en la acera",
+        "banco",
+        "acera"
+      ],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 6,
       "fullName": "Érase una Navidad convulsa",
-      "posibilyInputs": ["una Navidad convulsa", "Navidad convulsa"],
+      "posibilyInputs": [
+        "una Navidad convulsa",
+        "Navidad convulsa",
+        "Navidad",
+        "convulsa"
+      ],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 7,
       "fullName": "Érase la tercera Nochevieja",
-      "posibilyInputs": ["la tercera Nochevieja", "tercera Nochevieja"],
+      "posibilyInputs": [
+        "la tercera Nochevieja",
+        "tercera Nochevieja",
+        "Nochevieja",
+        "tercera"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -515,7 +578,9 @@
       "fullName": "Érase unos propósitos de Año Nuevo",
       "posibilyInputs": [
         "unos propositos de Año Nuevo",
-        "propositos de Año Nuevo"
+        "propositos de Año Nuevo",
+        "propositos",
+        "Año Nuevo"
       ],
       "isShowing": false,
       "isMissing": true
@@ -523,21 +588,31 @@
     {
       "episode": 9,
       "fullName": "Érase una presidenta títere",
-      "posibilyInputs": ["una presidenta titere", "presidenta titere"],
+      "posibilyInputs": [
+        "una presidenta titere",
+        "presidenta titere",
+        "presidenta",
+        "titere"
+      ],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 10,
       "fullName": "Érase un par de bodas",
-      "posibilyInputs": ["un par de bodas", "par de bodas"],
+      "posibilyInputs": ["un par de bodas", "par de bodas", "par", "bodas"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 11,
       "fullName": "Érase una conexión WiFi",
-      "posibilyInputs": ["una conexion WiFi", "conexion WiFi"],
+      "posibilyInputs": [
+        "una conexion WiFi",
+        "conexion WiFi",
+        "conexion",
+        "WiFi"
+      ],
       "isShowing": false,
       "isMissing": true
     },
@@ -551,14 +626,19 @@
     {
       "episode": 13,
       "fullName": "Érase un día de San Valentín",
-      "posibilyInputs": ["un dia de San Valentin", "dia de San Valentin"],
+      "posibilyInputs": [
+        "un dia de San Valentin",
+        "dia de San Valentin",
+        "dia",
+        "Valentin"
+      ],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 14,
       "fullName": "Érase una nueva vida",
-      "posibilyInputs": ["una nueva vida", "nueva vida"],
+      "posibilyInputs": ["una nueva vida", "nueva vida", "nueva", "vida"],
       "isShowing": false,
       "isMissing": true
     }
@@ -590,7 +670,9 @@
       "fullName": "Érase un presidente de vacaciones",
       "posibilyInputs": [
         "un presidente de vacaciones",
-        "presidente de vacaciones"
+        "presidente de vacaciones",
+        "presidente",
+        "vacaciones"
       ],
       "isShowing": false,
       "isMissing": true
@@ -609,7 +691,8 @@
         "un billete de cincuenta euros",
         "billete de cincuenta euros",
         "un billete de 50 euros",
-        "billete de 50 euros"
+        "billete de 50 euros",
+        "billete"
       ],
       "isShowing": false,
       "isMissing": true
@@ -624,28 +707,48 @@
     {
       "episode": 8,
       "fullName": "Érase un descubrimiento macabro",
-      "posibilyInputs": ["un descubrimiento macabro", "descubrimiento macabro"],
+      "posibilyInputs": [
+        "un descubrimiento macabro",
+        "descubrimiento macabro",
+        "descubrimiento",
+        "macabro"
+      ],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 9,
       "fullName": "Érase una emisora pirata",
-      "posibilyInputs": ["una emisora pirata", "emisora pirata"],
+      "posibilyInputs": [
+        "una emisora pirata",
+        "emisora pirata",
+        "emisora",
+        "pirata"
+      ],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 10,
       "fullName": "Érase un funeral con sorpresa",
-      "posibilyInputs": ["un funeral con sorpresa", "funeral con sorpresa"],
+      "posibilyInputs": [
+        "un funeral con sorpresa",
+        "funeral con sorpresa",
+        "funeral",
+        "sorpresa"
+      ],
       "isShowing": false,
       "isMissing": true
     },
     {
       "episode": 11,
       "fullName": "Érase una lista de bodas",
-      "posibilyInputs": ["una lista de bodas", "lista de bodas"],
+      "posibilyInputs": [
+        "una lista de bodas",
+        "lista de bodas",
+        "lista",
+        "bodas"
+      ],
       "isShowing": false,
       "isMissing": true
     },

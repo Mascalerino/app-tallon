@@ -253,14 +253,14 @@
     },
     {
       "fullName": "Candela Heredia",
-      "explanation": "Hija de higinio",
+      "explanation": "Hija higinio",
       "posibilyInputs": ["Candela", "Heredia"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Daniel Rubio",
-      "explanation": "Hijo de armando",
+      "explanation": "Hijo armando",
       "posibilyInputs": ["Daniel", "Rubio"],
       "isShowing": false,
       "isMissing": true
@@ -274,7 +274,7 @@
     },
     {
       "fullName": "Raquel Garcia",
-      "explanation": "Raul, hermana mamen",
+      "explanation": "Hermana mamen",
       "posibilyInputs": ["Raquel", "Garcia", "Raul"],
       "isShowing": false,
       "isMissing": true
@@ -508,14 +508,14 @@
     },
     {
       "fullName": "Amador Carrion",
-      "explanation": "portero",
+      "explanation": "Portero",
       "posibilyInputs": ["Amador", "Carrion"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Nemesio",
-      "explanation": "Antiguo Portero",
+      "explanation": "Antiguo portero",
       "posibilyInputs": ["Nemesio", "Escondite"],
       "isShowing": false,
       "isMissing": true
@@ -538,42 +538,42 @@
     },
     {
       "fullName": "Agustin",
-      "explanation": "Companero fernando",
+      "explanation": "Compañero Fernando",
       "posibilyInputs": ["Agustin"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Alba",
-      "explanation": "Ex-mujer diego",
+      "explanation": "Ex-mujer Diego",
       "posibilyInputs": ["Alba"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Alfonso",
-      "explanation": "Sobrino Padre paulino",
+      "explanation": "Sobrino Padre Paulino",
       "posibilyInputs": ["Alfonso"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Alfonso Iglesias",
-      "explanation": "Periodista huelga de hambre",
+      "explanation": "Periodista huelga hambre",
       "posibilyInputs": ["Alfonso", "Iglesias"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Amancio",
-      "explanation": "Compañero residencia marisa concha",
+      "explanation": "Compañero residencia Marisa Concha",
       "posibilyInputs": ["Amancio"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Amparo",
-      "explanation": "abuela roberto",
+      "explanation": "Abuela Roberto",
       "posibilyInputs": ["Amparo"],
       "isShowing": false,
       "isMissing": true
@@ -594,14 +594,14 @@
     },
     {
       "fullName": "Angeles",
-      "explanation": "cacatua",
+      "explanation": "Cacatua",
       "posibilyInputs": ["Angeles", "Cacatua"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Antonia Martin",
-      "explanation": "Madre emilio",
+      "explanation": "Madre Emilio",
       "posibilyInputs": ["Antonia", "Martin"],
       "isShowing": false,
       "isMissing": true
@@ -615,14 +615,14 @@
     },
     {
       "fullName": "Antonio Rubio Cortes",
-      "explanation": "Marido de concha",
+      "explanation": "Marido Concha",
       "posibilyInputs": ["Antonio", "Rubio", "Cortes"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Antonio alonso",
-      "explanation": "Padre roberto",
+      "explanation": "Padre Roberto",
       "posibilyInputs": ["Antonio", "alonso"],
       "isShowing": false,
       "isMissing": true
@@ -636,14 +636,14 @@
     },
     {
       "fullName": "Arsenio Hurtado",
-      "explanation": "Padre paloma",
+      "explanation": "Padre Paloma",
       "posibilyInputs": ["Arsenio", "Hurtado"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Arturo Lopez",
-      "explanation": "Padre de belen",
+      "explanation": "Padre Belen",
       "posibilyInputs": ["Arturo", "Lopez", "odontologo"],
       "isShowing": false,
       "isMissing": true
@@ -657,7 +657,7 @@
     },
     {
       "fullName": "Beatriz",
-      "explanation": "Ex de armando",
+      "explanation": "Ex Armando",
       "posibilyInputs": ["Beatriz"],
       "isShowing": false,
       "isMissing": true
@@ -671,7 +671,7 @@
     },
     {
       "fullName": "Benigno Lopera",
-      "explanation": "Ex de carmen",
+      "explanation": "Ex Carmen",
       "posibilyInputs": ["Benigno", "Lopera", "Beni"],
       "isShowing": false,
       "isMissing": true
@@ -685,14 +685,14 @@
     },
     {
       "fullName": "Bruno",
-      "explanation": "Cita belen",
+      "explanation": "Cita Belen",
       "posibilyInputs": ["Bruno"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Carla",
-      "explanation": "Amiga de isabel",
+      "explanation": "Amiga Isabel",
       "posibilyInputs": ["Carla"],
       "isShowing": false,
       "isMissing": true
@@ -713,42 +713,42 @@
     },
     {
       "fullName": "Ciriaco Canovas",
-      "explanation": "anterior propietario del 3A",
+      "explanation": "Anterior propietario 3A",
       "posibilyInputs": ["Ciriaco", "Canovas"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Clara Alvarez",
-      "explanation": "Hermana de lucia",
+      "explanation": "Hermana Lucia",
       "posibilyInputs": ["Clara", "Alvarez"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Concejal Galvez",
-      "explanation": "Concejal de urbanismo",
+      "explanation": "Concejal Urbanismo",
       "posibilyInputs": ["Concejal", "Galvez"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Consuelo Garcia",
-      "explanation": "Madre isabel",
+      "explanation": "Madre Isabel",
       "posibilyInputs": ["Consuelo", "Garcia"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Coronel Treviño",
-      "explanation": "Padre maria yakubu",
+      "explanation": "Padre Maria Treviño",
       "posibilyInputs": ["Coronel", "Treviño"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Daniel",
-      "explanation": "Director supermercado",
+      "explanation": "Director Supermercado",
       "posibilyInputs": ["Daniel"],
       "isShowing": false,
       "isMissing": true
@@ -769,14 +769,14 @@
     },
     {
       "fullName": "Don Gustavo",
-      "explanation": "Director del colegio",
+      "explanation": "Director Colegio",
       "posibilyInputs": ["Gustavo"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Don Ramon",
-      "explanation": "Jefe bufete abogados",
+      "explanation": "Jefe bufete",
       "posibilyInputs": ["Ramon"],
       "isShowing": false,
       "isMissing": true
@@ -784,14 +784,14 @@
     {
       "fullName": "El Jupa",
       "explanation": "Niño adopatado mauri",
-      "posibilyInputs": ["Jupa"],
+      "posibilyInputs": ["Jupa", "Chechu"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Enrique Navarro",
-      "explanation": "Padre fernando",
-      "posibilyInputs": ["Enrique", "Navarro"],
+      "explanation": "Padre Fernando",
+      "posibilyInputs": ["Enrique", "Navarro", "Delito"],
       "isShowing": false,
       "isMissing": true
     },
@@ -810,9 +810,9 @@
       "isMissing": true
     },
     {
-      "fullName": "Farineli",
-      "explanation": "perro Mariano",
-      "posibilyInputs": ["Farineli"],
+      "fullName": "Farinelli",
+      "explanation": "Perro Mariano",
+      "posibilyInputs": ["Farinelli"],
       "isShowing": false,
       "isMissing": true
     },
@@ -825,7 +825,7 @@
     },
     {
       "fullName": "Fidel",
-      "explanation": "Abuelo bea",
+      "explanation": "Abuelo Bea",
       "posibilyInputs": ["Fidel"],
       "isShowing": false,
       "isMissing": true
@@ -847,7 +847,7 @@
     {
       "fullName": "Guillermo",
       "explanation": "Homofobo",
-      "posibilyInputs": ["Guillermo"],
+      "posibilyInputs": ["Guillermo", "maricones"],
       "isShowing": false,
       "isMissing": true
     },
@@ -881,28 +881,28 @@
     },
     {
       "fullName": "Isabel Muñoz",
-      "explanation": "Ex-mujer rafael",
+      "explanation": "Ex-mujer Rafael",
       "posibilyInputs": ["Isabel", "Muñoz"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Jaime",
-      "explanation": "Informatico mauri",
+      "explanation": "Informatico Mauri",
       "posibilyInputs": ["Jaime", "Cookies", "Informatico"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Jose Antonio Bellesteros",
-      "explanation": "padre lourdes",
+      "explanation": "Padre Lourdes",
       "posibilyInputs": ["Jose", "Antonio", "Bellesteros"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Joselito",
-      "explanation": "canario",
+      "explanation": "Canario",
       "posibilyInputs": ["Joselito", "Canario"],
       "isShowing": false,
       "isMissing": true
@@ -923,14 +923,14 @@
     },
     {
       "fullName": "Julian",
-      "explanation": "Amigo mauri",
+      "explanation": "Amigo Mauri",
       "posibilyInputs": ["Julian"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Justiniana",
-      "explanation": "Abuela bea",
+      "explanation": "Abuela Bea",
       "posibilyInputs": ["Justiniana", "Justi"],
       "isShowing": false,
       "isMissing": true
@@ -944,8 +944,8 @@
     },
     {
       "fullName": "La tia Choni",
-      "explanation": "Tia Jose maria",
-      "posibilyInputs": ["Choni"],
+      "explanation": "Tia Jose Maria",
+      "posibilyInputs": ["Choni", "Tia"],
       "isShowing": false,
       "isMissing": true
     },
@@ -958,14 +958,14 @@
     },
     {
       "fullName": "Lourdes",
-      "explanation": "Novia paco",
+      "explanation": "Novia Paco",
       "posibilyInputs": ["Lourdes"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Manolo",
-      "explanation": "Ex/marido Marisa",
+      "explanation": "Ex-marido Marisa",
       "posibilyInputs": ["Manolo"],
       "isShowing": false,
       "isMissing": true
@@ -979,7 +979,7 @@
     },
     {
       "fullName": "Maria Treviño",
-      "explanation": "Amante yakubu",
+      "explanation": "Amante Yakubu",
       "posibilyInputs": ["Maria", "Treviño"],
       "isShowing": false,
       "isMissing": true
@@ -1000,14 +1000,14 @@
     },
     {
       "fullName": "Mehmet",
-      "explanation": "Esposo albanes natalia",
+      "explanation": "Esposo albanes Natalia",
       "posibilyInputs": ["Mehmet"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Menchu",
-      "explanation": "Amante mariano",
+      "explanation": "Amante Mariano",
       "posibilyInputs": ["Menchu"],
       "isShowing": false,
       "isMissing": true
@@ -1056,7 +1056,7 @@
     },
     {
       "fullName": "Nuria",
-      "explanation": "Ex de roberto",
+      "explanation": "Ex-novia roberto",
       "posibilyInputs": ["Nuria"],
       "isShowing": false,
       "isMissing": true
@@ -1091,28 +1091,28 @@
     },
     {
       "fullName": "Pedro Peñafiel",
-      "explanation": "Ex/marido belen",
+      "explanation": "Ex-marido belen",
       "posibilyInputs": ["Pedro", "Peñafiel"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Ramiro Villanueva",
-      "explanation": "Padre de carmen",
+      "explanation": "Padre Carmen",
       "posibilyInputs": ["Ramiro", "Villanueva"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Ramon",
-      "explanation": "Amante paloma",
-      "posibilyInputs": ["Ramon"],
+      "explanation": "Amante Paloma",
+      "posibilyInputs": ["Ramon", "Aspiradoras"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Raul",
-      "explanation": "Companero uni mauri",
+      "explanation": "Companero uni Mauri",
       "posibilyInputs": ["Raul"],
       "isShowing": false,
       "isMissing": true
@@ -1126,77 +1126,77 @@
     },
     {
       "fullName": "Rosa Izquierdo",
-      "explanation": "Novia bea",
+      "explanation": "Novia Bea",
       "posibilyInputs": ["Rosa", "Izquierdo"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Salva",
-      "explanation": "Hermano bea",
+      "explanation": "Hermano Bea",
       "posibilyInputs": ["Salva"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Santiago Segura",
-      "explanation": "",
+      "explanation": "Parlita",
       "posibilyInputs": ["Santiago", "segura", "Parlita"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Sauron",
-      "explanation": "Perro mauri",
+      "explanation": "Perro Mauri",
       "posibilyInputs": ["Sauron"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Señorita Marga",
-      "explanation": "Ex profesora de mauri",
+      "explanation": "Ex-profesora Mauri",
       "posibilyInputs": ["Señorita", "Marga"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Sonia",
-      "explanation": "Amiga bea",
+      "explanation": "Amiga Bea",
       "posibilyInputs": ["Sonia"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Teresa Castillo",
-      "explanation": "Madre de roberto",
+      "explanation": "Madre Roberto",
       "posibilyInputs": ["Teresa", "Castillo"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Toñi",
-      "explanation": "Madre paloma",
+      "explanation": "Madre Paloma",
       "posibilyInputs": ["Toñi"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Valentin",
-      "explanation": "Perro vicenta",
+      "explanation": "Perro Vicenta",
       "posibilyInputs": ["Valentin"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Versace",
-      "explanation": "Conejo mauri",
+      "explanation": "Conejo Mauri",
       "posibilyInputs": ["Versace"],
       "isShowing": false,
       "isMissing": true
     },
     {
       "fullName": "Victoria Peña",
-      "explanation": "Madre alicia",
+      "explanation": "Madre Alicia",
       "posibilyInputs": ["Victoria", "Peña"],
       "isShowing": false,
       "isMissing": true
@@ -1210,7 +1210,7 @@
     },
     {
       "fullName": "Yolanda-Pedro",
-      "explanation": "Amigo mauri",
+      "explanation": "Amigo Mauri",
       "posibilyInputs": ["Yolanda", "Pedro"],
       "isShowing": false,
       "isMissing": true
@@ -1252,7 +1252,7 @@
     },
     {
       "fullName": "Ricardo",
-      "explanation": "Novio alicia",
+      "explanation": "Novio Alicia",
       "posibilyInputs": ["Ricardo"],
       "isShowing": false,
       "isMissing": true
