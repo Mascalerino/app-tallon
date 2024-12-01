@@ -1,0 +1,42 @@
+/* General */
+.navbar {
+  z-index: 10;
+}
+
+.navbar-brand i {
+  font-size: 1.5rem;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand i:hover {
+  color: #0056b3;
+}
+
+/* Flecha de volver atrás */
+.btn-outline-primary {
+  font-size: 1.5rem; /* Tamaño de la flecha */
+  border: none; /* Quita los bordes */
+  color: #007bff; /* Color de la flecha */
+}
+
+.btn-outline-primary:hover {
+  color: #0056b3;
+  background-color: transparent; /* Sin fondo */
+}
+
+/* Enlaces de navegación */
+.nav-link {
+  color: #212529;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #007bff; /* Azul para página activa */
+}
+
+.nav-link:hover {
+  color: #0056b3; /* Azul oscuro al pasar el ratón */
+}

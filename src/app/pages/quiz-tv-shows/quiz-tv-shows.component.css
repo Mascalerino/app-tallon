@@ -6,22 +6,20 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-image: url("/assets/quiz-tv-shows/img/fondo.jpg"); /* Ruta corregida */
-  background-size: cover;
-  background-position: center;
   position: relative; /* Necesario para posicionar los elementos encima */
+  background-color: #f8f9fa; /* Fondo blanco o gris claro */
 }
 
 /* Título centrado arriba */
 h1 {
   position: absolute;
-  top: 10px;
+  top: 20px;
   font-size: 2.5rem;
-  color: #ffffff;
+  color: #212529; /* Texto oscuro */
   text-align: center;
   margin: 0;
   z-index: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Añade sombra para mejorar la legibilidad */
+  text-shadow: none; /* Quita la sombra para fondo sin imagen */
 }
 
 /* Contenedor de botones alineados horizontalmente */
@@ -51,4 +49,9 @@ h1 {
     255,
     1
   ); /* Color del fondo del botón al pasar el ratón */
+}
+
+/* Fondo para cuando no hay imagen */
+.no-background {
+  background-color: #f8f9fa; /* Fondo blanco o gris claro */
 }

@@ -11,6 +11,7 @@ import { MusicPlayerComponent } from './pages/sheet-music-viewer/music-player/mu
 import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.component';
 import { QuizTableComponent } from './components/quiz-table/quiz-table.component';
 import { PanelComponent } from './components/panel/panel.component';
+import { TopNavComponent } from './components/top-nav/top-nav.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PanelComponent } from './components/panel/panel.component';
     PagesComponent,
     QuizTableComponent,
     PanelComponent,
+    TopNavComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],
