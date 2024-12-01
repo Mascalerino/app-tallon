@@ -18,6 +18,10 @@ export class CharactersComponent implements OnInit {
   totalCharacters: number = 0;
   points: number = 0;
   foundMatch: boolean = false;
+  isPanelVisible: boolean = true;
+  panelTitle: string = '';
+  panelText: string = '';
+  panelText2: string = '';
 
   // Propiedades para los personajes
   characters1A: ICharacter[] = [];
@@ -56,6 +60,15 @@ export class CharactersComponent implements OnInit {
     this.totalCharacters = this.characterService.getTotalCharacters();
     this.getCharactersByFloor();
     this.characterOtrosColumns = splitDataIntoColumns(this.characterOtros, 5);
+    this.panelTitle = 'Instrucciones';
+    this.panelText =
+      'Encuentra todos los personajes principales y secundarios de Aqui No Hay Quien Viva.';
+    this.panelText2 =
+      'Escribe el nombre/apellido de un personaje en el cuadro de búsqueda para encontrarlo.';
+  }
+
+  closePanel(): void {
+    this.isPanelVisible = false;
   }
 
   /**

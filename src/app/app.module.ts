@@ -10,6 +10,7 @@ import { SheetMusicViewerComponent } from './pages/sheet-music-viewer/sheet-musi
 import { MusicPlayerComponent } from './pages/sheet-music-viewer/music-player/music-player.component';
 import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.component';
 import { QuizTableComponent } from './components/quiz-table/quiz-table.component';
+import { PanelComponent } from './components/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { QuizTableComponent } from './components/quiz-table/quiz-table.component
     MusicPlayerComponent,
     PagesComponent,
     QuizTableComponent,
+    PanelComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],

@@ -1,4 +1,11 @@
 <div class="characters-container">
+  <app-panel
+    [title]="panelTitle"
+    [text]="panelText"
+    [text2]="panelText2"
+    [isVisible]="isPanelVisible"
+    (continue)="closePanel()"
+  ></app-panel>
   <!-- Primer Contenedor con las tablas (2B y las demás) -->
   <div class="row mb-4">
     <!-- Columna para la tabla 2B -->
