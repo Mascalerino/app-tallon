@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   hideAllData,
+  isSomeDataShowing,
   showAllData,
   showAllDataAndNoMissing,
   splitDataIntoColumns,
@@ -178,7 +179,13 @@ export class CharactersComponent implements OnInit {
    * y actualiza el puntaje
    */
   onlyPlayOthers(): void {
-    this.resetQuiz();
+    const pointsNotOtros = this.totalCharacters - this.characterOtros.length;
+    if (isSomeDataShowing(this.characterOtros) === false) {
+      this.resetQuiz();
+      this.points = pointsNotOtros;
+    } else {
+      this.points += pointsNotOtros;
+    }
     showAllDataAndNoMissing(this.characters1A);
     showAllDataAndNoMissing(this.characters1B);
     showAllDataAndNoMissing(this.characters2A);
@@ -198,8 +205,6 @@ export class CharactersComponent implements OnInit {
     this.isFilledAtico = true;
     this.isFilledPorteria = true;
     this.isFilledVideoclub = true;
-
-    this.points = this.totalCharacters - this.characterOtros.length;
   }
 
   /**

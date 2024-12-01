@@ -51,3 +51,12 @@ export const hideAllData = (data: (ICharacter | IEpisode)[]): void => {
     element.isMissing = true;
   });
 };
+
+/**
+ * Metodo para verificar si algun elemento se esta mostrando
+ * @param data
+ * @returns
+ */
+export const isSomeDataShowing = (data: (ICharacter | IEpisode)[]): boolean => {
+  return data.some((element) => element.isShowing);
+};
