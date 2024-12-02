@@ -9,112 +9,36 @@
   <!-- Contendor de las temporadas 1 2 4 5 -->
   <div class="row mb-4">
     <div class="col-3">
-      <table class="table" [ngClass]="{ 'table-success': isFilledSeason1 }">
-        <thead>
-          <tr>
-            <th>Temporada 1</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let episode of episodesSeason1">
-            <td
-              *ngIf="episode.isShowing"
-              [ngClass]="{
-                highlight: episode.isShowing && episode.isMissing === false,
-                'table-danger': episode.isMissing
-              }"
-            >
-              <span class="ms-2">
-                1x{{
-                  episode.episode < 10 ? "0" + episode.episode : episode.episode
-                }}
-              </span>
-              <span class="full-name">- {{ episode.fullName }}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <quiz-table
+        [tableTitle]="'Temporada 1'"
+        [data]="episodesSeason1"
+        [isFilled]="isFilledSeason1"
+        [dataType]="'episodes'"
+      ></quiz-table>
     </div>
     <div class="col-3">
-      <table class="table" [ngClass]="{ 'table-success': isFilledSeason2 }">
-        <thead>
-          <tr>
-            <th>Temporada 2</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let episode of episodesSeason2">
-            <td
-              *ngIf="episode.isShowing"
-              [ngClass]="{
-                highlight: episode.isShowing && episode.isMissing === false,
-                'table-danger': episode.isMissing
-              }"
-            >
-              <span class="ms-2">
-                2x{{
-                  episode.episode < 10 ? "0" + episode.episode : episode.episode
-                }}
-              </span>
-              <span class="full-name">- {{ episode.fullName }}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <quiz-table
+        [tableTitle]="'Temporada 2'"
+        [data]="episodesSeason2"
+        [isFilled]="isFilledSeason2"
+        [dataType]="'episodes'"
+      ></quiz-table>
     </div>
     <div class="col-3">
-      <table class="table" [ngClass]="{ 'table-success': isFilledSeason4 }">
-        <thead>
-          <tr>
-            <th>Temporada 4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let episode of episodesSeason4">
-            <td
-              *ngIf="episode.isShowing"
-              [ngClass]="{
-                highlight: episode.isShowing && episode.isMissing === false,
-                'table-danger': episode.isMissing
-              }"
-            >
-              <span class="ms-2">
-                4x{{
-                  episode.episode < 10 ? "0" + episode.episode : episode.episode
-                }}
-              </span>
-              <span class="full-name">- {{ episode.fullName }}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <quiz-table
+        [tableTitle]="'Temporada 4'"
+        [data]="episodesSeason4"
+        [isFilled]="isFilledSeason4"
+        [dataType]="'episodes'"
+      ></quiz-table>
     </div>
     <div class="col-3">
-      <table class="table" [ngClass]="{ 'table-success': isFilledSeason5 }">
-        <thead>
-          <tr>
-            <th>Temporada 5</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let episode of episodesSeason5">
-            <td
-              *ngIf="episode.isShowing"
-              [ngClass]="{
-                highlight: episode.isShowing && episode.isMissing === false,
-                'table-danger': episode.isMissing
-              }"
-            >
-              <span class="ms-2">
-                5x{{
-                  episode.episode < 10 ? "0" + episode.episode : episode.episode
-                }}
-              </span>
-              <span class="full-name">- {{ episode.fullName }}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <quiz-table
+        [tableTitle]="'Temporada 5'"
+        [data]="episodesSeason5"
+        [isFilled]="isFilledSeason5"
+        [dataType]="'episodes'"
+      ></quiz-table>
     </div>
   </div>
   <!-- Contendor del input y botones -->
