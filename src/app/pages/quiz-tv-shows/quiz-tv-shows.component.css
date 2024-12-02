@@ -30,8 +30,7 @@ h1 {
 }
 
 /* Botones */
-.btn-personajes,
-.btn-episodes {
+.btn-quiz {
   font-size: 1.5rem;
   padding: 15px 30px;
   background-color: rgba(0, 123, 255, 0.7); /* Color de fondo del botón */

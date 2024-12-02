@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';
-import { QuizTvShowsComponent } from './pages/quiz-tv-shows/quiz-tv-shows.component';
-import { CharactersComponent } from './pages/quiz-tv-shows/characters/characters.component';
-import { SheetMusicViewerComponent } from './pages/sheet-music-viewer/sheet-music-viewer.component';
-import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.component';
 
 const routes: Routes = [
-  { path: '', component: PagesComponent }, // Página principal
-  { path: 'quiz-tv-shows', component: QuizTvShowsComponent }, // Ruta para el Quiz
-  { path: 'quiz-tv-shows/characters', component: CharactersComponent }, // Ruta independiente para CharactersComponent
-  { path: 'quiz-tv-shows/episodes', component: EpisodesComponent }, // Ruta independiente para EpisodesComponent
-  { path: 'sheet-music-viewer', component: SheetMusicViewerComponent }, // Ruta para el visor de partituras
-  { path: '**', redirectTo: '', pathMatch: 'full' }, // Redirige rutas no válidas a la página principal
+  {
+    path: '',
+    component: PagesComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '', // Ruta comodín para redirigir a la raíz
+  },
 ];
 
 @NgModule({
