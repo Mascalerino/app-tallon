@@ -7,7 +7,7 @@
     (continue)="closePanel()"
   ></app-panel>
   <!-- Primer Contenedor con las tablas (2B y las demás) -->
-  <div class="row mb-4">
+  <div *ngIf="!hideOtherTables" class="row mb-4">
     <!-- Columna para la tabla 2B -->
     <div class="col-3">
       <quiz-table
@@ -116,7 +116,10 @@
         />
         <span class="ms-3">{{ points }}/{{ totalCharacters }}</span>
       </div>
-      <!-- Botón para reiniciar el quiz -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-center align-items-center mb-3">
       <button class="btn btn-danger ms-2" (click)="resetQuiz()">
         Reiniciar
       </button>

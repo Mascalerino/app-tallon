@@ -23,6 +23,7 @@ export class CharactersComponent implements OnInit {
   panelTitle: string = '';
   panelText: string = '';
   panelText2: string = '';
+  hideOtherTables: boolean = false;
 
   // Propiedades para los personajes
   characters1A: ICharacter[] = [];
@@ -115,6 +116,7 @@ export class CharactersComponent implements OnInit {
     this.points = 0; // Resetear el puntaje
     this.searchTerm = ''; // Limpiar el término de búsqueda
     this.foundMatch = false; // Restablecer la coincidencia encontrada
+    this.hideOtherTables = false; // Mostrar todas las tablas
 
     // Reiniciar todos los personajes y las tablas
     hideAllData(this.characters1A);
@@ -205,6 +207,8 @@ export class CharactersComponent implements OnInit {
     this.isFilledAtico = true;
     this.isFilledPorteria = true;
     this.isFilledVideoclub = true;
+
+    this.hideOtherTables = true;
   }
 
   /**

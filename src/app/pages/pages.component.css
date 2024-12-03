@@ -1,7 +1,9 @@
 /* Fondo general */
 .bg-primary {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("/assets/images/background.jpg"); /* Cambia esta ruta si es necesario */
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6)
+  ); /* Cambia esta ruta si es necesario */
   background-size: cover;
   background-position: center;
   min-height: 100vh; /* Altura mínima de la pantalla */
