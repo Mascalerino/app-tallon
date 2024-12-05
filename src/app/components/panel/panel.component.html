@@ -1,28 +1,10 @@
-<div
-  class="d-flex justify-content-center align-items-center vh-100"
-  *ngIf="isVisible"
->
-  <div
-    class="card text-center shadow-lg"
-    style="max-width: 600px; width: 100%; padding: 20px"
-  >
-    <div class="card-body">
-      <h4 class="card-title" style="font-size: 1.75rem; margin-bottom: 20px">
-        {{ title }}
-      </h4>
-      <p class="card-text" style="font-size: 1.25rem; margin-bottom: 20px">
-        {{ text }}
-      </p>
-      <p class="card-text" style="font-size: 1.25rem; margin-bottom: 30px">
-        {{ text2 }}
-      </p>
-      <button
-        class="btn btn-success btn-lg"
-        style="padding: 10px 20px; font-size: 1.25rem"
-        (click)="onContinue()"
-      >
-        Continuar
-      </button>
-    </div>
+<div *ngIf="isVisible" class="panel-overlay">
+  <div class="card text-center">
+    <h1 class="card-title">{{ title }}</h1>
+    <p class="card-text">{{ text }}</p>
+    <p class="card-text">{{ text2 }}</p>
+    <button class="btn btn-primary btn-lg" (click)="onContinue()">
+      Continuar
+    </button>
   </div>
 </div>

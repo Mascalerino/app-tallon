@@ -16,6 +16,10 @@ export class QuotesComponent implements OnInit {
   score: number = 0;
   totalQuotes: number = 0;
   remainingQuotes: number = 0;
+  isPanelVisible: boolean = true;
+  panelTitle: string = '';
+  panelText: string = '';
+  panelText2: string = '';
 
   constructor(private quotesService: QuotesService) {}
 
@@ -23,6 +27,15 @@ export class QuotesComponent implements OnInit {
     this.totalQuotes = this.quotesService.getTotalQuotesCount();
     this.remainingQuotes = this.totalQuotes;
     this.loadRandomQuote();
+    this.panelTitle = 'Instrucciones';
+    this.panelText =
+      'Escribe el nombre y pulsa "Enter" para comprobar si es correcto.';
+    this.panelText2 =
+      'Si fallas, se mostrará la respuesta correcta. Y aparecerá una nueva frase.';
+  }
+
+  closePanel(): void {
+    this.isPanelVisible = false;
   }
 
   loadRandomQuote(): void {

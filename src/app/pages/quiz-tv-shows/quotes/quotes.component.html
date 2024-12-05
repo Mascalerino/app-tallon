@@ -1,4 +1,11 @@
 <div class="quote-container">
+  <app-panel
+    [title]="panelTitle"
+    [text]="panelText"
+    [text2]="panelText2"
+    [isVisible]="isPanelVisible"
+    (continue)="closePanel()"
+  ></app-panel>
   <h3 class="text-center">Puntuación: {{ score }}/{{ totalQuotes }}</h3>
 
   <p *ngIf="randomQuote" class="quote-text">{{ randomQuote }}</p>
