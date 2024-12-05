@@ -5,12 +5,14 @@ import { QuizTvShowsComponent } from './pages/quiz-tv-shows/quiz-tv-shows.compon
 import { CharactersComponent } from './pages/quiz-tv-shows/characters/characters.component';
 import { SheetMusicViewerComponent } from './pages/sheet-music-viewer/sheet-music-viewer.component';
 import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.component';
+import { QuotesComponent } from './pages/quiz-tv-shows/quotes/quotes.component';
 
 const routes: Routes = [
   { path: '', component: PagesComponent }, // Página principal
   { path: 'quiz-tv-shows', component: QuizTvShowsComponent }, // Ruta para el Quiz
   { path: 'quiz-tv-shows/characters', component: CharactersComponent }, // Ruta independiente para CharactersComponent
   { path: 'quiz-tv-shows/episodes', component: EpisodesComponent }, // Ruta independiente para EpisodesComponent
+  { path: 'quiz-tv-shows/quotes', component: QuotesComponent }, // Ruta independiente para EpisodesComponent
   { path: 'sheet-music-viewer', component: SheetMusicViewerComponent }, // Ruta para el visor de partituras
   { path: '**', redirectTo: '', pathMatch: 'full' }, // Redirige rutas no válidas a la página principal
 ];

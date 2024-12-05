@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que el body ocupe toda la ventana */
+  margin: 0; /* Elimina márgenes del body */
+  background-color: #f9f9f9; /* Color de fondo opcional */
+}
+
+.quote-container {
+  max-width: 600px; /* Ancho máximo del recuadro */
+  padding: 20px; /* Espaciado interno */
+  border: 2px solid #ccc; /* Borde gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: white; /* Fondo blanco del recuadro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}
+
+.quote-text {
+  font-size: 1.5rem; /* Tamaño de fuente grande */
+  font-style: italic; /* Texto en cursiva */
+  text-align: center; /* Alineación centrada */
+  margin-bottom: 20px; /* Espaciado inferior */
+}
+
+.text-success {
+  color: green; /* Color verde para mensajes correctos */
+}
+
+.text-danger {
+  color: red; /* Color rojo para mensajes incorrectos */
+}
+
+.text-primary {
+  color: blue; /* Color azul para mensajes informativos */
+}

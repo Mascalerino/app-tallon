@@ -12,6 +12,7 @@ import { EpisodesComponent } from './pages/quiz-tv-shows/episodes/episodes.compo
 import { QuizTableComponent } from './components/quiz-table/quiz-table.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
+import { QuotesComponent } from './pages/quiz-tv-shows/quotes/quotes.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TopNavComponent } from './components/top-nav/top-nav.component';
     QuizTvShowsComponent,
     CharactersComponent,
     EpisodesComponent,
+    QuotesComponent,
     SheetMusicViewerComponent,
     MusicPlayerComponent,
     PagesComponent,
