@@ -1,36 +1,90 @@
+/* Estilo base */
 body {
+  margin: 0;
+  background-color: #f9f9f9; /* Fondo opcional */
+  height: 100vh; /* Asegura que el body ocupa toda la ventana */
+  position: relative; /* Necesario para usar posicionamiento absoluto dentro del body */
+}
+
+/* Recuadro principal */
+.quote-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Porcentaje para pantallas pequeñas */
+  max-width: 600px; /* Limita el ancho máximo */
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Asegura que el body ocupe toda la ventana */
-  margin: 0; /* Elimina márgenes del body */
-  background-color: #f9f9f9; /* Color de fondo opcional */
+  text-align: center;
 }
 
-.quote-container {
-  max-width: 600px; /* Ancho máximo del recuadro */
-  padding: 20px; /* Espaciado interno */
-  border: 2px solid #ccc; /* Borde gris claro */
-  border-radius: 8px; /* Bordes redondeados */
-  background-color: white; /* Fondo blanco del recuadro */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-}
-
+/* Texto de la frase */
 .quote-text {
-  font-size: 1.5rem; /* Tamaño de fuente grande */
-  font-style: italic; /* Texto en cursiva */
-  text-align: center; /* Alineación centrada */
-  margin-bottom: 20px; /* Espaciado inferior */
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 20px;
 }
 
+/* Input */
+input {
+  width: 100%; /* El input ocupa todo el ancho disponible */
+  max-width: 500px; /* Limita el ancho en pantallas grandes */
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Colores para mensajes de feedback */
 .text-success {
-  color: green; /* Color verde para mensajes correctos */
+  color: green;
 }
 
 .text-danger {
-  color: red; /* Color rojo para mensajes incorrectos */
+  color: red;
 }
 
 .text-primary {
-  color: blue; /* Color azul para mensajes informativos */
+  color: blue;
+}
+
+/* Media Queries para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .quote-container {
+    padding: 15px; /* Reduce el espaciado interno */
+    max-width: 90%; /* Ajusta el ancho máximo */
+  }
+
+  .quote-text {
+    font-size: 1.2rem; /* Reduce el tamaño del texto */
+  }
+
+  input {
+    font-size: 0.9rem; /* Reduce el tamaño del input */
+  }
+}
+
+/* Media Queries para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .quote-container {
+    padding: 10px; /* Reduce aún más el espaciado interno */
+    max-width: 95%; /* Ajusta el ancho para móviles */
+  }
+
+  .quote-text {
+    font-size: 1rem; /* Reduce el tamaño del texto */
+  }
+
+  input {
+    font-size: 0.8rem; /* Reduce el tamaño del input */
+  }
 }
