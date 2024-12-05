@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as pdfjsLib from 'pdfjs-dist';
-import * as JSZip from 'jszip';
 import { HttpClient } from '@angular/common/http';
 import { PdfLoaderService } from 'src/app/services/pdf-loader.service';
+import JSZip from 'jszip';
 const FileSaver = require('file-saver');
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
