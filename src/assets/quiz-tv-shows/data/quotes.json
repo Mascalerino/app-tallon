@@ -10,7 +10,8 @@
       "Si no me acuerdo de los nombres, me voy a acordar de los teléfonos",
       "¡Qué mala es la envidia!",
       "¿Cada vez que ves un tío guapo tiene que ser gay?"
-    ]
+    ],
+    "posibilyInputs": ["Alicia"]
   },
   "Andres": {
     "quotes": [
@@ -19,7 +20,8 @@
       "Tengo un amigo que nos lo hace más barato",
       "Tú y yo hemos conectado",
       "¡Deportes Guerra, campo, playa y sierra!"
-    ]
+    ],
+    "posibilyInputs": ["Andres"]
   },
   "Belen": {
     "quotes": [
@@ -39,7 +41,8 @@
       "Yo de pequeña hacía gimnasia rítmica y tengo los músculos de la vagina muy desarrollados",
       "Yo quiero ir a las Seychelles",
       "Yo vestida engaño mucho"
-    ]
+    ],
+    "posibilyInputs": ["Belen"]
   },
   "Concha": {
     "quotes": [
@@ -53,7 +56,8 @@
       "¡Cállese, señor Cuesta! ¡Cállese!.",
       "¡Golfas!",
       "¡Que no son horas!"
-    ]
+    ],
+    "posibilyInputs": ["Concha"]
   },
   "Emilio": {
     "quotes": [
@@ -86,11 +90,12 @@
       "¿A esto lo llaman flauta dulce? ¡Pero si no sabe a nada!",
       "¿Te pelo un kiwi?",
       "¿Tinto verdad?"
-    ]
+    ],
+    "posibilyInputs": ["Emilio"]
   },
   "Isabel": {
     "quotes": [
-      "Ah bueno para entonces ya nos ah dado tiempo a aprender chino",
+      "Ah bueno para entonces ya nos ha dado tiempo a aprender chino",
       "Dialoga con tu miedo, dile: 'Hola, ¿qué quieres de mí?'",
       "Jose Miguel, pinta un bufalo, en la pared",
       "La vida son ciclos: hay ciclos que estás ¡plof! y hay ciclos que estás ¡uh!",
@@ -104,10 +109,12 @@
       "Uh, ¡qué estrés todo! Yo me voy a hacer una pipa",
       "Y dale con Ana Rosa Quintana",
       "¿Y la eutanasia me la cubre la seguridad social o me va a dejar sufrir?"
-    ]
+    ],
+    "posibilyInputs": ["Isabel", "Ruiz", "Hierbas", "Isa"]
   },
   "Jose María": {
-    "quotes": ["Hombre, ¿Es que asfalto no?"]
+    "quotes": ["Hombre, ¿Es que asfalto no?"],
+    "posibilyInputs": ["Jose Maria"]
   },
   "José Miguel": {
     "quotes": [
@@ -125,7 +132,8 @@
       "Yo voy haciendo una lista de geriátricos para planificar mi venganza",
       "¡Me estoy peinando!",
       "¿Hamburguesas vegetales? Eso es una contradicción en sí misma"
-    ]
+    ],
+    "posibilyInputs": ["Jose Miguel", "Josemi"]
   },
   "Juan Cuesta": {
     "quotes": [
@@ -149,7 +157,8 @@
       "¡Qué follón!",
       "¡Viejas de mierda!",
       "¿Pero tu eres tonto chaval?"
-    ]
+    ],
+    "posibilyInputs": ["Juan"]
   },
   "Lucía": {
     "quotes": [
@@ -163,7 +172,8 @@
       "¡Yo lo único que os pido que no me metáis en esto!",
       "¿Habéis hecho una junta para hundirme?",
       "¿Pero para qué estoy yo aquí? Para hacer feliz a la gente?"
-    ]
+    ],
+    "posibilyInputs": ["Lucia"]
   },
   "Mariano": {
     "quotes": [
@@ -190,7 +200,8 @@
       "¡Somos rumanos peligrosos! ¡Dimitri, pasame el kalashnikov!",
       "¿Es dura la calle?",
       "¿Te saco unas cervecitas para equilibrar el PH?"
-    ]
+    ],
+    "posibilyInputs": ["Mariano"]
   },
   "Marisa": {
     "quotes": [
@@ -222,7 +233,8 @@
       "¡Radio Patio informa!",
       "¡Un desalojo, otra ocupación!",
       "¡Y qué le importa a esta gente lo que me hizo a mí Manolo!"
-    ]
+    ],
+    "posibilyInputs": ["Marisa"]
   },
   "Mauri": {
     "quotes": [
@@ -235,14 +247,16 @@
       "¡Tocala JODER!",
       "¡Vamos a solucionar esto como homosexuales civilizados!",
       "¿Me estáis llamando hetero? Se acabó la fiesta. Fuera todo el mundo."
-    ]
+    ],
+    "posibilyInputs": ["Mauri", "Mauricio"]
   },
   "Padre Miguel": {
     "quotes": [
       "Así podemos poner en el coche mi nuevo single ¡Dale a tu cuerpo alegría, Magdalena!¡Es muy bailable, eh!",
       "Homilía, homilía",
       "Vamos, vamos, que nos casamos"
-    ]
+    ],
+    "posibilyInputs": ["Padre Miguel", "Miguel"]
   },
   "Paloma": {
     "quotes": [
@@ -263,7 +277,8 @@
       "¡PUF! dilo tu Juan dilo ¡PUF!",
       "¿Oye porque no poneis un poquito de musica gay para echarnos un bailecito?",
       "¿Quién manda aquí, Juan?"
-    ]
+    ],
+    "posibilyInputs": ["Paloma"]
   },
   "Roberto": {
     "quotes": [
@@ -272,7 +287,8 @@
       "Si yo antes ligaba, a mí me entraban las tías, y ahora me dejan hasta las feas",
       "Yo soy un tío sensible... Veo La 2",
       "¡Vamos, no me jodas!"
-    ]
+    ],
+    "posibilyInputs": ["Roberto"]
   },
   "Vicenta": {
     "quotes": [
@@ -295,6 +311,7 @@
       "¿Que pin?",
       "¿Y esto es hacer el amor? Parece un poco ridículo...",
       "¿Y para que quereis el cuarto oscuro? ¿Para revelar fotos?"
-    ]
+    ],
+    "posibilyInputs": ["Vicenta"]
   }
 }
