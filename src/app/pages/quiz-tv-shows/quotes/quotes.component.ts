@@ -13,7 +13,8 @@ export class QuotesComponent implements OnInit {
   userInput: string = '';
   feedbackMessage: string = '';
   feedbackClass: string = '';
-  score: number = 0;
+  correctAnswers: number = 0; // Aciertos
+  incorrectAnswers: number = 0; // Fallos
   totalQuotes: number = 0;
   remainingQuotes: number = 0;
   isPanelVisible: boolean = true;
@@ -24,6 +25,12 @@ export class QuotesComponent implements OnInit {
   constructor(private quotesService: QuotesService) {}
 
   ngOnInit(): void {
+    this.initializeGame();
+  }
+
+  initializeGame(): void {
+    this.correctAnswers = 0;
+    this.incorrectAnswers = 0;
     this.totalQuotes = this.quotesService.getTotalQuotesCount();
     this.remainingQuotes = this.totalQuotes;
     this.loadRandomQuote();
@@ -52,8 +59,8 @@ export class QuotesComponent implements OnInit {
   }
 
   checkAnswer(): void {
-    if (!this.randomQuote) {
-      return;
+    if (!this.userInput.trim()) {
+      return; // No hace nada si el input está vacío
     }
 
     const isCorrect = this.possiblyInputs.some(
@@ -63,13 +70,20 @@ export class QuotesComponent implements OnInit {
     if (isCorrect) {
       this.feedbackMessage = '¡Correcto!';
       this.feedbackClass = 'text-success';
-      this.score++;
+      this.correctAnswers++;
     } else {
       this.feedbackMessage = `Incorrecto. La respuesta era: ${this.correctCharacter}`;
       this.feedbackClass = 'text-danger';
+      this.incorrectAnswers++;
     }
 
-    this.userInput = '';
-    this.loadRandomQuote();
+    this.userInput = ''; // Limpia el campo de entrada
+    this.loadRandomQuote(); // Carga una nueva frase
+  }
+
+  resetGame(): void {
+    this.quotesService.initializeQuotesPool(); // Reinicia las frases
+    this.feedbackMessage = ''; // Limpia mensajes de feedback
+    this.initializeGame(); // Reinicia el juego
   }
 }
