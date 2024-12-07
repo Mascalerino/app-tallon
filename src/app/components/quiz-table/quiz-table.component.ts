@@ -10,4 +10,5 @@ export class QuizTableComponent {
   @Input() data: any[] = []; // Datos para poblar la tabla
   @Input() isFilled: boolean = false; // Estado para determinar si está llena
   @Input() dataType: 'characters' | 'episodes' = 'characters'; // Tipo de datos que determina la variante
+  @Input() seasonNumber: number | null = null; // Número de temporada para la variante de episodios
 }

@@ -24,7 +24,7 @@
         <!-- Variante para Episodes -->
         <ng-container *ngIf="dataType === 'episodes'">
           <span class="ms-2">
-            {{ item.seasonKey.replace("Temporada ", "") }}x{{
+            {{ seasonNumber }}x{{
               item.episode < 10 ? "0" + item.episode : item.episode
             }}
           </span>
