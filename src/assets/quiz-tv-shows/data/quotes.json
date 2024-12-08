@@ -44,6 +44,22 @@
     ],
     "posibilyInputs": ["Belen"]
   },
+  "Carlos": {
+    "quotes": [
+      "No me pises las alfombrillas",
+      "Lucía, por favor, dame una oportunidad",
+      "¿Habéis visto como suenan los tonos polifónicos de mi móvil de última generación?",
+      "Hay que lanzarse ahora, que tiene bajas sus defensas de tía buena",
+      "¿Voy gay o no voy gay? Porque no me han dejado entrar en el local",
+      "Lucía, un poco de cabeza. Que son adolescentes que se pueden suicidar, que escuchan a Nirvana",
+      "Perdona, pero yo tengo un máster",
+      "La base del capitalismo es aprovecharse de las desgracias ajenas",
+      "Que ya no es la Pija, que ahora es la Pihippi",
+      "Que yo hago capoeira, ¿eh?",
+      "Que yo he madurado"
+    ],
+    "posibilyInputs": ["Carlos"]
+  },
   "Concha": {
     "quotes": [
       "A mí mi Antonio me dejó bien servida en eso",
@@ -92,6 +108,12 @@
       "¿Tinto verdad?"
     ],
     "posibilyInputs": ["Emilio"]
+  },
+  "Fernando": {
+    "quotes": [
+      "¿De dónde vienen esas corcheas asesinas que entran por el patio?"
+    ],
+    "posibilyInputs": ["Fernando", "Fer"]
   },
   "Isabel": {
     "quotes": [
@@ -286,7 +308,13 @@
       "No estaba tan pillado con una serie desde que a Heidi se le cayó Clarita por un terraplén",
       "Si yo antes ligaba, a mí me entraban las tías, y ahora me dejan hasta las feas",
       "Yo soy un tío sensible... Veo La 2",
-      "¡Vamos, no me jodas!"
+      "¡Vamos, no me jodas!",
+      "Juan, a este edificio no le pasa nada, te lo digo yo que soy arquitecto",
+      "¡Ven aquí que te reviento!",
+      "Yo no soy un tipo violento, pero si quieres salimos fuera",
+      "Carlos, no te obsesiones que te obsesionas",
+      "Oye, que me tengo que ir a comprar unos rotuladores, que me cierran la pastelería, digo, la papelería. Bueno, la pastelería también la cierran, pero vamos, que no necesito nada.",
+      "¡Los cojones!"
     ],
     "posibilyInputs": ["Roberto"]
   },

@@ -63,8 +63,13 @@ export class QuotesComponent implements OnInit {
       return; // No hace nada si el input está vacío
     }
 
+    const normalizeString = (str: string) =>
+      str.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Elimina los acentos
+
     const isCorrect = this.possiblyInputs.some(
-      (input) => input.toLowerCase() === this.userInput.trim().toLowerCase()
+      (input) =>
+        normalizeString(input.toLowerCase()) ===
+        normalizeString(this.userInput.trim().toLowerCase())
     );
 
     if (isCorrect) {

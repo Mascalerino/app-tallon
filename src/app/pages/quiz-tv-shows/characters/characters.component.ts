@@ -24,6 +24,7 @@ export class CharactersComponent implements OnInit {
   panelText: string = '';
   panelText2: string = '';
   hideOtherTables: boolean = false;
+  isGiveUp: boolean = false;
 
   // Propiedades para los personajes
   characters1A: ICharacter[] = [];
@@ -113,6 +114,7 @@ export class CharactersComponent implements OnInit {
    * Reinicia el quiz
    */
   resetQuiz(): void {
+    this.isGiveUp = false; // Restablecer el estado de "rendirse"
     this.points = 0; // Resetear el puntaje
     this.searchTerm = ''; // Limpiar el término de búsqueda
     this.foundMatch = false; // Restablecer la coincidencia encontrada
@@ -174,6 +176,8 @@ export class CharactersComponent implements OnInit {
       (char) => char.isMissing
     );
     this.isFilledOtros = !this.characterOtros.some((char) => char.isMissing);
+
+    this.isGiveUp = true;
   }
 
   /**
@@ -182,7 +186,10 @@ export class CharactersComponent implements OnInit {
    */
   onlyPlayOthers(): void {
     const pointsNotOtros = this.totalCharacters - this.characterOtros.length;
-    if (isSomeDataShowing(this.characterOtros) === false) {
+    if (
+      isSomeDataShowing(this.characterOtros) === false ||
+      this.isGiveUp === true
+    ) {
       this.resetQuiz();
       this.points = pointsNotOtros;
     } else {
