@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   hideAllData,
   isSomeDataShowing,
@@ -14,7 +14,7 @@ import { CharacterService } from 'src/app/services/character.service';
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.css'],
 })
-export class CharactersComponent implements OnInit {
+export class CharactersComponent implements OnInit, OnDestroy {
   //#region variables
   totalCharacters: number = 0;
   points: number = 0;
@@ -68,6 +68,10 @@ export class CharactersComponent implements OnInit {
       'Encuentra todos los personajes principales y secundarios de Aqui No Hay Quien Viva.';
     this.panelText2 =
       'Escribe el nombre/apellido de un personaje en el cuadro de búsqueda para encontrarlo.';
+  }
+
+  ngOnDestroy(): void {
+    this.resetQuiz();
   }
 
   closePanel(): void {

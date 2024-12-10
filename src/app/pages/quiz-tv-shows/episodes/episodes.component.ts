@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   hideAllData,
   showAllData,
@@ -15,7 +15,7 @@ import { EpisodeService } from 'src/app/services/episode.service';
   templateUrl: './episodes.component.html',
   styleUrls: ['./episodes.component.css'],
 })
-export class EpisodesComponent implements OnInit {
+export class EpisodesComponent implements OnInit, OnDestroy {
   //#region variables
   totalEpisodes: number = 0;
   points: number = 0;
@@ -56,6 +56,10 @@ export class EpisodesComponent implements OnInit {
       'Encuentra todos los capitulos de ANHQV. La lista de capítulos está basada en la información proporcionada por IMDB.';
     this.panelText2 =
       'Escribe el nombre del episodio o parte de el. No necesitas escribir Érase para acertar el capitulo.';
+  }
+
+  ngOnDestroy(): void {
+    this.giveUp();
   }
 
   closePanel(): void {
