@@ -17,10 +17,13 @@ export class QuotesComponent implements OnInit {
   incorrectAnswers: number = 0; // Fallos
   totalQuotes: number = 0;
   remainingQuotes: number = 0;
+  currentIndex: number = 0; // Índice actual para manejar el pool de frases
   isPanelVisible: boolean = true;
   panelTitle: string = '';
   panelText: string = '';
   panelText2: string = '';
+  quotesPool: { character: string; quote: string; possiblyInputs: string[] }[] =
+    [];
 
   constructor(private quotesService: QuotesService) {}
 
@@ -33,7 +36,10 @@ export class QuotesComponent implements OnInit {
     this.incorrectAnswers = 0;
     this.totalQuotes = this.quotesService.getTotalQuotesCount();
     this.remainingQuotes = this.totalQuotes;
-    this.loadRandomQuote();
+    this.quotesService.initializeQuotesPool();
+    this.quotesPool = this.quotesService.getQuotesPool();
+    this.currentIndex = 0;
+    this.loadQuote();
     this.panelTitle = 'Instrucciones';
     this.panelText =
       'Escribe el nombre y pulsa "Enter" para comprobar si es correcto.';
@@ -45,17 +51,22 @@ export class QuotesComponent implements OnInit {
     this.isPanelVisible = false;
   }
 
-  loadRandomQuote(): void {
-    const quoteData = this.quotesService.getRandomQuote();
-    if (quoteData) {
-      this.randomQuote = quoteData.quote;
-      this.correctCharacter = quoteData.character;
-      this.possiblyInputs = quoteData.possiblyInputs;
-      this.remainingQuotes--;
+  loadQuote(): void {
+    if (this.quotesPool.length > 0) {
+      const currentQuote = this.quotesPool[this.currentIndex];
+      this.randomQuote = currentQuote.quote;
+      this.correctCharacter = currentQuote.character;
+      this.possiblyInputs = currentQuote.possiblyInputs;
     } else {
-      this.feedbackMessage = '¡Has completado todas las frases!';
+      this.feedbackMessage = '¡No hay más frases!';
       this.feedbackClass = 'text-primary';
     }
+  }
+
+  nextQuote(): void {
+    this.currentIndex = (this.currentIndex + 1) % this.quotesPool.length; // Avanza al siguiente índice en el pool
+    this.loadQuote(); // Carga la nueva frase
+    this.feedbackMessage = ''; // Limpia el mensaje de feedback
   }
 
   checkAnswer(): void {
@@ -83,7 +94,7 @@ export class QuotesComponent implements OnInit {
     }
 
     this.userInput = ''; // Limpia el campo de entrada
-    this.loadRandomQuote(); // Carga una nueva frase
+    this.loadQuote(); // Carga la frase actualizada
   }
 
   resetGame(): void {

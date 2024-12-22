@@ -34,6 +34,9 @@
     <p [class]="feedbackClass">{{ feedbackMessage }}</p>
   </div>
 
-  <!-- Botón de reinicio -->
-  <button class="btn btn-danger mt-4" (click)="resetGame()">Reiniciar</button>
+  <!-- Botones de navegación -->
+  <div class="d-flex justify-content-center gap-3 mt-4">
+    <button class="btn btn-primary" (click)="nextQuote()">Siguiente</button>
+    <button class="btn btn-danger" (click)="resetGame()">Reiniciar</button>
+  </div>
 </div>

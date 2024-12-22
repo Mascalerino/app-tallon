@@ -17,6 +17,7 @@ export class QuotesService {
     this.initializeQuotesPool();
   }
 
+  // Inicializa el pool de frases combinando datos del JSON
   initializeQuotesPool(): void {
     const characters = Object.keys(this.quotes);
     this.quotesPool = characters.flatMap((character) =>
@@ -28,6 +29,7 @@ export class QuotesService {
     );
   }
 
+  // Devuelve una frase aleatoria sin eliminarla del pool
   getRandomQuote(): {
     character: string;
     quote: string;
@@ -38,14 +40,27 @@ export class QuotesService {
     }
 
     const randomIndex = Math.floor(Math.random() * this.quotesPool.length);
-    const selectedQuote = this.quotesPool[randomIndex];
-    this.quotesPool.splice(randomIndex, 1); // Remove the used quote
-    return selectedQuote;
+    return this.quotesPool[randomIndex]; // Devuelve la frase sin eliminarla
   }
 
+  // Devuelve el número total de frases disponibles
   getTotalQuotesCount(): number {
     return Object.values(this.quotes)
       .map((entry) => entry.quotes.length)
       .reduce((total, count) => total + count, 0);
+  }
+
+  // Devuelve el pool completo de frases
+  getQuotesPool(): {
+    character: string;
+    quote: string;
+    possiblyInputs: string[];
+  }[] {
+    return this.quotesPool;
+  }
+
+  // Restaura el pool de frases a su estado original
+  resetQuotesPool(): void {
+    this.initializeQuotesPool();
   }
 }
