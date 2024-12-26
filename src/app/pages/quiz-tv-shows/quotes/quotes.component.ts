@@ -53,10 +53,11 @@ export class QuotesComponent implements OnInit {
 
   loadQuote(): void {
     if (this.quotesPool.length > 0) {
-      const currentQuote = this.quotesPool[this.currentIndex];
-      this.randomQuote = currentQuote.quote;
-      this.correctCharacter = currentQuote.character;
-      this.possiblyInputs = currentQuote.possiblyInputs;
+      const randomIndex = Math.floor(Math.random() * this.quotesPool.length);
+      const selectedQuote = this.quotesPool[randomIndex];
+      this.randomQuote = selectedQuote.quote;
+      this.correctCharacter = selectedQuote.character;
+      this.possiblyInputs = selectedQuote.possiblyInputs;
     } else {
       this.feedbackMessage = '¡No hay más frases!';
       this.feedbackClass = 'text-primary';
@@ -74,19 +75,30 @@ export class QuotesComponent implements OnInit {
       return; // No hace nada si el input está vacío
     }
 
+    // Normaliza la cadena eliminando acentos
     const normalizeString = (str: string) =>
       str.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Elimina los acentos
 
+    // Normaliza el input del usuario
+    const normalizedUserInput = normalizeString(
+      this.userInput.trim().toLowerCase()
+    );
+
+    // Verifica si el input normalizado coincide con alguna entrada válida
     const isCorrect = this.possiblyInputs.some(
-      (input) =>
-        normalizeString(input.toLowerCase()) ===
-        normalizeString(this.userInput.trim().toLowerCase())
+      (input) => normalizeString(input.toLowerCase()) === normalizedUserInput
     );
 
     if (isCorrect) {
       this.feedbackMessage = '¡Correcto!';
       this.feedbackClass = 'text-success';
       this.correctAnswers++;
+
+      // Elimina la frase actual del pool
+      this.quotesPool = this.quotesPool.filter(
+        (quote) => quote.quote !== this.randomQuote
+      );
+      this.remainingQuotes--;
     } else {
       this.feedbackMessage = `Incorrecto. La respuesta era: ${this.correctCharacter}`;
       this.feedbackClass = 'text-danger';
@@ -94,11 +106,11 @@ export class QuotesComponent implements OnInit {
     }
 
     this.userInput = ''; // Limpia el campo de entrada
-    this.loadQuote(); // Carga la frase actualizada
+    this.loadQuote(); // Carga la siguiente frase
   }
 
   resetGame(): void {
-    this.quotesService.initializeQuotesPool(); // Reinicia las frases
+    this.quotesService.resetQuotesPool(); // Reinicia y mezcla las frases
     this.feedbackMessage = ''; // Limpia mensajes de feedback
     this.initializeGame(); // Reinicia el juego
   }

@@ -17,7 +17,6 @@ export class QuotesService {
     this.initializeQuotesPool();
   }
 
-  // Inicializa el pool de frases combinando datos del JSON
   initializeQuotesPool(): void {
     const characters = Object.keys(this.quotes);
     this.quotesPool = characters.flatMap((character) =>
@@ -29,28 +28,6 @@ export class QuotesService {
     );
   }
 
-  // Devuelve una frase aleatoria sin eliminarla del pool
-  getRandomQuote(): {
-    character: string;
-    quote: string;
-    possiblyInputs: string[];
-  } | null {
-    if (this.quotesPool.length === 0) {
-      return null;
-    }
-
-    const randomIndex = Math.floor(Math.random() * this.quotesPool.length);
-    return this.quotesPool[randomIndex]; // Devuelve la frase sin eliminarla
-  }
-
-  // Devuelve el número total de frases disponibles
-  getTotalQuotesCount(): number {
-    return Object.values(this.quotes)
-      .map((entry) => entry.quotes.length)
-      .reduce((total, count) => total + count, 0);
-  }
-
-  // Devuelve el pool completo de frases
   getQuotesPool(): {
     character: string;
     quote: string;
@@ -59,8 +36,37 @@ export class QuotesService {
     return this.quotesPool;
   }
 
-  // Restaura el pool de frases a su estado original
+  getRandomQuote(): {
+    character: string;
+    quote: string;
+    possiblyInputs: string[];
+  } | null {
+    if (this.quotesPool.length === 0) {
+      return null;
+    }
+    const randomIndex = Math.floor(Math.random() * this.quotesPool.length);
+    return this.quotesPool[randomIndex];
+  }
+
+  getTotalQuotesCount(): number {
+    return Object.values(this.quotes)
+      .map((entry) => entry.quotes.length)
+      .reduce((total, count) => total + count, 0);
+  }
+
   resetQuotesPool(): void {
     this.initializeQuotesPool();
+    this.shuffleQuotesPool();
+  }
+
+  // Mezcla el pool de frases al azar
+  private shuffleQuotesPool(): void {
+    for (let i = this.quotesPool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.quotesPool[i], this.quotesPool[j]] = [
+        this.quotesPool[j],
+        this.quotesPool[i],
+      ];
+    }
   }
 }
