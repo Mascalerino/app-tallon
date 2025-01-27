@@ -21,6 +21,13 @@ const routes: Routes = [
         (m) => m.SheetMusicViewerModule
       ),
   },
+  {
+    path: 'workout-plan',
+    loadChildren: () =>
+      import('./workout-plan/workout-plan.module').then(
+        (m) => m.WorkoutPlanModule
+      ),
+  },
 ];
 
 @NgModule({

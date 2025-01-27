@@ -1,0 +1,14 @@
+.container {
+  max-width: 800px;
+}
+.list-group-item {
+  font-size: 0.9rem;
+}
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0;
+}

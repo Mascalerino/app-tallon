@@ -1,0 +1,106 @@
+{
+  "Pecho": [
+    "Press de banca",
+    "Press inclinado",
+    "Fondos en paralelas",
+    "Aperturas con mancuernas"
+  ],
+  "Espalda": [
+    "Dominadas",
+    "Remo con barra",
+    "Remo con mancuernas",
+    "Pulldown en polea"
+  ],
+  "Hombros": [
+    "Press militar",
+    "Elevaciones laterales",
+    "Elevaciones frontales",
+    "Face pull"
+  ],
+  "Bíceps": [
+    "Curl con barra",
+    "Curl con mancuernas",
+    "Curl en predicador",
+    "Curl martillo"
+  ],
+  "Tríceps": [
+    "Extensiones en polea",
+    "Press francés",
+    "Fondos en banco",
+    "Patadas con mancuernas"
+  ],
+  "Antebrazos": ["Curl de muñeca", "Curl invertido", "Agarre con pinza"],
+  "Abdominales": [
+    "Crunch",
+    "Plancha abdominal",
+    "Ab wheel rollout",
+    "Elevaciones de piernas colgado"
+  ],
+  "Zona lumbar": [
+    "Peso muerto",
+    "Buenos días",
+    "Superman",
+    "Extensiones lumbares en banco"
+  ],
+  "Cuádriceps": [
+    "Sentadillas",
+    "Prensa de piernas",
+    "Zancadas",
+    "Extensiones de cuádriceps"
+  ],
+  "Isquiotibiales": [
+    "Peso muerto rumano",
+    "Curl femoral",
+    "Hip thrust",
+    "Buenos días"
+  ],
+  "Glúteos": [
+    "Puente de glúteos",
+    "Hip thrust",
+    "Zancadas",
+    "Sentadillas profundas"
+  ],
+  "Aductores": [
+    "Aducción en máquina",
+    "Zancadas laterales",
+    "Sumo deadlift",
+    "Step-ups amplios"
+  ],
+  "Abductores": [
+    "Abducción en máquina",
+    "Monster walk con banda elástica",
+    "Clamshells",
+    "Fire hydrant"
+  ],
+  "Pantorrillas": [
+    "Elevaciones de talones de pie",
+    "Elevaciones de talones sentado",
+    "Saltos pliométricos",
+    "Caminata en puntas"
+  ],
+  "Caderas": [
+    "Puente de glúteos",
+    "Hip thrust",
+    "Abducción en máquina",
+    "Aducción en máquina"
+  ],
+  "Músculos Estabilizadores y Funcionales": [
+    "Ejercicios con balón medicinal",
+    "Carrera en cinta inclinada",
+    "Caminata del granjero",
+    "Sled push"
+  ],
+  "Trapecios superiores": [
+    "Encogimientos con barra",
+    "Remo al mentón",
+    "Face pull"
+  ],
+  "Músculos del cuello": [
+    "Flexión de cuello con peso",
+    "Extensión de cuello con peso"
+  ],
+  "Tibial anterior": [
+    "Elevaciones de pie con resistencia",
+    "Caminata con talones"
+  ]
+}

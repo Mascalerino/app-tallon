@@ -13,6 +13,7 @@ import { QuizTableComponent } from './components/quiz-table/quiz-table.component
 import { PanelComponent } from './components/panel/panel.component';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { QuotesComponent } from './pages/quiz-tv-shows/quotes/quotes.component';
+import { WorkoutPlanComponent } from './pages/workout-plan/workout-plan.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { QuotesComponent } from './pages/quiz-tv-shows/quotes/quotes.component';
     QuotesComponent,
     SheetMusicViewerComponent,
     MusicPlayerComponent,
+    WorkoutPlanComponent,
     PagesComponent,
     QuizTableComponent,
     PanelComponent,
