@@ -99,6 +99,39 @@
   min-height: auto; /* Permitir altura automática según contenido */
 }
 
+/* Layout multi-columna para la tabla "Otros" */
+.otros-multicolumn .table-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-sm);
+  align-items: start;
+}
+
+/* Responsive para tabla "Otros" */
+@media (max-width: 768px) {
+  .otros-multicolumn .table-items {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .otros-multicolumn .table-items {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+}
+
+@media (min-width: 1201px) {
+  .otros-multicolumn .table-items {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
+  }
+}
+
+@media (min-width: 1600px) {
+  .otros-multicolumn .table-items {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas grandes */
+  }
+}
+
 .table-item {
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-<div class="quiz-table-container" [class.table-completed]="isFilled">
+<div class="quiz-table-container" [class.table-completed]="isFilled" [class.otros-multicolumn]="tableTitle === 'Otros'">
   <div class="table-header">
     <div class="table-icon" [class.completed]="isFilled">
       <i class="fas" [ngClass]="getTableIcon()"></i>
