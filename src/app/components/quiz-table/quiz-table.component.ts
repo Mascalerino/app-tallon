@@ -39,19 +39,13 @@ export class QuizTableComponent {
     return 'fa-circle';
   }
 
-  getEmptySlots(): any[] {
-    const visibleCount = this.getVisibleCount();
-    const totalSlots = Math.max(8, this.data.length); // Minimum 8 slots
-    const emptySlots = Math.max(0, totalSlots - visibleCount);
-    return Array(emptySlots).fill(null);
-  }
-
   getCompletionPercentage(): number {
     if (this.data.length === 0) return 0;
     return (this.getVisibleCount() / this.data.length) * 100;
   }
 
   getVisibleCount(): number {
-    return this.data.filter(item => item.isShowing).length;
+    // Solo contar elementos que están visibles Y no son marcados como fallados (missing)
+    return this.data.filter(item => item.isShowing && !item.isMissing).length;
   }
 }

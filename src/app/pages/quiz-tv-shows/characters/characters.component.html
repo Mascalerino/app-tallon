@@ -6,159 +6,232 @@
     [isVisible]="isPanelVisible"
     (continue)="closePanel()"
   ></app-panel>
-  <!-- Primer Contenedor con las tablas (2B y las demás) -->
-  <div *ngIf="!hideOtherTables" class="row mb-4">
-    <!-- Columna para la tabla 2B -->
-    <div class="col-3">
+
+  <!-- Controles superiores modernos -->
+  <div class="controls-section mb-4">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="controls-wrapper">
+          <!-- Input de búsqueda -->
+          <div class="search-container">
+            <div class="modern-input-group">
+              <input
+                type="text"
+                class="form-control modern-input"
+                [(ngModel)]="searchTerm"
+                (input)="searchCharacters()"
+                placeholder="Buscar personaje..."
+                [attr.aria-label]="'Buscar entre ' + totalCharacters + ' personajes'"
+              />
+              <div class="search-stats">
+                <span class="points-badge">{{ points }}/{{ totalCharacters }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Botones de acción -->
+          <div class="action-buttons">
+            <button class="btn btn-modern btn-success-modern" (click)="onlyPlayOthers()">
+              <i class="fas fa-users"></i>
+              Solo otros
+            </button>
+            <button class="btn btn-modern btn-warning-modern" (click)="showSurrenderModal()">
+              <i class="fas fa-flag"></i>
+              Rendirse
+            </button>
+            <button class="btn btn-modern btn-danger-modern" (click)="resetQuiz()">
+              <i class="fas fa-redo"></i>
+              Reiniciar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de notificaciones -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055">
+    <div 
+      *ngFor="let notification of notifications" 
+      class="toast show notification-toast"
+      [class.toast-success]="notification.type === 'success'"
+      [class.toast-error]="notification.type === 'error'"
+    >
+      <div class="toast-body d-flex align-items-center">
+        <i class="fas" [ngClass]="getNotificationIcon(notification.type)" class="me-2"></i>
+        <span>{{ notification.message }}</span>
+        <button 
+          type="button" 
+          class="btn-close btn-close-white ms-auto" 
+          (click)="removeNotification(notification.id)"
+        ></button>
+      </div>
+    </div>
+  </div>
+  <!-- Contenedor de tablas con distribución inteligente -->
+  <div *ngIf="!hideOtherTables" class="tables-grid mb-4">
+    <!-- Primera fila - más pisos para aprovechar el espacio -->
+    <div class="tables-row">
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'1A'"
+          [data]="characters1A"
+          [isFilled]="isFilled1A"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'1B'"
+          [data]="characters1B"
+          [isFilled]="isFilled1B"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'2A'"
+          [data]="characters2A"
+          [isFilled]="isFilled2A"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'2B'"
+          [data]="characters2B"
+          [isFilled]="isFilled2B"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'3A'"
+          [data]="characters3A"
+          [isFilled]="isFilled3A"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+    </div>
+
+    <!-- Segunda fila - resto de pisos -->
+    <div class="tables-row">
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'3B'"
+          [data]="characters3B"
+          [isFilled]="isFilled3B"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'Ático'"
+          [data]="charactersAtico"
+          [isFilled]="isFilledAtico"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'Portería'"
+          [data]="charactersPorteria"
+          [isFilled]="isFilledPorteria"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+      <div class="table-item">
+        <quiz-table
+          [tableTitle]="'Videoclub'"
+          [data]="charactersVideoclub"
+          [isFilled]="isFilledVideoclub"
+          [dataType]="'characters'"
+        ></quiz-table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor para la tabla de "Otros" -->
+  <div class="row others-table-container">
+    <div class="col-12">
       <quiz-table
-        [tableTitle]="'2B'"
-        [data]="characters2B"
-        [isFilled]="isFilled2B"
+        [tableTitle]="'Otros'"
+        [data]="characterOtros"
+        [isFilled]="isFilledOtros"
         [dataType]="'characters'"
       ></quiz-table>
     </div>
+  </div>
 
-    <!-- Columna para las demás tablas (excepto "Otros") -->
-    <div class="col-9">
-      <div class="row">
-        <!-- Piso 1A -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'1A'"
-            [data]="characters1A"
-            [isFilled]="isFilled1A"
-            [dataType]="'characters'"
-          ></quiz-table>
+  <!-- Modal de resumen al rendirse -->
+  <div class="modal fade" id="surrenderModal" tabindex="-1" aria-labelledby="surrenderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content surrender-modal">
+        <div class="modal-header">
+          <h5 class="modal-title" id="surrenderModalLabel">
+            <i class="fas fa-flag-checkered me-2"></i>
+            Resumen Final
+          </h5>
         </div>
-
-        <!-- Piso 1B -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'1B'"
-            [data]="characters1B"
-            [isFilled]="isFilled1B"
-            [dataType]="'characters'"
-          ></quiz-table>
+        <div class="modal-body">
+          <div class="surrender-summary">
+            <p class="summary-intro">Has acertado:</p>
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span class="floor-name">1A:</span>
+                <span class="score">{{ getSurrenderVisibleCount('characters1A') }} / {{ characters1A.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">1B:</span>
+                <span class="score">{{ getSurrenderVisibleCount('characters1B') }} / {{ characters1B.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">2A:</span>
+                <span class="score">{{ getSurrenderVisibleCount('characters2A') }} / {{ characters2A.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">2B:</span>
+                <span class="score">{{ getSurrenderVisibleCount('characters2B') }} / {{ characters2B.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">3A:</span>
+                <span class="score">{{ getSurrenderVisibleCount('characters3A') }} / {{ characters3A.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">3B:</span>
+                <span class="score">{{ getSurrenderVisibleCount('characters3B') }} / {{ characters3B.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Ático:</span>
+                <span class="score">{{ getSurrenderVisibleCount('charactersAtico') }} / {{ charactersAtico.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Portería:</span>
+                <span class="score">{{ getSurrenderVisibleCount('charactersPorteria') }} / {{ charactersPorteria.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Videoclub:</span>
+                <span class="score">{{ getSurrenderVisibleCount('charactersVideoclub') }} / {{ charactersVideoclub.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Otros:</span>
+                <span class="score">{{ getSurrenderVisibleCount('characterOtros') }} / {{ characterOtros.length }}</span>
+              </div>
+            </div>
+            <div class="total-summary">
+              <strong>
+                Total: {{ getSurrenderTotalVisibleCount() }} / {{ getTotalCharacters() }} personajes
+              </strong>
+            </div>
+          </div>
         </div>
-
-        <!-- Piso 2A -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'2A'"
-            [data]="characters2A"
-            [isFilled]="isFilled2A"
-            [dataType]="'characters'"
-          ></quiz-table>
-        </div>
-
-        <!-- Piso 3A -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'3A'"
-            [data]="characters3A"
-            [isFilled]="isFilled3A"
-            [dataType]="'characters'"
-          ></quiz-table>
-        </div>
-
-        <!-- Piso 3B -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'3B'"
-            [data]="characters3B"
-            [isFilled]="isFilled3B"
-            [dataType]="'characters'"
-          ></quiz-table>
-        </div>
-
-        <!-- Ático -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'Ático'"
-            [data]="charactersAtico"
-            [isFilled]="isFilledAtico"
-            [dataType]="'characters'"
-          ></quiz-table>
-        </div>
-
-        <!-- Videoclub -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'Videoclub'"
-            [data]="charactersVideoclub"
-            [isFilled]="isFilledVideoclub"
-            [dataType]="'characters'"
-          ></quiz-table>
-        </div>
-
-        <!-- Portería -->
-        <div class="col-3">
-          <quiz-table
-            [tableTitle]="'Portería'"
-            [data]="charactersPorteria"
-            [isFilled]="isFilledPorteria"
-            [dataType]="'characters'"
-          ></quiz-table>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary surrender-accept-btn" data-bs-dismiss="modal">
+            <i class="fas fa-check me-2"></i>
+            Aceptar
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <!-- Segundo Input de búsqueda encima de la tabla "Otros" -->
-    <div class="d-flex justify-content-center align-items-center mb-3">
-      <div class="d-flex align-items-center">
-        <input
-          type="text"
-          class="form-control w-75"
-          [(ngModel)]="searchTerm"
-          (input)="searchCharacters()"
-        />
-        <span class="ms-3">{{ points }}/{{ totalCharacters }}</span>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="d-flex justify-content-center align-items-center mb-3">
-      <button class="btn btn-danger ms-2" (click)="resetQuiz()">
-        Reiniciar
-      </button>
-      <button class="btn btn-warning ms-2" (click)="giveUp()">Rendirse</button>
-      <button class="btn btn-success ms-2" (click)="onlyPlayOthers()">
-        Solo otros
-      </button>
-    </div>
-  </div>
-
-  <!-- Segundo Contenedor para la tabla de "Otros" -->
-  <div class="row">
-    <div class="col-12">
-      <table class="table" [ngClass]="{ 'table-success': isFilledOtros }">
-        <thead>
-          <tr>
-            <th colspan="8" class="text-center">Otros</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let characterRow of characterOtrosColumns">
-            <ng-container *ngFor="let character of characterRow">
-              <td
-                *ngIf="character.isShowing"
-                [ngClass]="{
-                  highlight:
-                    character.isShowing && character.isMissing === false,
-                  'table-danger': character.isMissing
-                }"
-              >
-                <span class="full-name">{{ character.fullName }}</span>
-                <span *ngIf="character.explanation" class="ms-2">
-                  ({{ character.explanation }})
-                </span>
-              </td>
-            </ng-container>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>

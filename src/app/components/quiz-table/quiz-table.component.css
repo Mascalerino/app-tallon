@@ -96,7 +96,7 @@
   flex-direction: column;
   gap: var(--space-sm);
   margin-bottom: var(--space-lg);
-  min-height: 200px;
+  min-height: auto; /* Permitir altura automática según contenido */
 }
 
 .table-item {
@@ -353,7 +353,7 @@
   }
 
   .table-items {
-    min-height: 150px;
+    min-height: auto; /* Altura automática también en móvil */
   }
 
   .table-item {

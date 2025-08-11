@@ -9,6 +9,12 @@ import {
 import { ICharacter } from 'src/app/models/quiz-tv-shows/character.model';
 import { CharacterService } from 'src/app/services/character.service';
 
+interface Notification {
+  id: number;
+  message: string;
+  type: 'success' | 'error';
+}
+
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
@@ -26,6 +32,10 @@ export class CharactersComponent implements OnInit, OnDestroy {
   hideOtherTables: boolean = false;
   isGiveUp: boolean = false;
 
+  // Sistema de notificaciones
+  notifications: Notification[] = [];
+  private notificationCounter: number = 0;
+
   // Propiedades para los personajes
   characters1A: ICharacter[] = [];
   characters1B: ICharacter[] = [];
@@ -37,9 +47,6 @@ export class CharactersComponent implements OnInit, OnDestroy {
   charactersPorteria: ICharacter[] = [];
   charactersVideoclub: ICharacter[] = [];
   characterOtros: ICharacter[] = [];
-
-  // Propiedad para dividir los personajes de "Otros" en columnas
-  characterOtrosColumns: ICharacter[][] = [];
 
   // Propiedades para saber si la tabla está llena
   isFilled1A: boolean = false;
@@ -62,7 +69,6 @@ export class CharactersComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.totalCharacters = this.characterService.getTotalCharacters();
     this.getCharactersByFloor();
-    this.characterOtrosColumns = splitDataIntoColumns(this.characterOtros, 5);
     this.panelTitle = 'Instrucciones';
     this.panelText =
       'Encuentra todos los personajes principales y secundarios de Aqui No Hay Quien Viva.';
@@ -85,7 +91,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
   searchCharacters(): void {
     const searchTermLower = this.searchTerm.toLowerCase();
 
-    if (!searchTermLower) return;
+    if (!searchTermLower || searchTermLower.length < 2) return;
 
     const characterGroups = [
       { data: this.characters1A, tableFilled: 'isFilled1A' },
@@ -100,20 +106,42 @@ export class CharactersComponent implements OnInit, OnDestroy {
       { data: this.characterOtros, tableFilled: 'isFilledOtros' },
     ];
 
+    this.foundMatch = false;
+    const foundCharacterNames: string[] = [];
+    const uniqueCharacterNames = new Set<string>(); // Para evitar duplicados
+    
     characterGroups.forEach((group) => {
-      this.updateCharacterVisibility(
+      const foundNames = this.updateCharacterVisibility(
         group.data,
         searchTermLower,
         group.tableFilled
       );
+      
+      // Solo añadir nombres únicos
+      foundNames.forEach(name => {
+        if (!uniqueCharacterNames.has(name)) {
+          uniqueCharacterNames.add(name);
+          foundCharacterNames.push(name);
+        }
+      });
     });
 
-    if (this.foundMatch) {
-      this.searchTerm = '';
-      this.foundMatch = false;
+    // Mostrar una notificación por cada personaje único encontrado
+    if (foundCharacterNames.length > 0) {
+      foundCharacterNames.forEach((characterName, index) => {
+        // Espaciar las notificaciones 300ms para que se vean todas
+        setTimeout(() => {
+          this.addNotification(`¡Correcto! ${characterName}`, 'success');
+        }, index * 300);
+      });
+      
+      this.searchTerm = ''; // Limpiar el input cuando se encuentren coincidencias
     }
   }
 
+  /**
+   * Reinicia el quiz
+   */
   /**
    * Reinicia el quiz
    */
@@ -147,6 +175,62 @@ export class CharactersComponent implements OnInit, OnDestroy {
     this.isFilledPorteria = false;
     this.isFilledVideoclub = false;
     this.isFilledOtros = false;
+  }
+
+  /**
+   * Calcula las clases CSS dinámicas para las columnas según el número de personajes
+   * @param characterCount 
+   * @returns 
+   */
+  getColumnClass(characterCount: number): string {
+    // Clasificamos por rangos de personajes para obtener columnas más equilibradas
+    if (characterCount <= 2) {
+      return 'col-6 col-md-3'; // 2 columnas en móvil, 4 en desktop
+    } else if (characterCount <= 4) {
+      return 'col-6 col-md-4'; // 2 columnas en móvil, 3 en desktop
+    } else if (characterCount <= 6) {
+      return 'col-12 col-md-6'; // 1 columna en móvil, 2 en desktop
+    } else {
+      return 'col-12'; // Columna completa para grupos grandes
+    }
+  }
+
+  /**
+   * Añade una nueva notificación
+   * @param message 
+   * @param type 
+   * @param duration Duración en milisegundos (opcional)
+   */
+  addNotification(message: string, type: 'success' | 'error', duration: number = 2500): void {
+    const notification: Notification = {
+      id: ++this.notificationCounter,
+      message,
+      type
+    };
+    
+    this.notifications.push(notification);
+    
+    // Auto-remove after specified duration
+    setTimeout(() => {
+      this.removeNotification(notification.id);
+    }, duration);
+  }
+
+  /**
+   * Elimina una notificación
+   * @param id 
+   */
+  removeNotification(id: number): void {
+    this.notifications = this.notifications.filter(n => n.id !== id);
+  }
+
+  /**
+   * Obtiene el icono para el tipo de notificación
+   * @param type 
+   * @returns 
+   */
+  getNotificationIcon(type: 'success' | 'error'): string {
+    return type === 'success' ? 'fa-check-circle' : 'fa-times-circle';
   }
 
   /**
@@ -270,12 +354,15 @@ export class CharactersComponent implements OnInit, OnDestroy {
    * @param characters
    * @param searchTerm
    * @param tableFilled
+   * @returns Array con los nombres de los personajes encontrados
    */
   private updateCharacterVisibility(
     characters: ICharacter[],
     searchTerm: string,
     tableFilled: string
-  ): void {
+  ): string[] {
+    const foundCharacterNames: string[] = [];
+    
     characters.forEach((character) => {
       if (character.isShowing === false) {
         const matchFound = character.posibilyInputs.some(
@@ -286,6 +373,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
           character.isMissing = false;
           this.foundMatch = true;
           this.points++;
+          foundCharacterNames.push(character.fullName);
         }
       }
     });
@@ -293,6 +381,85 @@ export class CharactersComponent implements OnInit, OnDestroy {
     // Cuando todos los personajes de una tabla se muestran, marcamos la tabla como llena
     if (characters.every((character) => character.isShowing)) {
       (this as any)[tableFilled] = true; // Cambiar el estado de la tabla a "llena"
+    }
+    
+    return foundCharacterNames;
+  }
+
+  // Métodos para el modal de resumen
+  getVisibleCount(characters: ICharacter[]): number {
+    return characters.filter(character => character.isShowing).length;
+  }
+
+  // Métodos que usan el resumen capturado para el modal
+  getSurrenderVisibleCount(arrayName: string): number {
+    if (!this.surrenderSummary) {
+      return 0;
+    }
+    return (this.surrenderSummary as any)[arrayName] || 0;
+  }
+
+  getSurrenderTotalVisibleCount(): number {
+    return this.surrenderSummary?.total || 0;
+  }
+
+  getTotalVisibleCount(): number {
+    return this.getVisibleCount(this.characters1A) +
+           this.getVisibleCount(this.characters1B) +
+           this.getVisibleCount(this.characters2A) +
+           this.getVisibleCount(this.characters2B) +
+           this.getVisibleCount(this.characters3A) +
+           this.getVisibleCount(this.characters3B) +
+           this.getVisibleCount(this.charactersAtico) +
+           this.getVisibleCount(this.charactersPorteria) +
+           this.getVisibleCount(this.charactersVideoclub) +
+           this.getVisibleCount(this.characterOtros);
+  }
+
+  getTotalCharacters(): number {
+    return this.totalCharacters;
+  }
+
+  // Variables para guardar el estado del resumen antes de rendirse
+  private surrenderSummary: {
+    characters1A: number;
+    characters1B: number;
+    characters2A: number;
+    characters2B: number;
+    characters3A: number;
+    characters3B: number;
+    charactersAtico: number;
+    charactersPorteria: number;
+    charactersVideoclub: number;
+    characterOtros: number;
+    total: number;
+  } | null = null;
+
+  showSurrenderModal(): void {
+    // Capturar el estado actual (solo personajes realmente acertados) ANTES de mostrar todos
+    this.surrenderSummary = {
+      characters1A: this.getVisibleCount(this.characters1A),
+      characters1B: this.getVisibleCount(this.characters1B),
+      characters2A: this.getVisibleCount(this.characters2A),
+      characters2B: this.getVisibleCount(this.characters2B),
+      characters3A: this.getVisibleCount(this.characters3A),
+      characters3B: this.getVisibleCount(this.characters3B),
+      charactersAtico: this.getVisibleCount(this.charactersAtico),
+      charactersPorteria: this.getVisibleCount(this.charactersPorteria),
+      charactersVideoclub: this.getVisibleCount(this.charactersVideoclub),
+      characterOtros: this.getVisibleCount(this.characterOtros),
+      total: this.getTotalVisibleCount()
+    };
+
+    // Ejecutar giveUp para mostrar todos los personajes (acertados + fallados)
+    this.giveUp();
+    
+    // Mostrar el modal de resumen
+    const modalElement = document.getElementById('surrenderModal');
+    if (modalElement) {
+      // Usar Bootstrap modal
+      const modal = new (window as any).bootstrap.Modal(modalElement);
+      modal.show();
     }
   }
 }

@@ -17,44 +17,45 @@
         [class.item-visible]="item.isShowing"
         [class.item-correct]="item.isShowing && !item.isMissing"
         [class.item-missing]="item.isMissing"
+        [class.placeholder]="!item.isShowing"
         [class.animate-slide-in]="item.isShowing && !item.isMissing"
         [style.animation-delay]="(i * 0.05) + 's'"
       >
-        <div class="item-indicator" *ngIf="item.isShowing">
-          <i class="fas" [ngClass]="getItemIcon(item)"></i>
-        </div>
-        
-        <div class="item-content" *ngIf="item.isShowing">
-          <!-- Characters Variant -->
-          <ng-container *ngIf="dataType === 'characters'">
-            <span class="item-name">{{ item.fullName }}</span>
-            <span class="item-description" *ngIf="item.explanation">
-              {{ item.explanation }}
-            </span>
-          </ng-container>
-
-          <!-- Episodes Variant -->
-          <ng-container *ngIf="dataType === 'episodes'">
-            <span class="episode-number">
-              {{ seasonNumber }}x{{ item.episode < 10 ? "0" + item.episode : item.episode }}
-            </span>
-            <span class="item-name">{{ item.fullName }}</span>
-          </ng-container>
-        </div>
-      </div>
-
-      <!-- Empty slots -->
-      <div
-        *ngFor="let placeholder of getEmptySlots()"
-        class="table-item placeholder"
-      >
-        <div class="placeholder-content">
-          <div class="placeholder-dots">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- Contenido visible cuando el personaje está encontrado -->
+        <ng-container *ngIf="item.isShowing">
+          <div class="item-indicator">
+            <i class="fas" [ngClass]="getItemIcon(item)"></i>
           </div>
-        </div>
+          
+          <div class="item-content">
+            <!-- Characters Variant -->
+            <ng-container *ngIf="dataType === 'characters'">
+              <span class="item-name">{{ item.fullName }}</span>
+              <span class="item-description" *ngIf="item.explanation">
+                {{ item.explanation }}
+              </span>
+            </ng-container>
+
+            <!-- Episodes Variant -->
+            <ng-container *ngIf="dataType === 'episodes'">
+              <span class="episode-number">
+                {{ seasonNumber }}x{{ item.episode < 10 ? "0" + item.episode : item.episode }}
+              </span>
+              <span class="item-name">{{ item.fullName }}</span>
+            </ng-container>
+          </div>
+        </ng-container>
+
+        <!-- Placeholder cuando el personaje no está encontrado -->
+        <ng-container *ngIf="!item.isShowing">
+          <div class="placeholder-content">
+            <div class="placeholder-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </ng-container>
       </div>
     </div>
 
