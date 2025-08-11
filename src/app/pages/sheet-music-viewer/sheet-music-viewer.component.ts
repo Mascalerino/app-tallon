@@ -24,6 +24,7 @@ export class SheetMusicViewerComponent implements OnInit {
   selectedPdf: Pdf | null = null;
   searchTerm: string = '';
   musicList: { [key: string]: string } = {};
+  pdfLoaded: boolean = false;
 
   @ViewChild('pdfViewer') pdfViewer!: ElementRef;
 
@@ -82,11 +83,20 @@ export class SheetMusicViewerComponent implements OnInit {
       .replace(/[\u0300-\u036f]/g, '');
   }
 
+  clearSearch(): void {
+    this.searchTerm = '';
+    this.filteredPdfs = this.pdfs;
+  }
+
   selectPdf(event: Event, pdf: Pdf): void {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
     pdf.musicUrl = this.musicList[pdf.name] ?? undefined;
     this.selectedPdf = pdf;
+    this.pdfLoaded = false;
     this.loadPdf(pdf.url);
+
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
 
     setTimeout(() => {
       this.scrollToViewer();
@@ -116,6 +126,11 @@ export class SheetMusicViewerComponent implements OnInit {
             });
 
             pdfContainer.appendChild(canvas);
+            
+            // Mark as loaded when first page is rendered
+            if (pageNumber === 1) {
+              this.pdfLoaded = true;
+            }
           });
         }
       }
@@ -130,6 +145,9 @@ export class SheetMusicViewerComponent implements OnInit {
 
   closePdfViewer(): void {
     this.selectedPdf = null;
+    this.pdfLoaded = false;
+    // Restore body scroll
+    document.body.style.overflow = '';
     const pdfContainer = document.getElementById('pdf-container');
     if (pdfContainer) {
       pdfContainer.innerHTML = '';

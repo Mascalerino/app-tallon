@@ -1,36 +1,74 @@
-<table class="table" [ngClass]="{ 'table-success': isFilled }">
-  <thead>
-    <tr>
-      <th>{{ tableTitle }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of data">
-      <td
-        *ngIf="item.isShowing"
-        [ngClass]="{
-          highlight: item.isShowing && item.isMissing === false,
-          'table-danger': item.isMissing
-        }"
-      >
-        <!-- Variante para Characters -->
-        <ng-container *ngIf="dataType === 'characters'">
-          <span class="full-name">{{ item.fullName }}</span>
-          <span *ngIf="item.explanation" class="ms-2"
-            >({{ item.explanation }})</span
-          >
-        </ng-container>
+<div class="quiz-table-container" [class.table-completed]="isFilled">
+  <div class="table-header">
+    <div class="table-icon" [class.completed]="isFilled">
+      <i class="fas" [ngClass]="getTableIcon()"></i>
+    </div>
+    <h3 class="table-title">{{ tableTitle }}</h3>
+    <div class="completion-badge" *ngIf="isFilled">
+      <i class="fas fa-check-circle"></i>
+    </div>
+  </div>
 
-        <!-- Variante para Episodes -->
-        <ng-container *ngIf="dataType === 'episodes'">
-          <span class="ms-2">
-            {{ seasonNumber }}x{{
-              item.episode < 10 ? "0" + item.episode : item.episode
-            }}
-          </span>
-          <span class="full-name">- {{ item.fullName }}</span>
-        </ng-container>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <div class="table-content">
+    <div class="table-items">
+      <div
+        *ngFor="let item of data; let i = index"
+        class="table-item"
+        [class.item-visible]="item.isShowing"
+        [class.item-correct]="item.isShowing && !item.isMissing"
+        [class.item-missing]="item.isMissing"
+        [class.animate-slide-in]="item.isShowing && !item.isMissing"
+        [style.animation-delay]="(i * 0.05) + 's'"
+      >
+        <div class="item-indicator" *ngIf="item.isShowing">
+          <i class="fas" [ngClass]="getItemIcon(item)"></i>
+        </div>
+        
+        <div class="item-content" *ngIf="item.isShowing">
+          <!-- Characters Variant -->
+          <ng-container *ngIf="dataType === 'characters'">
+            <span class="item-name">{{ item.fullName }}</span>
+            <span class="item-description" *ngIf="item.explanation">
+              {{ item.explanation }}
+            </span>
+          </ng-container>
+
+          <!-- Episodes Variant -->
+          <ng-container *ngIf="dataType === 'episodes'">
+            <span class="episode-number">
+              {{ seasonNumber }}x{{ item.episode < 10 ? "0" + item.episode : item.episode }}
+            </span>
+            <span class="item-name">{{ item.fullName }}</span>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- Empty slots -->
+      <div
+        *ngFor="let placeholder of getEmptySlots()"
+        class="table-item placeholder"
+      >
+        <div class="placeholder-content">
+          <div class="placeholder-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="progress-indicator" *ngIf="data.length > 0">
+      <div class="progress-bar">
+        <div
+          class="progress-fill"
+          [style.width.%]="getCompletionPercentage()"
+        ></div>
+      </div>
+      <span class="progress-text">
+        {{ getVisibleCount() }} / {{ data.length }}
+      </span>
+    </div>
+  </div>
+</div>

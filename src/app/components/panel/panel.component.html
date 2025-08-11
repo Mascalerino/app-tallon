@@ -1,10 +1,25 @@
-<div *ngIf="isVisible" class="panel-overlay">
-  <div class="card text-center">
-    <h1 class="card-title">{{ title }}</h1>
-    <p class="card-text">{{ text }}</p>
-    <p class="card-text">{{ text2 }}</p>
-    <button class="btn btn-primary btn-lg" (click)="onContinue()">
-      Continuar
-    </button>
+<div *ngIf="isVisible" class="panel-overlay animate-fade-in">
+  <div class="panel-card animate-bounce-in">
+    <div class="panel-header">
+      <div class="panel-icon">
+        <i class="fas fa-info-circle"></i>
+      </div>
+      <h1 class="panel-title">{{ title }}</h1>
+    </div>
+    
+    <div class="panel-content">
+      <p class="panel-text">{{ text }}</p>
+      <p class="panel-text" *ngIf="text2">{{ text2 }}</p>
+    </div>
+    
+    <div class="panel-actions">
+      <button 
+        class="btn btn-modern btn-primary-modern btn-lg-modern panel-btn" 
+        (click)="onContinue()"
+      >
+        <i class="fas fa-rocket"></i>
+        ¡Empezar!
+      </button>
+    </div>
   </div>
 </div>

@@ -1,42 +1,120 @@
 <nav
   *ngIf="!isHomePage"
-  class="navbar navbar-expand-lg navbar-light bg-light shadow"
+  class="modern-navbar animate-slide-up"
 >
-  <div class="container-fluid">
-    <!-- Botón de flecha para volver atrás -->
-    <button class="btn btn-outline-primary me-3 p-0" (click)="goBack()">
-      <i class="bi bi-arrow-left"></i>
+  <div class="navbar-content">
+    <!-- Back Button -->
+    <button 
+      class="btn btn-modern btn-ghost-modern nav-back-btn" 
+      (click)="goBack()"
+      aria-label="Volver atrás"
+    >
+      <i class="fas fa-arrow-left"></i>
     </button>
 
-    <!-- Ícono de casa como enlace -->
-    <a class="navbar-brand" routerLink="/">
-      <i class="bi bi-house-fill"></i>
+    <!-- Brand/Home Link -->
+    <a 
+      class="navbar-brand" 
+      routerLink="/"
+      aria-label="Ir al inicio"
+    >
+      <div class="brand-container">
+        <i class="fas fa-star brand-icon"></i>
+        <span class="brand-text">Mascalerino</span>
+      </div>
     </a>
 
-    <!-- Enlaces de navegación -->
-    <!-- <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/quiz-tv-shows"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            ANHQV
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/sheet-music-viewer"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            Partituras
-          </a>
-        </li>
-      </ul>
-    </div> -->
+    <!-- Navigation Menu (for larger screens) -->
+    <div class="nav-menu d-none d-md-flex">
+      <a
+        class="nav-link"
+        routerLink="/quiz-tv-shows"
+        routerLinkActive="nav-link-active"
+        [routerLinkActiveOptions]="{ exact: false }"
+      >
+        <i class="fas fa-brain"></i>
+        <span>Tests ANHQV</span>
+      </a>
+      <a
+        class="nav-link"
+        routerLink="/sheet-music-viewer"
+        routerLinkActive="nav-link-active"
+        [routerLinkActiveOptions]="{ exact: false }"
+      >
+        <i class="fas fa-music"></i>
+        <span>Partituras</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button 
+      class="mobile-menu-toggle d-md-none"
+      [class.active]="mobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div 
+    class="mobile-menu-overlay"
+    [class.active]="mobileMenuOpen"
+    (click)="closeMobileMenu()"
+  >
+    <div class="mobile-menu" (click)="$event.stopPropagation()">
+      <div class="mobile-menu-header">
+        <div class="brand-container">
+          <i class="fas fa-star brand-icon"></i>
+          <span class="brand-text">Mascalerino</span>
+        </div>
+        <button 
+          class="mobile-menu-close"
+          (click)="closeMobileMenu()"
+          aria-label="Cerrar menu"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="mobile-menu-content">
+        <a
+          class="mobile-nav-link"
+          routerLink="/quiz-tv-shows"
+          routerLinkActive="mobile-nav-link-active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          (click)="closeMobileMenu()"
+        >
+          <div class="mobile-nav-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="mobile-nav-text">
+            <span class="mobile-nav-title">Tests ANHQV</span>
+            <span class="mobile-nav-subtitle">Personajes, episodios y frases</span>
+          </div>
+          <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+        </a>
+        
+        <a
+          class="mobile-nav-link"
+          routerLink="/sheet-music-viewer"
+          routerLinkActive="mobile-nav-link-active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          (click)="closeMobileMenu()"
+        >
+          <div class="mobile-nav-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="mobile-nav-text">
+            <span class="mobile-nav-title">Partituras</span>
+            <span class="mobile-nav-subtitle">Visualiza y descarga música</span>
+          </div>
+          <i class="fas fa-chevron-right mobile-nav-arrow"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </nav>

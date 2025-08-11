@@ -1,10 +1,140 @@
-<div class="background-container no-background">
-  <h1 class="text-center mb-4">Tests sobre ANHQV</h1>
-  <div
-    class="d-flex flex-column flex-md-row justify-content-center gap-3 button-container"
-  >
-    <button class="btn btn-quiz" routerLink="characters">Personajes</button>
-    <button class="btn btn-quiz" routerLink="episodes">Episodios</button>
-    <button class="btn btn-quiz" routerLink="quotes">Frases</button>
+<div class="quiz-main-container animate-fade-in">
+  <div class="quiz-hero-section">
+    <div class="quiz-content">
+      <!-- Header -->
+      <div class="quiz-header animate-slide-up">
+        <div class="quiz-icon-container">
+          <i class="fas fa-brain quiz-main-icon"></i>
+        </div>
+        <h1 class="quiz-main-title">Tests sobre ANHQV</h1>
+        <p class="quiz-main-subtitle">
+          Demuestra cuánto sabes sobre "Aquí No Hay Quien Viva"
+        </p>
+      </div>
+
+      <!-- Quiz Options -->
+      <div class="quiz-options-grid">
+        <div class="quiz-option-card animate-bounce-in" style="animation-delay: 0.2s;">
+          <div class="quiz-option-icon characters-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="quiz-option-content">
+            <h3 class="quiz-option-title">Personajes</h3>
+            <p class="quiz-option-description">
+              Identifica a todos los personajes principales y secundarios
+            </p>
+            <ul class="quiz-option-features">
+              <li><i class="fas fa-building"></i> Por pisos</li>
+              <li><i class="fas fa-search"></i> Búsqueda inteligente</li>
+              <li><i class="fas fa-trophy"></i> Sistema de puntos</li>
+            </ul>
+          </div>
+          <button 
+            class="btn btn-modern btn-primary-modern w-full quiz-option-btn"
+            routerLink="characters"
+          >
+            <i class="fas fa-play"></i>
+            Empezar Test
+          </button>
+        </div>
+
+        <div class="quiz-option-card animate-bounce-in" style="animation-delay: 0.4s;">
+          <div class="quiz-option-icon episodes-icon">
+            <i class="fas fa-tv"></i>
+          </div>
+          <div class="quiz-option-content">
+            <h3 class="quiz-option-title">Episodios</h3>
+            <p class="quiz-option-description">
+              Adivina los títulos de los episodios por temporadas
+            </p>
+            <ul class="quiz-option-features">
+              <li><i class="fas fa-list-ol"></i> 5 temporadas</li>
+              <li><i class="fas fa-calendar"></i> Por orden cronológico</li>
+              <li><i class="fas fa-star"></i> Episodios especiales</li>
+            </ul>
+          </div>
+          <button 
+            class="btn btn-modern btn-secondary-modern w-full quiz-option-btn"
+            routerLink="episodes"
+          >
+            <i class="fas fa-play"></i>
+            Empezar Test
+          </button>
+        </div>
+
+        <div class="quiz-option-card animate-bounce-in" style="animation-delay: 0.6s;">
+          <div class="quiz-option-icon quotes-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <div class="quiz-option-content">
+            <h3 class="quiz-option-title">Frases Míticas</h3>
+            <p class="quiz-option-description">
+              ¿Quién dijo cada una de estas frases legendarias?
+            </p>
+            <ul class="quiz-option-features">
+              <li><i class="fas fa-comment-dots"></i> Frases icónicas</li>
+              <li><i class="fas fa-random"></i> Orden aleatorio</li>
+              <li><i class="fas fa-clock"></i> Sin límite de tiempo</li>
+            </ul>
+          </div>
+          <button 
+            class="btn btn-modern btn-warning-modern w-full quiz-option-btn"
+            routerLink="quotes"
+          >
+            <i class="fas fa-play"></i>
+            Empezar Test
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="quiz-stats-section animate-slide-up" style="animation-delay: 0.8s;">
+        <div class="stats-card">
+          <div class="stats-item">
+            <div class="stats-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stats-content">
+              <span class="stats-number">50+</span>
+              <span class="stats-label">Personajes</span>
+            </div>
+          </div>
+          <div class="stats-divider"></div>
+          <div class="stats-item">
+            <div class="stats-icon">
+              <i class="fas fa-tv"></i>
+            </div>
+            <div class="stats-content">
+              <span class="stats-number">90+</span>
+              <span class="stats-label">Episodios</span>
+            </div>
+          </div>
+          <div class="stats-divider"></div>
+          <div class="stats-item">
+            <div class="stats-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="stats-content">
+              <span class="stats-number">100+</span>
+              <span class="stats-label">Frases</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Elements -->
+  <div class="quiz-bg-decoration">
+    <div class="decoration-element element-1">
+      <i class="fas fa-home"></i>
+    </div>
+    <div class="decoration-element element-2">
+      <i class="fas fa-heart"></i>
+    </div>
+    <div class="decoration-element element-3">
+      <i class="fas fa-laugh"></i>
+    </div>
+    <div class="decoration-pattern"></div>
   </div>
 </div>

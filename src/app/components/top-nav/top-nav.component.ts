@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class TopNavComponent implements OnInit {
   isHomePage: boolean = false;
+  mobileMenuOpen: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -15,10 +16,27 @@ export class TopNavComponent implements OnInit {
     // Detectar si estamos en la página principal
     this.router.events.subscribe(() => {
       this.isHomePage = this.router.url === '/'; // Cambia según la ruta principal
+      // Close mobile menu when navigating
+      this.mobileMenuOpen = false;
     });
   }
 
   goBack(): void {
     window.history.back(); // Navegar hacia atrás
+  }
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+    // Prevent body scroll when menu is open
+    if (this.mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  closeMobileMenu(): void {
+    this.mobileMenuOpen = false;
+    document.body.style.overflow = '';
   }
 }

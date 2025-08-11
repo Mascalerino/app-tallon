@@ -1,24 +1,70 @@
-<div
-  class="container-fluid bg-primary text-white min-vh-100 d-flex flex-column align-items-center justify-content-center"
->
-  <div class="text-center">
-    <h1 class="display-3 fw-bold mb-4 text-shadow">Bienvenido</h1>
-    <div class="d-flex flex-column flex-sm-row justify-content-center">
-      <button
-        class="btn btn-custom mb-2 mb-sm-0 me-0 me-sm-2"
-        routerLink="/quiz-tv-shows"
-      >
-        ANHQV
-      </button>
-      <button
-        class="btn btn-custom mb-2 mb-sm-0 me-0 me-sm-2"
-        routerLink="/sheet-music-viewer"
-      >
-        Partituras
-      </button>
-      <!-- <button class="btn btn-custom" routerLink="/workout-plan">
-        Gimnasio
-      </button> -->
+<div class="welcome-container animate-fade-in">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content animate-slide-up">
+      <!-- Logo/Brand -->
+      <div class="brand-section mb-8">
+        <div class="brand-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h1 class="brand-title">Mascalerino</h1>
+        <p class="brand-subtitle">Tu centro de entretenimiento digital</p>
+      </div>
+
+      <!-- Main Actions -->
+      <div class="actions-grid">
+        <div class="action-card animate-bounce-in" style="animation-delay: 0.2s;">
+          <div class="action-icon quiz-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="action-content">
+            <h3 class="action-title">Tests ANHQV</h3>
+            <p class="action-description">Demuestra cuánto sabes sobre "Aquí No Hay Quien Viva"</p>
+            <ul class="action-features">
+              <li><i class="fas fa-users"></i> Personajes</li>
+              <li><i class="fas fa-tv"></i> Episodios</li>
+              <li><i class="fas fa-quote-left"></i> Frases míticas</li>
+            </ul>
+          </div>
+          <button
+            class="btn btn-modern btn-primary-modern btn-lg-modern w-full action-button"
+            routerLink="/quiz-tv-shows"
+          >
+            <i class="fas fa-play"></i>
+            Empezar Tests
+          </button>
+        </div>
+
+        <div class="action-card animate-bounce-in" style="animation-delay: 0.4s;">
+          <div class="action-icon music-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="action-content">
+            <h3 class="action-title">Partituras</h3>
+            <p class="action-description">Explora y descarga partituras musicales</p>
+            <ul class="action-features">
+              <li><i class="fas fa-file-pdf"></i> Visualizador PDF</li>
+              <li><i class="fas fa-download"></i> Descarga directa</li>
+              <li><i class="fas fa-headphones"></i> Audio incluido</li>
+            </ul>
+          </div>
+          <button
+            class="btn btn-modern btn-secondary-modern btn-lg-modern w-full action-button"
+            routerLink="/sheet-music-viewer"
+          >
+            <i class="fas fa-music"></i>
+            Ver Partituras
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Background Elements -->
+  <div class="bg-decoration">
+    <div class="decoration-circle circle-1"></div>
+    <div class="decoration-circle circle-2"></div>
+    <div class="decoration-circle circle-3"></div>
+    <div class="decoration-wave"></div>
   </div>
 </div>
