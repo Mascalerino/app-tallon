@@ -434,6 +434,8 @@
   position: relative;
   overflow: auto;
   background: var(--gray-100);
+  /* Mejorar scroll en móviles */
+  -webkit-overflow-scrolling: touch;
 }
 
 .pdf-loading {
@@ -464,11 +466,9 @@
 }
 
 .pdf-container canvas {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   background: white;
 }
 

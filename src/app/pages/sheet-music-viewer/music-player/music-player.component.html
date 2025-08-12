@@ -1,30 +1,44 @@
 <div *ngIf="musicUrl" class="music-player-container">
   <div class="music-player-box">
-    <div class="music-player-controls">
-      <!-- Botón de Play/Pause -->
-      <button (click)="togglePlayPause()" class="btn btn-primary">
-        <i [class]="isPlaying ? 'bi bi-pause-fill' : 'bi bi-play-fill'"></i>
-      </button>
+    <!-- Header del reproductor -->
+    <div class="music-player-header">
+      <div class="music-icon">
+        <i class="fas fa-music"></i>
+      </div>
+      <h4 class="music-title">Audio</h4>
+    </div>
 
-      <!-- Botón de Stop -->
-      <button (click)="stopMusic()" class="btn btn-danger">
-        <i class="bi bi-stop-fill"></i>
+    <!-- Controles principales -->
+    <div class="music-player-controls">
+      <button (click)="togglePlayPause()" class="control-btn play-pause-btn" [class.playing]="isPlaying">
+        <i [class]="isPlaying ? 'fas fa-pause' : 'fas fa-play'"></i>
+      </button>
+      
+      <button (click)="stopMusic()" class="control-btn stop-btn">
+        <i class="fas fa-stop"></i>
       </button>
     </div>
 
-    <!-- Barra de progreso -->
-    <input
-      type="range"
-      min="0"
-      max="100"
-      [value]="progress"
-      (input)="seekTo($event)"
-      class="progress-bar"
-    />
+    <!-- Barra de progreso moderna -->
+    <div class="progress-container">
+      <div class="progress-track">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          [value]="progress"
+          (input)="seekTo($event)"
+          class="progress-slider"
+        />
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+    </div>
 
-    <!-- Estado de reproducción -->
+    <!-- Información de tiempo -->
     <div class="music-player-status">
-      <span>{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</span>
+      <span class="time-current">{{ formatTime(currentTime) }}</span>
+      <span class="time-separator">/</span>
+      <span class="time-total">{{ formatTime(duration) }}</span>
     </div>
   </div>
 </div>
