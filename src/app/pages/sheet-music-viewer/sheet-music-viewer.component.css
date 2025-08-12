@@ -156,16 +156,16 @@
 /* Partituras Grid */
 .partituras-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-lg);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .partitura-card {
   background: var(--bg-primary);
-  border-radius: var(--radius-xl);
-  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-normal);
   cursor: pointer;
@@ -515,12 +515,12 @@
   }
 
   .partituras-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--space-lg);
   }
 
   .partitura-card {
-    padding: var(--space-lg);
+    padding: var(--space-md);
   }
 
   .card-actions {
