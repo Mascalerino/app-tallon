@@ -66,7 +66,7 @@
 /* Actions Grid */
 .actions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-xl);
   max-width: 800px;
   margin: 0 auto;
@@ -82,6 +82,11 @@
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  /* Asegurar que ambas cajas tengan la misma altura */
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .action-card:hover {
@@ -137,6 +142,10 @@
 
 .action-content {
   margin-bottom: var(--space-xl);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .action-title {
@@ -185,6 +194,38 @@
   z-index: 1;
   font-weight: 600;
   letter-spacing: 0.5px;
+  border: none;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-normal);
+  margin-top: auto;
+}
+
+/* Botón de Quiz - Color rojo que coincida con el icono */
+.action-card:first-child .action-button {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.action-card:first-child .action-button:hover {
+  background: linear-gradient(135deg, #ff5252, #e53e3e);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Botón de Partituras - Color verde/azul que coincida con el icono */
+.action-card:last-child .action-button {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  color: white;
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.action-card:last-child .action-button:hover {
+  background: linear-gradient(135deg, #3dc1c1, #3a9e8a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
 }
 
 /* Background Decoration */
@@ -278,6 +319,7 @@
 
   .action-card {
     padding: var(--space-xl);
+    min-height: 350px;
   }
 
   .brand-icon {
