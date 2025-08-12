@@ -83,6 +83,14 @@
   margin: 0 auto var(--space-3xl);
 }
 
+/* Para PC - 3 cajas en una sola línea */
+@media (min-width: 1024px) {
+  .quiz-options-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+}
+
 .quiz-option-card {
   background: var(--bg-primary);
   border-radius: var(--radius-2xl);
@@ -196,6 +204,34 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   margin-top: auto;
+}
+
+/* Botón especial para personajes que combine con el ícono rojo-naranja */
+.btn-characters-modern {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  border: none;
+}
+
+.btn-characters-modern:hover {
+  background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+/* Botón especial para episodios que combine con el ícono teal */
+.btn-episodes-modern {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  color: white;
+  border: none;
+}
+
+.btn-episodes-modern:hover {
+  background: linear-gradient(135deg, #44a08d 0%, #4ecdc4 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(68, 160, 141, 0.3);
 }
 
 /* Stats Section */
