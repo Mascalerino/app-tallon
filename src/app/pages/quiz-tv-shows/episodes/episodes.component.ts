@@ -10,6 +10,14 @@ import {
 } from 'src/app/models/quiz-tv-shows/episode.model';
 import { EpisodeService } from 'src/app/services/episode.service';
 
+declare var bootstrap: any;
+
+interface Notification {
+  id: number;
+  message: string;
+  type: 'success' | 'error';
+}
+
 @Component({
   selector: 'app-episodes',
   templateUrl: './episodes.component.html',
@@ -43,6 +51,14 @@ export class EpisodesComponent implements OnInit, OnDestroy {
 
   searchTerm: string = ''; // Para almacenar el término de búsqueda
 
+  // Sistema de notificaciones
+  notifications: Notification[] = [];
+  private notificationIdCounter = 0;
+  private foundEpisodes: Set<string> = new Set(); // Para evitar duplicados
+
+  // Variables para el modal de resumen
+  private surrenderSummary: any = {};
+
   //#endregion
 
   constructor(private episodeService: EpisodeService) {}
@@ -67,29 +83,49 @@ export class EpisodesComponent implements OnInit, OnDestroy {
   }
 
   searchEpisode(): void {
-    const searchTermLower = this.searchTerm.toLowerCase();
+    const searchTermLower = this.searchTerm.toLowerCase().trim();
 
     if (!searchTermLower) return;
 
     const episodesGroups = [
-      { data: this.episodesSeason1, tableFilled: 'isFilledSeason1' },
-      { data: this.episodesSeason2, tableFilled: 'isFilledSeason2' },
-      { data: this.episodesSeason3, tableFilled: 'isFilledSeason3' },
-      { data: this.episodesSeason4, tableFilled: 'isFilledSeason4' },
-      { data: this.episodesSeason5, tableFilled: 'isFilledSeason5' },
+      { data: this.episodesSeason1, tableFilled: 'isFilledSeason1', season: 'Temporada 1' },
+      { data: this.episodesSeason2, tableFilled: 'isFilledSeason2', season: 'Temporada 2' },
+      { data: this.episodesSeason3, tableFilled: 'isFilledSeason3', season: 'Temporada 3' },
+      { data: this.episodesSeason4, tableFilled: 'isFilledSeason4', season: 'Temporada 4' },
+      { data: this.episodesSeason5, tableFilled: 'isFilledSeason5', season: 'Temporada 5' },
     ];
 
+    const foundEpisodeNames: string[] = [];
+    const uniqueEpisodeNames: Set<string> = new Set();
+
     episodesGroups.forEach((group) => {
-      this.updateEpisodeVisibility(
+      const foundNames = this.updateEpisodeVisibility(
         group.data,
         searchTermLower,
-        group.tableFilled
+        group.tableFilled,
+        group.season
       );
+
+      // Solo añadir nombres únicos
+      foundNames.forEach(name => {
+        if (!uniqueEpisodeNames.has(name)) {
+          uniqueEpisodeNames.add(name);
+          foundEpisodeNames.push(name);
+        }
+      });
     });
 
-    if (this.foundMatch) {
-      this.searchTerm = '';
-      this.foundMatch = false;
+    // Si se encontraron episodios, limpiar input y mostrar notificaciones
+    if (foundEpisodeNames.length > 0) {
+      this.searchTerm = ''; // Limpiar el input primero
+      
+      // Después mostrar una notificación por cada episodio único encontrado
+      foundEpisodeNames.forEach((episodeName, index) => {
+        // Espaciar las notificaciones 300ms para que se vean todas
+        setTimeout(() => {
+          this.addNotification(`¡Correcto! ${episodeName}`, 'success');
+        }, index * 300);
+      });
     }
   }
 
@@ -97,6 +133,7 @@ export class EpisodesComponent implements OnInit, OnDestroy {
     this.points = 0;
     this.searchTerm = '';
     this.foundMatch = false;
+    this.foundEpisodes.clear();
 
     hideAllData(this.episodesSeason1);
     hideAllData(this.episodesSeason2);
@@ -109,6 +146,26 @@ export class EpisodesComponent implements OnInit, OnDestroy {
     this.isFilledSeason3 = false;
     this.isFilledSeason4 = false;
     this.isFilledSeason5 = false;
+
+    this.addNotification('Quiz reiniciado', 'success');
+  }
+
+  showSurrenderModal(): void {
+    // Capturar el estado actual antes de mostrarlo todo
+    this.surrenderSummary = {
+      season1: this.getVisibleCount(this.episodesSeason1),
+      season2: this.getVisibleCount(this.episodesSeason2),
+      season3: this.getVisibleCount(this.episodesSeason3),
+      season4: this.getVisibleCount(this.episodesSeason4),
+      season5: this.getVisibleCount(this.episodesSeason5),
+      total: this.getTotalVisibleCount()
+    };
+
+    const modal = new bootstrap.Modal(document.getElementById('surrenderModal'));
+    modal.show();
+
+    // Mostrar todos los datos después de capturar el resumen
+    this.giveUp();
   }
 
   giveUp(): void {
@@ -118,11 +175,63 @@ export class EpisodesComponent implements OnInit, OnDestroy {
     showAllData(this.episodesSeason4);
     showAllData(this.episodesSeason5);
 
-    this.isFilledSeason1 = !this.episodesSeason1.some((char) => char.isMissing);
-    this.isFilledSeason2 = !this.episodesSeason2.some((char) => char.isMissing);
-    this.isFilledSeason3 = !this.episodesSeason3.some((char) => char.isMissing);
-    this.isFilledSeason4 = !this.episodesSeason4.some((char) => char.isMissing);
-    this.isFilledSeason5 = !this.episodesSeason5.some((char) => char.isMissing);
+    this.isFilledSeason1 = !this.episodesSeason1.some((ep) => ep.isMissing);
+    this.isFilledSeason2 = !this.episodesSeason2.some((ep) => ep.isMissing);
+    this.isFilledSeason3 = !this.episodesSeason3.some((ep) => ep.isMissing);
+    this.isFilledSeason4 = !this.episodesSeason4.some((ep) => ep.isMissing);
+    this.isFilledSeason5 = !this.episodesSeason5.some((ep) => ep.isMissing);
+  }
+
+  removeNotification(id: number): void {
+    this.notifications = this.notifications.filter(n => n.id !== id);
+  }
+
+  /**
+   * Añade una nueva notificación
+   * @param message 
+   * @param type 
+   * @param duration Duración en milisegundos (opcional)
+   */
+  addNotification(message: string, type: 'success' | 'error', duration: number = 2500): void {
+    const notification: Notification = {
+      id: ++this.notificationIdCounter,
+      message,
+      type
+    };
+    
+    this.notifications.push(notification);
+    
+    // Auto-remove after specified duration
+    setTimeout(() => {
+      this.removeNotification(notification.id);
+    }, duration);
+  }
+
+  // Métodos para el modal de resumen
+  getSurrenderVisibleCount(seasonProperty: string): number {
+    const seasonKey = seasonProperty.replace('episodes', '').toLowerCase();
+    return this.surrenderSummary[seasonKey] || 0;
+  }
+
+  getSurrenderTotalVisibleCount(): number {
+    return this.surrenderSummary.total || 0;
+  }
+
+  getTotalEpisodes(): number {
+    return this.totalEpisodes;
+  }
+
+  // Métodos auxiliares para contar elementos visibles
+  private getVisibleCount(episodes: IEpisode[]): number {
+    return episodes.filter(ep => ep.isShowing && !ep.isMissing).length;
+  }
+
+  private getTotalVisibleCount(): number {
+    return this.getVisibleCount(this.episodesSeason1) +
+           this.getVisibleCount(this.episodesSeason2) +
+           this.getVisibleCount(this.episodesSeason3) +
+           this.getVisibleCount(this.episodesSeason4) +
+           this.getVisibleCount(this.episodesSeason5);
   }
 
   /**
@@ -144,25 +253,33 @@ export class EpisodesComponent implements OnInit, OnDestroy {
   private updateEpisodeVisibility(
     episodes: IEpisode[],
     searchTerm: string,
-    tableFilled: string
-  ): void {
+    tableFilled: string,
+    seasonName: string
+  ): string[] {
+    const foundEpisodeNames: string[] = [];
+
     episodes.forEach((episode) => {
-      if (episode.isShowing === false) {
-        const matchFound = episode.posibilyInputs.some(
+      if (!episode.isShowing) {
+        const episodeKey = `${seasonName}-${episode.fullName}`;
+        const inputMatch = episode.posibilyInputs.some(
           (input) => input.toLowerCase() === searchTerm
         );
-        if (matchFound) {
+
+        if (inputMatch && !this.foundEpisodes.has(episodeKey)) {
           episode.isShowing = true;
           episode.isMissing = false;
-          this.foundMatch = true;
+          this.foundEpisodes.add(episodeKey);
           this.points++;
+          foundEpisodeNames.push(episode.fullName);
         }
       }
     });
 
-    // Cuando todos los personajes de una tabla se muestran, marcamos la tabla como llena
+    // Cuando todos los episodios de una tabla se muestran, marcar la tabla como llena
     if (episodes.every((episode) => episode.isShowing)) {
-      (this as any)[tableFilled] = true; // Cambiar el estado de la tabla a "llena"
+      (this as any)[tableFilled] = true;
     }
+
+    return foundEpisodeNames;
   }
 }

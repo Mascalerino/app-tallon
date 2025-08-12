@@ -1,4 +1,4 @@
-<div class="quiz-table-container" [class.table-completed]="isFilled" [class.otros-multicolumn]="tableTitle === 'Otros'">
+<div class="quiz-table-container" [class.table-completed]="isFilled" [class.otros-multicolumn]="tableTitle === 'Otros'" [class.season3-multicolumn]="tableTitle === 'Temporada 3'">>
   <div class="table-header">
     <div class="table-icon" [class.completed]="isFilled">
       <i class="fas" [ngClass]="getTableIcon()"></i>
@@ -38,10 +38,9 @@
 
             <!-- Episodes Variant -->
             <ng-container *ngIf="dataType === 'episodes'">
-              <span class="episode-number">
-                {{ seasonNumber }}x{{ item.episode < 10 ? "0" + item.episode : item.episode }}
+              <span class="item-name">
+                {{ seasonNumber }}x{{ item.episode < 10 ? "0" + item.episode : item.episode }} - {{ item.fullName }}
               </span>
-              <span class="item-name">{{ item.fullName }}</span>
             </ng-container>
           </div>
         </ng-container>

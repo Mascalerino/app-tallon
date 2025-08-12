@@ -6,9 +6,77 @@
     [isVisible]="isPanelVisible"
     (continue)="closePanel()"
   ></app-panel>
-  <!-- Contendor de las temporadas 1 2 4 5 -->
-  <div class="row mb-4">
-    <div class="col-3">
+
+  <!-- Controles superiores modernos -->
+  <div class="controls-section">
+    <div class="controls-wrapper">
+      <div class="search-container">
+        <div class="modern-input-group">
+          <input
+            type="text"
+            class="form-control modern-input"
+            placeholder="Introduce episodio..."
+            [(ngModel)]="searchTerm"
+            (input)="searchEpisode()"
+            #searchInput
+          />
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contador y botones -->
+      <div class="controls-row">
+        <div class="counter-display">
+          <i class="fas fa-tv me-2"></i>
+          <strong>{{ points }} / {{ totalEpisodes }}</strong>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn btn-modern btn-warning-modern" (click)="showSurrenderModal()">
+            <i class="fas fa-flag"></i>
+            Rendirse
+          </button>
+          <button class="btn btn-modern btn-danger-modern" (click)="resetQuiz()">
+            <i class="fas fa-redo"></i>
+            Reiniciar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor de notificaciones -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+    <div 
+      *ngFor="let notification of notifications" 
+      class="toast notification-toast show align-items-center border-0"
+      [class.bg-success]="notification.type === 'success'"
+      [class.bg-danger]="notification.type === 'error'"
+      role="alert" 
+      aria-live="assertive" 
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="toast-body text-white">
+          <i class="fas" 
+             [class.fa-check-circle]="notification.type === 'success'"
+             [class.fa-times-circle]="notification.type === 'error'">
+          </i>
+          {{ notification.message }}
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" 
+                (click)="removeNotification(notification.id)"
+                aria-label="Close">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primera fila - temporadas 1, 2, 4, 5 -->
+  <div class="tables-row">
+    <div class="table-item">
       <quiz-table
         [tableTitle]="'Temporada 1'"
         [data]="episodesSeason1"
@@ -17,7 +85,7 @@
         [seasonNumber]="1"
       ></quiz-table>
     </div>
-    <div class="col-3">
+    <div class="table-item">
       <quiz-table
         [tableTitle]="'Temporada 2'"
         [data]="episodesSeason2"
@@ -26,7 +94,7 @@
         [seasonNumber]="2"
       ></quiz-table>
     </div>
-    <div class="col-3">
+    <div class="table-item">
       <quiz-table
         [tableTitle]="'Temporada 4'"
         [data]="episodesSeason4"
@@ -35,7 +103,7 @@
         [seasonNumber]="4"
       ></quiz-table>
     </div>
-    <div class="col-3">
+    <div class="table-item">
       <quiz-table
         [tableTitle]="'Temporada 5'"
         [data]="episodesSeason5"
@@ -45,59 +113,69 @@
       ></quiz-table>
     </div>
   </div>
-  <!-- Contendor del input y botones -->
-  <div class="row">
-    <!-- Segundo Input de búsqueda encima de la tabla "Otros" -->
-    <div class="d-flex justify-content-center align-items-center mb-3">
-      <div class="d-flex align-items-center">
-        <input
-          type="text"
-          class="form-control w-75"
-          placeholder="Introduce episodio"
-          [(ngModel)]="searchTerm"
-          (input)="searchEpisode()"
-        />
-        <span class="ms-3">{{ points }}/{{ totalEpisodes }}</span>
-      </div>
-      <!-- Botón para reiniciar el quiz -->
-      <button class="btn btn-danger ms-2" (click)="resetQuiz()">
-        Reiniciar
-      </button>
-      <button class="btn btn-warning ms-2" (click)="giveUp()">Rendirse</button>
+
+  <!-- Segunda fila - temporada 3 -->
+  <div class="tables-row justify-content-center">
+    <div class="table-item season3-table">
+      <quiz-table
+        [tableTitle]="'Temporada 3'"
+        [data]="episodesSeason3"
+        [isFilled]="isFilledSeason3"
+        [dataType]="'episodes'"
+        [seasonNumber]="3"
+      ></quiz-table>
     </div>
   </div>
-  <!-- Contendor de la temporada 3 -->
-  <div class="row">
-    <div class="col-12">
-      <table class="table" [ngClass]="{ 'table-success': isFilledSeason3 }">
-        <thead>
-          <tr>
-            <th colspan="3" class="text-center">Temporada 3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let episodeRow of episodeSeason3Columns">
-            <ng-container *ngFor="let episode of episodeRow">
-              <td
-                *ngIf="episode.isShowing"
-                [ngClass]="{
-                  highlight: episode.isShowing && episode.isMissing === false,
-                  'table-danger': episode.isMissing
-                }"
-              >
-                <span class="ms-2">
-                  3x{{
-                    episode.episode < 10
-                      ? "0" + episode.episode
-                      : episode.episode
-                  }}
-                </span>
-                <span class="full-name">- {{ episode.fullName }}</span>
-              </td>
-            </ng-container>
-          </tr>
-        </tbody>
-      </table>
+
+  <!-- Modal de resumen al rendirse -->
+  <div class="modal fade" id="surrenderModal" tabindex="-1" aria-labelledby="surrenderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content surrender-modal">
+        <div class="modal-header">
+          <h5 class="modal-title" id="surrenderModalLabel">
+            <i class="fas fa-flag-checkered me-2"></i>
+            Resumen Final
+          </h5>
+        </div>
+        <div class="modal-body">
+          <div class="surrender-summary">
+            <p class="summary-intro">Has acertado:</p>
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span class="floor-name">Temporada 1:</span>
+                <span class="score">{{ getSurrenderVisibleCount('episodesSeason1') }} / {{ episodesSeason1.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Temporada 2:</span>
+                <span class="score">{{ getSurrenderVisibleCount('episodesSeason2') }} / {{ episodesSeason2.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Temporada 3:</span>
+                <span class="score">{{ getSurrenderVisibleCount('episodesSeason3') }} / {{ episodesSeason3.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Temporada 4:</span>
+                <span class="score">{{ getSurrenderVisibleCount('episodesSeason4') }} / {{ episodesSeason4.length }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="floor-name">Temporada 5:</span>
+                <span class="score">{{ getSurrenderVisibleCount('episodesSeason5') }} / {{ episodesSeason5.length }}</span>
+              </div>
+            </div>
+            <div class="total-summary">
+              <strong>
+                Total: {{ getSurrenderTotalVisibleCount() }} / {{ getTotalEpisodes() }} episodios
+              </strong>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary surrender-accept-btn" data-bs-dismiss="modal">
+            <i class="fas fa-check me-2"></i>
+            Aceptar
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

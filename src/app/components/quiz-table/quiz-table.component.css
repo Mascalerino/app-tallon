@@ -107,10 +107,31 @@
   align-items: start;
 }
 
+/* Layout multi-columna para la Temporada 3 */
+.season3-multicolumn .table-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  align-items: start;
+}
+
 /* Responsive para tabla "Otros" */
 @media (max-width: 768px) {
   .otros-multicolumn .table-items {
     grid-template-columns: 1fr; /* Una sola columna en móvil */
+  }
+}
+
+/* Responsive para Temporada 3 */
+@media (max-width: 768px) {
+  .season3-multicolumn .table-items {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+  }
+}
+
+@media (min-width: 769px) {
+  .season3-multicolumn .table-items {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets y desktop */
   }
 }
 
