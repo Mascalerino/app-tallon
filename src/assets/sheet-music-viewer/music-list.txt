@@ -6,3 +6,5 @@ Rumba de Laroa,assets/sheet-music-viewer/audios/laroa.mp3
 Rumba de vergara,assets/sheet-music-viewer/audios/vergara.mp3
 Le Samsonette,assets/sheet-music-viewer/audios/samsonette.mp3
 Aires de Pontevedra,assets/sheet-music-viewer/audios/airespontevedra.mp3
+Muiñeira do Santo Amaro,assets/sheet-music-viewer/audios/santoamaro.mp3
+Pasacorredoiras de Arnoia,assets/sheet-music-viewer/audios/arnoia.mp3

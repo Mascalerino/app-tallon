@@ -13,6 +13,7 @@ Ei vai,assets/sheet-music-viewer/partituras/eivai.pdf
 Fandango Mariñan,assets/sheet-music-viewer/partituras/fandangomarinhan.pdf
 Farruquiña chaman a porta,assets/sheet-music-viewer/partituras/farruquinhachamanaporta.pdf
 Himno Antergo,assets/sheet-music-viewer/partituras/himnoantergo.pdf
+Himno de Asturias,assets/sheet-music-viewer/partituras/himnoasturias.pdf
 Himno Español,assets/sheet-music-viewer/partituras/himnoespanhol.pdf
 Himno Galego,assets/sheet-music-viewer/partituras/himnogalego.pdf
 Il Paco Grande,assets/sheet-music-viewer/partituras/pacogrande.pdf
@@ -35,12 +36,13 @@ Muiñeira de Nogueira de Ramuin,assets/sheet-music-viewer/partituras/nogueiraram
 Muiñeira de Vilamarin,assets/sheet-music-viewer/partituras/vilamarin.pdf
 Muiñeira de Wojtyla,assets/sheet-music-viewer/partituras/wojtyla.pdf
 Muiñeira do Molete,assets/sheet-music-viewer/partituras/molete.pdf
+Muiñeira do Santo Amaro,assets/sheet-music-viewer/partituras/santoamaro.pdf
 O Galo canta a Galiña chora,assets/sheet-music-viewer/partituras/galocanta.pdf
 O Golpe de Mondariz,assets/sheet-music-viewer/partituras/mondariz.pdf
 O pirimpimpin,assets/sheet-music-viewer/partituras/pirimpinpim.pdf
 O sancristan de coimbra,assets/sheet-music-viewer/partituras/coimbra.pdf
 Pandeirada do Amandi,assets/sheet-music-viewer/partituras/amandi.pdf
-Pasacorredoiras de Arnoia,assets/sheet-music-viewer/partituras/pasarracorredoirasarnoia.pdf
+Pasacorredoiras de Arnoia,assets/sheet-music-viewer/partituras/arnoia.pdf
 Pasacorredoiras de Poio,assets/sheet-music-viewer/partituras/poio.pdf
 Pasacorredoiras de Vilar en Festa,assets/sheet-music-viewer/partituras/pasacorredoirasvilarenfesta.pdf
 Pasodobre de Pastoriza,assets/sheet-music-viewer/partituras/pastoriza.pdf
