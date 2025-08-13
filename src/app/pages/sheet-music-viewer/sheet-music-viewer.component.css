@@ -292,11 +292,26 @@
   align-items: center;
   gap: var(--space-xs);
   font-size: var(--font-size-xs);
-  color: var(--text-muted);
-  background: var(--gray-100);
+  color: white;
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-full);
-  border: 1px solid var(--gray-200);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+  transition: all var(--transition-normal);
+}
+
+/* Estilos específicos para diferentes tipos de tags */
+.pdf-tag {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.audio-tag {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.feature-tag i {
+  font-size: 0.7rem;
+  opacity: 0.9;
 }
 
 /* Empty State */

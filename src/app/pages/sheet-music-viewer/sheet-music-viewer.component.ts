@@ -34,18 +34,19 @@ export class SheetMusicViewerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.pdfLoaderService.getPdfList().subscribe((lines) => {
-      this.parsePdfList(lines);
-      this.filteredPdfs = this.pdfs;
-    });
-
+    // Primero cargar la lista de música, después los PDFs
     this.loadMusicList();
   }
 
   parsePdfList(lines: string[]): void {
     this.pdfs = lines.map((line) => {
       const [name, url] = line.split(',');
-      return { name: name.trim(), url: url.trim() };
+      const pdfName = name.trim();
+      return { 
+        name: pdfName, 
+        url: url.trim(),
+        musicUrl: this.musicList[pdfName] ?? undefined
+      };
     });
 
     this.sortPdfs();
@@ -54,15 +55,31 @@ export class SheetMusicViewerComponent implements OnInit {
   loadMusicList(): void {
     this.http
       .get('assets/sheet-music-viewer/music-list.txt', { responseType: 'text' })
-      .subscribe((data) => {
-        const lines = data.split('\n');
-        lines.forEach((line) => {
-          const [pdfName, musicUrl] = line.split(',');
-          if (pdfName && musicUrl) {
-            this.musicList[pdfName.trim()] = musicUrl.trim();
-          }
-        });
+      .subscribe({
+        next: (data) => {
+          const lines = data.split('\n');
+          lines.forEach((line) => {
+            const [pdfName, musicUrl] = line.split(',');
+            if (pdfName && musicUrl) {
+              this.musicList[pdfName.trim()] = musicUrl.trim();
+            }
+          });
+          // Una vez cargada la lista de música, cargar los PDFs
+          this.loadPdfList();
+        },
+        error: (error) => {
+          console.error('Error cargando lista de música:', error);
+          // Cargar PDFs incluso si hay error con la música
+          this.loadPdfList();
+        }
       });
+  }
+
+  private loadPdfList(): void {
+    this.pdfLoaderService.getPdfList().subscribe((lines) => {
+      this.parsePdfList(lines);
+      this.filteredPdfs = this.pdfs;
+    });
   }
 
   sortPdfs(): void {
@@ -90,7 +107,6 @@ export class SheetMusicViewerComponent implements OnInit {
 
   selectPdf(event: Event, pdf: Pdf): void {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-    pdf.musicUrl = this.musicList[pdf.name] ?? undefined;
     this.selectedPdf = pdf;
     this.pdfLoaded = false;
     this.loadPdf(pdf.url);

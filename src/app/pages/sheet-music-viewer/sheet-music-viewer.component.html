@@ -88,11 +88,11 @@
       <div class="card-content">
         <h3 class="partitura-title">{{ pdf.name }}</h3>
         <div class="partitura-features">
-          <span class="feature-tag" *ngIf="pdf.musicUrl">
-            <i class="fas fa-play"></i> Audio
-          </span>
-          <span class="feature-tag">
+          <span class="feature-tag pdf-tag">
             <i class="fas fa-file-pdf"></i> PDF
+          </span>
+          <span class="feature-tag audio-tag" *ngIf="pdf.musicUrl">
+            <i class="fas fa-play"></i> Audio
           </span>
         </div>
       </div>
