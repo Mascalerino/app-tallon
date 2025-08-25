@@ -12,6 +12,12 @@ export class QuizTableComponent {
   @Input() dataType: 'characters' | 'episodes' = 'characters'; // Tipo de datos que determina la variante
   @Input() seasonNumber: number | null = null; // Número de temporada para la variante de episodios
 
+  isVisible: boolean = true; // Estado para mostrar/ocultar la tabla
+
+  toggleVisibility(): void {
+    this.isVisible = !this.isVisible;
+  }
+
   getTableIcon(): string {
     if (this.dataType === 'characters') {
       if (this.tableTitle.includes('A') || this.tableTitle.includes('B')) {

@@ -1,15 +1,25 @@
-<div class="quiz-table-container" [class.table-completed]="isFilled" [class.otros-multicolumn]="tableTitle === 'Otros'" [class.season3-multicolumn]="tableTitle === 'Temporada 3'">>
+<div class="quiz-table-container" [class.table-completed]="isFilled" [class.otros-multicolumn]="tableTitle === 'Otros'" [class.season3-multicolumn]="tableTitle === 'Temporada 3'">
   <div class="table-header">
     <div class="table-icon" [class.completed]="isFilled">
       <i class="fas" [ngClass]="getTableIcon()"></i>
     </div>
     <h3 class="table-title">{{ tableTitle }}</h3>
-    <div class="completion-badge" *ngIf="isFilled">
-      <i class="fas fa-check-circle"></i>
+    <div class="header-actions">
+      <div class="completion-badge" *ngIf="isFilled">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <button 
+        class="visibility-toggle-btn" 
+        (click)="toggleVisibility()"
+        [attr.aria-label]="isVisible ? 'Ocultar tabla' : 'Mostrar tabla'"
+        [title]="isVisible ? 'Ocultar tabla' : 'Mostrar tabla'"
+      >
+        <i class="fas" [ngClass]="isVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+      </button>
     </div>
   </div>
 
-  <div class="table-content">
+  <div class="table-content" *ngIf="isVisible">
     <div class="table-items">
       <div
         *ngFor="let item of data; let i = index"
