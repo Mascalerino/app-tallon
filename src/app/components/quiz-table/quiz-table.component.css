@@ -29,6 +29,12 @@
   background: linear-gradient(135deg, var(--success-color), var(--success-dark));
 }
 
+/* Estilo especial cuando la tabla está completada pero oculta */
+.quiz-table-container.table-completed .table-header {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.08));
+  border-bottom-color: rgba(16, 185, 129, 0.3);
+}
+
 /* Table Header */
 .table-header {
   display: flex;
@@ -38,10 +44,6 @@
   background: var(--gray-50);
   border-bottom: 1px solid var(--gray-200);
   position: relative;
-}
-
-.table-completed .table-header {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
 }
 
 .table-icon {
@@ -120,22 +122,41 @@
   transform: scale(0.95);
 }
 
+/* Estilo especial del botón cuando la tabla está completada */
+.quiz-table-container.table-completed .visibility-toggle-btn {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success-color);
+}
+
+.quiz-table-container.table-completed .visibility-toggle-btn:hover {
+  background: rgba(16, 185, 129, 0.25);
+}
+
 /* Table Content */
 .table-content {
   padding: var(--space-lg);
   animation: slideDown 0.3s ease-out;
   transform-origin: top;
+  transition: all 0.3s ease-out;
 }
 
+/* Animación cuando aparece */
 @keyframes slideDown {
   from {
     opacity: 0;
     transform: translateY(-10px);
+    max-height: 0;
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    max-height: 1000px;
   }
+}
+
+/* Efecto visual cuando la tabla se completa */
+.quiz-table-container.table-completed .table-content {
+  border-top: 2px solid rgba(16, 185, 129, 0.2);
 }
 
 .table-items {

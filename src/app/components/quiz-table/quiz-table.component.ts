@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'quiz-table',
   templateUrl: './quiz-table.component.html',
   styleUrls: ['./quiz-table.component.css'],
 })
-export class QuizTableComponent {
+export class QuizTableComponent implements OnChanges {
   @Input() tableTitle: string = ''; // Título de la tabla
   @Input() data: any[] = []; // Datos para poblar la tabla
   @Input() isFilled: boolean = false; // Estado para determinar si está llena
@@ -13,6 +13,15 @@ export class QuizTableComponent {
   @Input() seasonNumber: number | null = null; // Número de temporada para la variante de episodios
 
   isVisible: boolean = true; // Estado para mostrar/ocultar la tabla
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // Si la tabla se completa, ocultarla automáticamente
+    if (changes['isFilled'] && changes['isFilled'].currentValue === true && !changes['isFilled'].previousValue) {
+      setTimeout(() => {
+        this.isVisible = false;
+      }, 1000); // Esperar 1 segundo para que se vea la animación de completado
+    }
+  }
 
   toggleVisibility(): void {
     this.isVisible = !this.isVisible;
