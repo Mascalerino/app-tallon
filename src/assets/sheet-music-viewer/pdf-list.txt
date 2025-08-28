@@ -56,4 +56,5 @@ Rianxeiras,assets/sheet-music-viewer/partituras/rianxeiras.pdf
 Rumba das curtas,assets/sheet-music-viewer/partituras/curtas.pdf
 Rumba de Laroa,assets/sheet-music-viewer/partituras/laroa.pdf
 Rumba de vergara,assets/sheet-music-viewer/partituras/vergara.pdf
+Triniou,assets/sheet-music-viewer/partituras/triniou.pdf
 Zocos Muiñeira,assets/sheet-music-viewer/partituras/zocosmuinheira.pdf
