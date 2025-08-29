@@ -187,7 +187,7 @@
       "¿Pero tu eres tonto chaval?",
       "¿Es normal que el arnés se clave tanto en la zona inguinal?"
     ],
-    "posibilyInputs": ["Juan"]
+    "posibilyInputs": ["Juan", "Juan Cuesta"]
   },
   "Lucía": {
     "quotes": [
@@ -415,9 +415,11 @@
   },
   "Juan Cuesta": {
     "quotes": [
-      "Yo me toco la frente y tu que dices?"
+      "Yo me toco la frente y tu que dices?",
+      "Yo es que soy mas de gregoriano clásico",
+      "Ostras si están las tres, menuda bacanal"
     ],
-    "posibilyInputs": ["Juan"]
+    "posibilyInputs": ["Juan", "Juan Cuesta"]
   },
   "Lucía": {
     "quotes": [
@@ -428,6 +430,8 @@
     "quotes": [
       "¿Y como les sigo?, ni que fueramos los picapiedra",
       "Si ahora los curriculum van con foto",
+      "Claro, ese es el toque que me faltaba a mi",
+      "A mi en la mili me llamaban el molinillo",
       "Si tuviera una estrella ninja de esas que se lanzan y se clavan en la frente a lo KungFu"
     ],
     "posibilyInputs": ["Mariano"]
@@ -451,18 +455,23 @@
   },
   "Paloma": {
     "quotes": [
-      "¿Que ridículo? Yo soy una promesa de la moda española"
+      "¿Que ridículo? Yo soy una promesa de la moda española",
+      "Será maricón!"
     ],
     "posibilyInputs": ["Paloma"]
   },
   "Roberto": {
     "quotes": [
+      "¿Y para que nos piden el DNI? Si nos conocemos todos",
+      "¿Que pasa, que me estas llamando fea?",
+      "Mi madre les pone apio"
     ],
     "posibilyInputs": ["Roberto"]
   },
   "Vicenta": {
     "quotes": [
-      "Ya la llamaré mañana a una hora más decente"
+      "Ya la llamaré mañana a una hora más decente",
+      "No, yo no subo, a ver si me voy a quedar embarazada"
     ],
     "posibilyInputs": ["Vicenta"]
   }
