@@ -4,7 +4,8 @@
     [text]="panelText"
     [text2]="panelText2"
     [isVisible]="isPanelVisible"
-    (continue)="closePanel()"
+    [showDifficultySelector]="true"
+    (continue)="closePanel($event)"
   ></app-panel>
 
   <div class="quotes-game-container animate-slide-up">
@@ -15,6 +16,13 @@
       </div>
       <h1 class="game-title">Frases Míticas</h1>
       <p class="game-subtitle">¿Sabes quién dijo cada frase?</p>
+      <div class="difficulty-badge" *ngIf="selectedDifficulty">
+        <span class="difficulty-label">Dificultad:</span>
+        <span class="difficulty-value" [class]="'difficulty-' + selectedDifficulty">
+          <i class="fas" [class]="selectedDifficulty === 'facil' ? 'fa-leaf' : 'fa-fire'"></i>
+          {{ selectedDifficulty === 'facil' ? 'Fácil' : 'Difícil' }}
+        </span>
+      </div>
     </div>
 
     <!-- Progress Section -->

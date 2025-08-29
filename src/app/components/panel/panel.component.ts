@@ -10,9 +10,20 @@ export class PanelComponent {
   @Input() text: string = '';
   @Input() text2: string = '';
   @Input() isVisible: boolean = true;
-  @Output() continue = new EventEmitter<void>();
+  @Input() showDifficultySelector: boolean = false;
+  @Output() continue = new EventEmitter<string>();
+
+  selectedDifficulty: string = 'facil';
 
   onContinue(): void {
-    this.continue.emit();
+    if (this.showDifficultySelector) {
+      this.continue.emit(this.selectedDifficulty);
+    } else {
+      this.continue.emit();
+    }
+  }
+
+  selectDifficulty(difficulty: string): void {
+    this.selectedDifficulty = difficulty;
   }
 }

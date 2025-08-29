@@ -10,6 +10,40 @@
     <div class="panel-content">
       <p class="panel-text">{{ text }}</p>
       <p class="panel-text" *ngIf="text2">{{ text2 }}</p>
+      
+      <!-- Selector de Dificultad -->
+      <div class="difficulty-selector" *ngIf="showDifficultySelector">
+        <h3 class="difficulty-title">Selecciona la dificultad:</h3>
+        <div class="difficulty-options">
+          <div 
+            class="difficulty-option" 
+            [class.selected]="selectedDifficulty === 'facil'"
+            (click)="selectDifficulty('facil')"
+          >
+            <div class="difficulty-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="difficulty-info">
+              <h4>Fácil</h4>
+              <p>Frases más conocidas y directas</p>
+            </div>
+          </div>
+          
+          <div 
+            class="difficulty-option" 
+            [class.selected]="selectedDifficulty === 'dificil'"
+            (click)="selectDifficulty('dificil')"
+          >
+            <div class="difficulty-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div class="difficulty-info">
+              <h4>Difícil</h4>
+              <p>Frases más largas y complejas</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
     <div class="panel-actions">

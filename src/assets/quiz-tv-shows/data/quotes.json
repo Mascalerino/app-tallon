@@ -1,5 +1,6 @@
 {
-  "Alicia": {
+  "facil": {
+    "Alicia": {
     "quotes": [
       "A la que no le importa desnudarse si el papel lo merece",
       "El portero y la del tercero. Parece una peli porno",
@@ -9,7 +10,8 @@
       "Si eres guapa la vida ya te compensa",
       "Si no me acuerdo de los nombres, me voy a acordar de los teléfonos",
       "¡Qué mala es la envidia!",
-      "¿Cada vez que ves un tío guapo tiene que ser gay?"
+      "¿Cada vez que ves un tío guapo tiene que ser gay?",
+      "Que buen día voy a tener hoy"
     ],
     "posibilyInputs": ["Alicia"]
   },
@@ -19,7 +21,10 @@
       "Macho, tu estas cuadrao",
       "Tengo un amigo que nos lo hace más barato",
       "Tú y yo hemos conectado",
-      "¡Deportes Guerra, campo, playa y sierra!"
+      "¡Deportes Guerra, campo, playa y sierra!",
+      "Abre los ojos coño!",
+      "Yo es que no te veo en otro coche mauricio",
+      "Esto me lo trae el dueño de la bodega sin etiquetar ni nada"
     ],
     "posibilyInputs": ["Andres"]
   },
@@ -105,7 +110,8 @@
       "¿A dónde van las supernenas?",
       "¿A esto lo llaman flauta dulce? ¡Pero si no sabe a nada!",
       "¿Te pelo un kiwi?",
-      "¿Tinto verdad?"
+      "¿Tinto verdad?",
+      "Mira, ahora eres Bélen Rueda"
     ],
     "posibilyInputs": ["Emilio"]
   },
@@ -178,7 +184,8 @@
       "¡No, no, no, no, incorrecto!",
       "¡Qué follón!",
       "¡Viejas de mierda!",
-      "¿Pero tu eres tonto chaval?"
+      "¿Pero tu eres tonto chaval?",
+      "¿Es normal que el arnés se clave tanto en la zona inguinal?"
     ],
     "posibilyInputs": ["Juan"]
   },
@@ -344,4 +351,121 @@
     ],
     "posibilyInputs": ["Vicenta"]
   }
+  },
+  "dificil": {
+    "Alicia": {
+    "quotes": [
+      "¿Pero no estabamos hablando de cosas buenas?"
+    ],
+    "posibilyInputs": ["Alicia"]
+  },
+  "Andres": {
+    "quotes": [
+      "Que lo pongas coño, ahora te da mi compañero 50 euros"
+    ],
+    "posibilyInputs": ["Andres"]
+  },
+  "Belen": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Belen"]
+  },
+  "Carlos": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Carlos"]
+  },
+  "Concha": {
+    "quotes": [
+      "Yo estoy muerta de cintura para abajo"
+    ],
+    "posibilyInputs": ["Concha"]
+  },
+  "Emilio": {
+    "quotes": [
+      "Su coche esta listo señora",
+      "Oye, ¿Carvajal con que se escribe?",
+      "¿Que me vas a hacer por 200 euros?",
+      "Sube tú con tu hermana, la de alcalá de henares, gilipollas",
+      "Ese enunciado tiene trampa, nos oculta información",
+      "A ver si al final van estar aqui las armas de destrucción masiva",
+      "Eso es porque se han olvidado y han dejado el precio en pesetas",
+      "No, hemos venido a dar un paseo, que está la noche muy romántica",
+      "Hombre, es que me estoy comprando un deportivo en el kiosco y con el primer fascículo regalan la rueda de repuesto y la antena de la radio"
+    ],
+    "posibilyInputs": ["Emilio"]
+  },
+  "Fernando": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Fernando", "Fer"]
+  },
+  "Isabel": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Isabel", "Ruiz", "Hierbas", "Isa"]
+  },
+  "Jose María": {
+    "posibilyInputs": ["Jose Maria"]
+  },
+  "José Miguel": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Jose Miguel", "Josemi"]
+  },
+  "Juan Cuesta": {
+    "quotes": [
+      "Yo me toco la frente y tu que dices?"
+    ],
+    "posibilyInputs": ["Juan"]
+  },
+  "Lucía": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Lucia"]
+  },
+  "Mariano": {
+    "quotes": [
+      "¿Y como les sigo?, ni que fueramos los picapiedra",
+      "Si ahora los curriculum van con foto",
+      "Si tuviera una estrella ninja de esas que se lanzan y se clavan en la frente a lo KungFu"
+    ],
+    "posibilyInputs": ["Mariano"]
+  },
+  "Marisa": {
+    "quotes": [
+      "Esta que cruje, mira que culito tiene",
+      "Pues haberle dado la lista de la compra y te la hubiera hecho"
+    ],
+    "posibilyInputs": ["Marisa"]
+  },
+  "Mauri": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Mauri", "Mauricio"]
+  },
+  "Padre Miguel": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Padre Miguel", "Miguel"]
+  },
+  "Paloma": {
+    "quotes": [
+      "¿Que ridículo? Yo soy una promesa de la moda española"
+    ],
+    "posibilyInputs": ["Paloma"]
+  },
+  "Roberto": {
+    "quotes": [
+    ],
+    "posibilyInputs": ["Roberto"]
+  },
+  "Vicenta": {
+    "quotes": [
+      "Ya la llamaré mañana a una hora más decente"
+    ],
+    "posibilyInputs": ["Vicenta"]
+  }
+  }
+  
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import quotesJson from '../../assets/quiz-tv-shows/data/quotes.json';
-import { IQuotesJson } from '../models/quiz-tv-shows/quotes.model';
+import { DifficultyLevel } from '../models/quiz-tv-shows/quotes.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,21 +11,52 @@ export class QuotesService {
     quote: string;
     possiblyInputs: string[];
   }[] = [];
-  private quotes: IQuotesJson = quotesJson;
+  private quotes: any = quotesJson;
+  private currentDifficulty: DifficultyLevel = 'facil';
 
-  constructor() {
+  constructor() {}
+
+  setDifficulty(difficulty: DifficultyLevel): void {
+    this.currentDifficulty = difficulty;
     this.initializeQuotesPool();
   }
 
+  getCurrentDifficulty(): DifficultyLevel {
+    return this.currentDifficulty;
+  }
+
   initializeQuotesPool(): void {
-    const characters = Object.keys(this.quotes);
-    this.quotesPool = characters.flatMap((character) =>
-      this.quotes[character].quotes.map((quote) => ({
-        character,
-        quote,
-        possiblyInputs: this.quotes[character].posibilyInputs,
-      }))
-    );
+    const currentQuotes = this.quotes[this.currentDifficulty];
+    const characters = Object.keys(currentQuotes);
+    
+    // Crear el pool con mejor distribución
+    this.quotesPool = [];
+    
+    // Primero, obtener todos los personajes con quotes válidas
+    const validCharacters = characters.filter(character => {
+      const quotes = currentQuotes[character].quotes;
+      return quotes && Array.isArray(quotes) && quotes.length > 0;
+    });
+
+    // Agregar quotes de cada personaje de forma intercalada para mejor distribución
+    const maxQuotesPerCharacter = Math.max(...validCharacters.map(char => 
+      currentQuotes[char].quotes!.length
+    ));
+
+    for (let i = 0; i < maxQuotesPerCharacter; i++) {
+      for (const character of validCharacters) {
+        const characterData = currentQuotes[character];
+        if (characterData.quotes && i < characterData.quotes.length) {
+          this.quotesPool.push({
+            character,
+            quote: characterData.quotes[i],
+            possiblyInputs: characterData.posibilyInputs,
+          });
+        }
+      }
+    }
+
+    this.shuffleQuotesPool();
   }
 
   getQuotesPool(): {
@@ -49,17 +80,18 @@ export class QuotesService {
   }
 
   getTotalQuotesCount(): number {
-    return Object.values(this.quotes)
-      .map((entry) => entry.quotes.length)
+    const currentQuotes = this.quotes[this.currentDifficulty];
+    return Object.values(currentQuotes)
+      .filter((entry: any) => entry.quotes && Array.isArray(entry.quotes) && entry.quotes.length > 0)
+      .map((entry: any) => entry.quotes!.length)
       .reduce((total, count) => total + count, 0);
   }
 
   resetQuotesPool(): void {
     this.initializeQuotesPool();
-    this.shuffleQuotesPool();
   }
 
-  // Mezcla el pool de frases al azar
+  // Mezcla el pool de frases al azar usando el algoritmo Fisher-Yates
   private shuffleQuotesPool(): void {
     for (let i = this.quotesPool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -68,5 +100,18 @@ export class QuotesService {
         this.quotesPool[i],
       ];
     }
+  }
+
+  // Método adicional para mezclar y obtener una muestra más variada
+  getShuffledPool(): { character: string; quote: string; possiblyInputs: string[] }[] {
+    const shuffledPool = [...this.quotesPool];
+    // Doble mezcla para mayor aleatoridad
+    for (let k = 0; k < 2; k++) {
+      for (let i = shuffledPool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledPool[i], shuffledPool[j]] = [shuffledPool[j], shuffledPool[i]];
+      }
+    }
+    return shuffledPool;
   }
 }

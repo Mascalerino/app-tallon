@@ -202,3 +202,123 @@
     display: none;
   }
 }
+
+/* Difficulty Selector Styles */
+.difficulty-selector {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--gray-200);
+}
+
+.difficulty-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.difficulty-options {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.difficulty-option {
+  flex: 1;
+  max-width: 180px;
+  padding: var(--space-lg);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.difficulty-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--primary-rgb), 0.1), transparent);
+  transition: left var(--transition-base);
+}
+
+.difficulty-option:hover::before {
+  left: 100%;
+}
+
+.difficulty-option:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.difficulty-option.selected {
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.05));
+  box-shadow: 0 0 0 1px rgba(var(--primary-rgb), 0.2);
+}
+
+.difficulty-option.selected .difficulty-icon {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.difficulty-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-md);
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-base);
+}
+
+.difficulty-info h4 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.difficulty-info p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive Difficulty Selector */
+@media (max-width: 480px) {
+  .difficulty-options {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .difficulty-option {
+    max-width: none;
+    padding: var(--space-md);
+  }
+
+  .difficulty-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .difficulty-info h4 {
+    font-size: var(--font-size-base);
+  }
+
+  .difficulty-info p {
+    font-size: var(--font-size-xs);
+  }
+}

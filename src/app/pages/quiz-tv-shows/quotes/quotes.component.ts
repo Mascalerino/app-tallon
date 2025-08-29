@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
+import { DifficultyLevel } from 'src/app/models/quiz-tv-shows/quotes.model';
 
 @Component({
   selector: 'app-quotes',
@@ -24,13 +25,32 @@ export class QuotesComponent implements OnInit, AfterViewInit {
   panelText2: string = '';
   quotesPool: { character: string; quote: string; possiblyInputs: string[] }[] = [];
   newQuoteAnimated: boolean = false;
+  selectedDifficulty: DifficultyLevel = 'facil';
+  lastCharacter: string = ''; // Para evitar repetir el mismo personaje consecutivamente
 
   @ViewChild('answerInput') answerInput!: ElementRef;
 
   constructor(private quotesService: QuotesService) {}
 
   ngOnInit(): void {
+    this.showDifficultySelection();
+  }
+
+  showDifficultySelection(): void {
+    this.panelTitle = 'Frases Míticas';
+    this.panelText = 'Lee cada frase y escribe el nombre del personaje que la dijo.';
+    this.panelText2 = 'Puedes usar solo el nombre o apellido del personaje. ¡Buena suerte!';
+    this.isPanelVisible = true;
+  }
+
+  closePanel(difficulty?: string): void {
+    if (difficulty) {
+      this.selectedDifficulty = difficulty as DifficultyLevel;
+      this.quotesService.setDifficulty(this.selectedDifficulty);
+    }
     this.initializeGame();
+    this.isPanelVisible = false;
+    setTimeout(() => this.focusInput(), 100);
   }
 
   ngAfterViewInit(): void {
@@ -43,31 +63,37 @@ export class QuotesComponent implements OnInit, AfterViewInit {
   initializeGame(): void {
     this.correctAnswers = 0;
     this.incorrectAnswers = 0;
+    this.lastCharacter = ''; // Reset para evitar conflictos con el personaje anterior
+    this.quotesService.initializeQuotesPool();
     this.totalQuotes = this.quotesService.getTotalQuotesCount();
     this.remainingQuotes = this.totalQuotes;
-    this.quotesService.initializeQuotesPool();
     this.quotesPool = this.quotesService.getQuotesPool();
     this.currentIndex = 0;
     this.loadQuote();
-    this.panelTitle = 'Frases Míticas';
-    this.panelText =
-      'Lee cada frase y escribe el nombre del personaje que la dijo.';
-    this.panelText2 =
-      'Puedes usar solo el nombre o apellido del personaje. ¡Buena suerte!';
-  }
-
-  closePanel(): void {
-    this.isPanelVisible = false;
-    setTimeout(() => this.focusInput(), 100);
   }
 
   loadQuote(): void {
     if (this.quotesPool.length > 0) {
-      const randomIndex = Math.floor(Math.random() * this.quotesPool.length);
-      const selectedQuote = this.quotesPool[randomIndex];
+      let selectedQuote;
+      let attempts = 0;
+      const maxAttempts = 10;
+
+      // Intentar evitar repetir el mismo personaje consecutivamente
+      do {
+        const maxSelection = Math.min(10, this.quotesPool.length);
+        const randomIndex = Math.floor(Math.random() * maxSelection);
+        selectedQuote = this.quotesPool[randomIndex];
+        attempts++;
+      } while (
+        selectedQuote.character === this.lastCharacter && 
+        attempts < maxAttempts &&
+        this.quotesPool.length > 1
+      );
+      
       this.randomQuote = selectedQuote.quote;
       this.correctCharacter = selectedQuote.character;
       this.possiblyInputs = selectedQuote.possiblyInputs;
+      this.lastCharacter = selectedQuote.character;
       this.newQuoteAnimated = true;
       setTimeout(() => this.newQuoteAnimated = false, 600);
     } else {
@@ -105,16 +131,17 @@ export class QuotesComponent implements OnInit, AfterViewInit {
       this.feedbackMessage = '¡Correcto! Muy bien.';
       this.feedbackClass = 'feedback-success';
       this.correctAnswers++;
-
-      this.quotesPool = this.quotesPool.filter(
-        (quote) => quote.quote !== this.randomQuote
-      );
-      this.remainingQuotes--;
     } else {
       this.feedbackMessage = `Incorrecto. La respuesta correcta era: ${this.correctCharacter}`;
       this.feedbackClass = 'feedback-error';
       this.incorrectAnswers++;
     }
+
+    // Eliminar la frase actual del pool independientemente de si fue correcta o incorrecta
+    this.quotesPool = this.quotesPool.filter(
+      (quote) => quote.quote !== this.randomQuote
+    );
+    this.remainingQuotes--;
 
     this.userInput = '';
     
@@ -132,8 +159,7 @@ export class QuotesComponent implements OnInit, AfterViewInit {
     this.quotesService.resetQuotesPool();
     this.feedbackMessage = '';
     this.userInput = '';
-    this.initializeGame();
-    setTimeout(() => this.focusInput(), 100);
+    this.showDifficultySelection();
   }
 
   // New helper methods
