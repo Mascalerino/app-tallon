@@ -230,7 +230,8 @@
       "¡Somos rumanos peligrosos! ¡Dimitri, pasame el kalashnikov!",
       "¿Es dura la calle?",
       "¿Te saco unas cervecitas para equilibrar el PH?",
-      "Hijo no me gusta que me hablen en las tumbas, es una manía que tengo"
+      "Hijo no me gusta que me hablen en las tumbas, es una manía que tengo",
+      "Hijo, aqui hace falta un perro"
     ],
     "posibilyInputs": ["Mariano"]
   },
@@ -277,7 +278,8 @@
       "¡Envidia de pene!",
       "¡Tocala JODER!",
       "¡Vamos a solucionar esto como homosexuales civilizados!",
-      "¿Me estáis llamando hetero? Se acabó la fiesta. Fuera todo el mundo."
+      "¿Me estáis llamando hetero? Se acabó la fiesta. Fuera todo el mundo.",
+      "De verdad, a veces pareces tan insensble, tan... heterosexual"
     ],
     "posibilyInputs": ["Mauri", "Mauricio"]
   },
@@ -367,6 +369,7 @@
   },
   "Belen": {
     "quotes": [
+      "The kitchen is full of things"
     ],
     "posibilyInputs": ["Belen"]
   },
@@ -377,7 +380,8 @@
   },
   "Concha": {
     "quotes": [
-      "Yo estoy muerta de cintura para abajo"
+      "Yo estoy muerta de cintura para abajo",
+      "Yo soy autónoma, voy cuando quiero"
     ],
     "posibilyInputs": ["Concha"]
   },
@@ -423,6 +427,7 @@
   },
   "Lucía": {
     "quotes": [
+      "No me metais en esto"
     ],
     "posibilyInputs": ["Lucia"]
   },
@@ -432,6 +437,7 @@
       "Si ahora los curriculum van con foto",
       "Claro, ese es el toque que me faltaba a mi",
       "A mi en la mili me llamaban el molinillo",
+      "Tu sabes que mi máxima es no molestar",
       "Si tuviera una estrella ninja de esas que se lanzan y se clavan en la frente a lo KungFu"
     ],
     "posibilyInputs": ["Mariano"]
@@ -439,7 +445,10 @@
   "Marisa": {
     "quotes": [
       "Esta que cruje, mira que culito tiene",
-      "Pues haberle dado la lista de la compra y te la hubiera hecho"
+      "Pues haberle dado la lista de la compra y te la hubiera hecho",
+      "Dun dun, abre la murallaaa",
+      "Noo, el bebe si quiere, eso es suicidio",
+      "Asi debe sonar el cielo cuando entras"
     ],
     "posibilyInputs": ["Marisa"]
   },
@@ -471,7 +480,8 @@
   "Vicenta": {
     "quotes": [
       "Ya la llamaré mañana a una hora más decente",
-      "No, yo no subo, a ver si me voy a quedar embarazada"
+      "No, yo no subo, a ver si me voy a quedar embarazada",
+      "Quiero que pongan mas árboles en las calles"
     ],
     "posibilyInputs": ["Vicenta"]
   }
