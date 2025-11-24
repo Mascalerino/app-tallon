@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import quotesJson from '../../assets/quiz-tv-shows/data/quotes.json';
-import { DifficultyLevel } from '../models/quiz-tv-shows/quotes.model';
+import nameEpisodesJson from '../../assets/quiz-tv-shows/data/nameEpisodes.json';
+import { DifficultyLevel, IQuoteEntry } from '../models/quiz-tv-shows/quotes.model';
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +9,26 @@ import { DifficultyLevel } from '../models/quiz-tv-shows/quotes.model';
 export class QuotesService {
   private quotesPool: {
     character: string;
-    quote: string;
+    quote: IQuoteEntry;
     possiblyInputs: string[];
   }[] = [];
   private quotes: any = quotesJson;
+  private nameEpisodes: any = nameEpisodesJson;
   private currentDifficulty: DifficultyLevel = 'facil';
 
   constructor() {}
+
+  /**
+   * Resuelve la referencia de episodio a su nombre completo
+   * @param episodeId ID del episodio (ej: "3x29")
+   * @returns Nombre completo del episodio o el ID si no se encuentra
+   */
+  getEpisodeName(episodeId: string): string {
+    if (!episodeId || !episodeId.trim()) {
+      return '';
+    }
+    return this.nameEpisodes.episodios[episodeId] || episodeId;
+  }
 
   setDifficulty(difficulty: DifficultyLevel): void {
     this.currentDifficulty = difficulty;
@@ -61,7 +75,7 @@ export class QuotesService {
 
   getQuotesPool(): {
     character: string;
-    quote: string;
+    quote: IQuoteEntry;
     possiblyInputs: string[];
   }[] {
     return this.quotesPool;
@@ -69,7 +83,7 @@ export class QuotesService {
 
   getRandomQuote(): {
     character: string;
-    quote: string;
+    quote: IQuoteEntry;
     possiblyInputs: string[];
   } | null {
     if (this.quotesPool.length === 0) {
@@ -103,7 +117,7 @@ export class QuotesService {
   }
 
   // Método adicional para mezclar y obtener una muestra más variada
-  getShuffledPool(): { character: string; quote: string; possiblyInputs: string[] }[] {
+  getShuffledPool(): { character: string; quote: IQuoteEntry; possiblyInputs: string[] }[] {
     const shuffledPool = [...this.quotesPool];
     // Doble mezcla para mayor aleatoridad
     for (let k = 0; k < 2; k++) {

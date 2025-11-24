@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
-import { DifficultyLevel } from 'src/app/models/quiz-tv-shows/quotes.model';
+import { DifficultyLevel, IQuoteEntry } from 'src/app/models/quiz-tv-shows/quotes.model';
 
 @Component({
   selector: 'app-quotes',
@@ -13,6 +13,7 @@ export class QuotesComponent implements OnInit, AfterViewInit {
   correctCharacter: string = '';
   userInput: string = '';
   feedbackMessage: string = '';
+  feedbackEpisode: string = '';
   feedbackClass: string = '';
   correctAnswers: number = 0; // Aciertos
   incorrectAnswers: number = 0; // Fallos
@@ -23,7 +24,7 @@ export class QuotesComponent implements OnInit, AfterViewInit {
   panelTitle: string = '';
   panelText: string = '';
   panelText2: string = '';
-  quotesPool: { character: string; quote: string; possiblyInputs: string[] }[] = [];
+  quotesPool: { character: string; quote: IQuoteEntry; possiblyInputs: string[] }[] = [];
   newQuoteAnimated: boolean = false;
   selectedDifficulty: DifficultyLevel = 'facil';
   lastCharacter: string = ''; // Para evitar repetir el mismo personaje consecutivamente
@@ -90,7 +91,7 @@ export class QuotesComponent implements OnInit, AfterViewInit {
         this.quotesPool.length > 1
       );
       
-      this.randomQuote = selectedQuote.quote;
+      this.randomQuote = selectedQuote.quote.quote;
       this.correctCharacter = selectedQuote.character;
       this.possiblyInputs = selectedQuote.possiblyInputs;
       this.lastCharacter = selectedQuote.character;
@@ -137,9 +138,18 @@ export class QuotesComponent implements OnInit, AfterViewInit {
       this.incorrectAnswers++;
     }
 
+    // Agregar información del episodio si está disponible
+    const currentQuoteData = this.quotesPool.find(q => q.quote.quote === this.randomQuote);
+    if (currentQuoteData && currentQuoteData.quote.episode && currentQuoteData.quote.episode.trim()) {
+      const episodeName = this.quotesService.getEpisodeName(currentQuoteData.quote.episode);
+      this.feedbackEpisode = `Episodio: ${episodeName}`;
+    } else {
+      this.feedbackEpisode = '';
+    }
+
     // Eliminar la frase actual del pool independientemente de si fue correcta o incorrecta
     this.quotesPool = this.quotesPool.filter(
-      (quote) => quote.quote !== this.randomQuote
+      (quote) => quote.quote.quote !== this.randomQuote
     );
     this.remainingQuotes--;
 
@@ -150,6 +160,7 @@ export class QuotesComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         this.loadQuote();
         this.feedbackMessage = '';
+        this.feedbackEpisode = '';
         this.focusInput();
       }, 2000);
     }

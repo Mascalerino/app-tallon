@@ -1,5 +1,10 @@
+export interface IQuoteEntry {
+  quote: string;
+  episode?: string;
+}
+
 export interface IQuote {
-  quotes?: string[];
+  quotes?: IQuoteEntry[];
   posibilyInputs: string[];
 }
 
