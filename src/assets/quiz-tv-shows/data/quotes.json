@@ -193,7 +193,7 @@
         },
         {
           "quote": "Que ya no es la Pija, que ahora es la Pihippi",
-          "episode": ""
+          "episode": "4x01"
         },
         {
           "quote": "Que yo hago capoeira, ¿eh?",
@@ -1118,7 +1118,7 @@
         },
         {
           "quote": "No se si fuma maría, porque no la conozco",
-          "episode": ""
+          "episode": "4x02"
         },
         {
           "quote": "Pues si ese señor no puede venir, se llama a otro",
@@ -1146,7 +1146,7 @@
         },
         {
           "quote": "Yo le quieroooo",
-          "episode": ""
+          "episode": "4x02"
         },
         {
           "quote": "¡Marisa! ¡Yo también los he visto!",
@@ -1282,6 +1282,14 @@
         {
           "quote": "¡Que no pesada! Que paso olimpicamente, si tienes un niño madre soltera y asi puedes contarlo al diario de patricia",
           "episode": "3x15"
+        },
+        {
+          "quote": "Ea, ya he terminado el puzle",
+          "episode": "3x32"
+        },
+        {
+          "quote": "Tu no sabes nadar, eres nadalfabeta",
+          "episode": "3x32"
         }
       ],
       "posibilyInputs": [
@@ -1319,6 +1327,10 @@
         {
           "quote": "Hay que tener fé, tendrás un hijo si diu quiere",
           "episode": "3x29"
+        },
+        {
+          "quote": "Desde entonces siempre que tiene una erección, cambia el canal de la tele",
+          "episode": "Especial"
         }
       ],
       "posibilyInputs": [
