@@ -4,12 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
 import { SharedModule } from './shared/shared.module';
-import { WorkoutPlanComponent } from './pages/workout-plan/workout-plan.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WorkoutPlanComponent,
     PagesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule],
