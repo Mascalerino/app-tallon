@@ -398,7 +398,7 @@
       "quotes": [
         {
           "quote": "¿De dónde vienen esas corcheas asesinas que entran por el patio?",
-          "episode": ""
+          "episode": "4x09"
         }
       ],
       "posibilyInputs": [
@@ -438,7 +438,7 @@
         },
         {
           "quote": "No, para Elisa no, Elisa oye eso y se suicida.",
-          "episode": ""
+          "episode": "4x09"
         },
         {
           "quote": "Si no se me valora yo me hago un nudito aquí en el corazón y me voy por donde he venido y ya está",
@@ -1138,7 +1138,7 @@
         },
         {
           "quote": "Que Juan Cuesta tiene wifis",
-          "episode": ""
+          "episode": "4x11"
         },
         {
           "quote": "Que rica la aceituna el faro, de sabor sofisticado, OLE",
@@ -1207,6 +1207,10 @@
         {
           "quote": "Que lo pongas coño, ahora te da mi compañero 50 euros",
           "episode": "2x03"
+        },
+        {
+          "quote": "Lo nuestro era un amor imposible, no podías darme hijos",
+          "episode": "4x09"
         }
       ],
       "posibilyInputs": [
@@ -1548,6 +1552,14 @@
         {
           "quote": "Si, es que la semana pasada estuvimos en el diario de Patricia, no digas nada",
           "episode": "3x31"
+        },
+        {
+          "quote": "¡Y tu que sabes! ¿Lo has intentado?",
+          "episode": "4x09"
+        },
+        {
+          "quote": "Lo reconozco, soy un poco mas mayor, tengo 56",
+          "episode": "4x10"
         }
       ],
       "posibilyInputs": [
